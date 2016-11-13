@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   before_action :find_user, only: [:create, :update]
 
   def show
-    @user = current_user
   end
 
   def new
