@@ -1,6 +1,21 @@
 <h1 id="movie-title">
   <%= @movie.title %>
 </h1>
+<p>
+Vegan Movie Critic Rating : <%=  @movie.rating %>
+</p>
+<% if @movie.reviews.any? %>
+Users Rating:
+<% a = 0 %>
+<%  @movie.reviews.each do |r|  %>
+<% a += r.rating %>
+<% end %>
+<%= a / @movie.reviews.length %>
+<% else %>
+<p>
+  Be the first to leave a review
+</p>
+<% end %>
 
 
 
