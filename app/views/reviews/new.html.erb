@@ -1,0 +1,17 @@
+<h4>
+  Add a review for <%= @movie.title  %>
+</h4>
+
+<%= form_for ([@movie, @review]) do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :content %>
+<%= f.text_field :content %>
+
+<%= f.label :rating %>
+<%= f.select :rating, [0,1,2,3,4,5] %>
+
+<%= f.submit %>
+<% end %>

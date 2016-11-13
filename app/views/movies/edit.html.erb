@@ -1,0 +1,15 @@
+<h4>Change Movie title and Vegan Critic Rating</h4>
+
+<%= form_for(@movie) do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :rating %>
+<%= f.select :rating, [1,2,3,4,5] %>
+
+
+
+
+<%= f.submit %>
+<% end %>

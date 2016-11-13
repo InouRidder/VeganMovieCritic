@@ -1,0 +1,35 @@
+<div class="title">
+  <h1>
+    All the Movies
+  </h1>
+
+  <% if @user.admin %>
+  <%= link_to 'Add a Movie', new_movie_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <% @movies.each do |movie| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4>
+           <%= movie.title%>
+         </h4>
+         <p> Vegan Critic Rating: <%= movie.rating %></p>
+         <%= link_to 'See Reviews!', movie_path(movie), class: "btn btn-primary" %>
+        <% if @user.admin %>
+         <%= link_to 'Edit Movie', edit_movie_path(movie), class: "btn btn-primary" %>
+         <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+         <% end %>
+       </div>
+     </div>
+   </div>
+   <% end %>
+ </div>
+</div>
+
+

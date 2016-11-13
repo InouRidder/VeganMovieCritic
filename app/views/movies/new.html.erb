@@ -1,0 +1,12 @@
+<h4>Add a new movie!</h4>
+
+<%= form_for(@movie) do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :rating %>
+<%= f.select :rating, [1,2,3,4,5] %>
+
+<%= f.submit %>
+<% end %>
