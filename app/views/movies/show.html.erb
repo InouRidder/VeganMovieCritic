@@ -2,7 +2,7 @@
   <%= @movie.title %>
 </h1>
 <p>
-Vegan Movie Critic Rating : <%=  @movie.rating %>
+  Vegan Movie Critic Rating : <%=  @movie.rating %>
 </p>
 <% if @movie.reviews.any? %>
 Users Rating:
@@ -23,22 +23,35 @@ Users Rating:
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h3>
-        <%= review.title %>
-      </h3>
-      <p>
-        <%= review.content %>
-      </p>
-      Rating:<%= review.rating  %>
-      <% if @user.admin || review.user == @user %>
-        <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn btn-primary"  %>
-        <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-           <% end %>
+      <div class="card">
+        <div class="card-background">
+          <div class="card-title">
+            <h3>
+              <%= review.title %>
+            </h3>
+          </div>
+          <div class="card-content">
+            <p>
+              <%= review.content %>
+            </p>
+          </div>
+          <div class="card-rating">
+            Rating:<%= review.rating  %>
+          </div>
+          <div class="card-btns">
+            <% if @user.admin || review.user == @user %>
+            <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn btn-primary"  %>
+            <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 <% end %>
-
+<br>
+<br>
 
 <%= link_to 'Add Review', new_movie_review_path(@movie), class: "btn bn-primary" %>
 <%= link_to 'Back to Movies', movies_path, class: "btn btn-primary" %>
