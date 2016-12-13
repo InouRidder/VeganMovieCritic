@@ -6,7 +6,7 @@
           All the Movies
         </h1>
 
-        <% if @user.admin %>
+        <% if policy(Movie).create? %>
         <%= link_to 'Add a Movie', new_movie_path, class: "btn btn-primary" %>
         <% end %>
       </div>
@@ -25,8 +25,10 @@
          </h4>
          <p> Vegan Critic Rating: <%= movie.rating %></p>
          <%= link_to 'See Reviews!', movie_path(movie), class: "btn btn-primary" %>
-         <% if @user.admin %>
+         <% if policy(Movie).update? %>
          <%= link_to 'Edit Movie', edit_movie_path(movie), class: "btn btn-primary" %>
+         <% end %>
+         <% if policy(Movie).destroy? %>
          <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
          <% end %>
        </div>
