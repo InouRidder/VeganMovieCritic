@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    authorize @review
     @movie = Movie.find(params[:movie_id])
   end
 
@@ -15,6 +16,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.movie_id = params[:movie_id]
     @review.user = @user
+    authorize @review
     @review.save!
     redirect_to movie_path(Movie.find(params[:movie_id]))
   end
@@ -26,6 +28,7 @@ class ReviewsController < ApplicationController
     @review.title = params["review"]["title"]
     @review.content = params["review"]["content"]
     @review.rating = params["review"]["rating"]
+    authorize @review
     @review.user = @user
     @review.save
     redirect_to movie_path(find_movie)
@@ -48,6 +51,7 @@ class ReviewsController < ApplicationController
 
   def find_review
     @review = Review.find(params[:id])
+    authorize @review
   end
 
   def review_params

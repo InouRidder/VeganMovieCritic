@@ -2,7 +2,8 @@ class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.all
+    @movies = policy_scope(Movie).order(created_at: :desc)
+    # @movies = Movie.all
     @user = current_user
   end
 
@@ -13,12 +14,15 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    authorize @movie
   end
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save!
-    redirect_to movie_path(@movie)
+    authorize @movie
+    if @movie.save!
+      redirect_to movie_path(@movie)
+    end
   end
 
   def edit
@@ -27,6 +31,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie.update(movie_params)
+    @movie.save!
     redirect_to movies_path
   end
 
@@ -39,6 +44,7 @@ class MoviesController < ApplicationController
 
   def find_movie
     @movie = Movie.find(params[:id])
+    authorize @movie
   end
 
   def movie_params
