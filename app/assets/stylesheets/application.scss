@@ -14,13 +14,16 @@
 @import "pages/index";
 @import "vendor/index";
 
+body {
+  background-color: $gray;
+}
+
 .title {
   left-padding: 60px;
   display: flex;
   justify-content: right;
-
-
 }
+
 
 .box {
   display: flex;
