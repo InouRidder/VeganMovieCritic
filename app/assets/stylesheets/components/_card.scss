@@ -1,28 +1,37 @@
 .card {
-  border: solid black 1px;
-  border-radius: 5px;
-  padding: 10px;
   position: relative;
+  border: solid $green 1px;
+  border-radius: 5px;
+  height: 300px;
+  width: 100%;
 }
 
 .card-background {
   position: absolute;
+  height: 300px;
+  width: 100%;
 }
 
-.card-title{
+.card-title {
   position: absolute;
+  left: 10%;
 }
 
 .card-rating {
   position: absolute;
+  bottom: 3%;
+  right: 3%;
 }
 
 .card-content {
   position: absolute;
-
+  left: 10%;
+  top: 20%;
 }
-
 
 .card-btns {
   position: absolute;
+  display: flex;
+  bottom: 0;
+  padding: 5px;
 }

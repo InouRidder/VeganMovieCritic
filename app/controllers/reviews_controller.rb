@@ -25,9 +25,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review.title = params["review"]["title"]
-    @review.content = params["review"]["content"]
-    @review.rating = params["review"]["rating"]
+    @review.update(review_params)
     authorize @review
     @review.user = @user
     @review.save
