@@ -3,7 +3,6 @@ class MoviesController < ApplicationController
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
-    # @movies = Movie.all
     @user = current_user
   end
 
@@ -48,6 +47,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :rating)
+    params.require(:movie).permit(:title)
   end
 end

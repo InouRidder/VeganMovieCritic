@@ -1,8 +1,10 @@
 .card {
+  position: relative;
   border: solid black 1px;
   border-radius: 5px;
-  padding: 10px;
-  position: relative;
+  border: solid $green 1px;
+  height: 300px;
+  width: 100%;
 }
 
 .card-background {
@@ -11,18 +13,26 @@
 
 .card-title{
   position: absolute;
+  top: 5%;
+  left: 10%;
 }
 
 .card-rating {
   position: absolute;
+  bottom: 5%;
+  right: 5%;
 }
 
 .card-content {
   position: absolute;
-
+  left: 10%;
+  top: 20%;
 }
 
 
 .card-btns {
   position: absolute;
+  display: flex;
+  bottom: 5%;
+  left: 5%;
 }

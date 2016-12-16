@@ -24,26 +24,33 @@ Users Rating:
   <div class="row">
     <div class="col-md-6">
       <div class="card">
-        <div class="card-background">
-          <div class="card-title">
-            <h3>
-              <%= review.title %>
-            </h3>
-          </div>
-          <div class="card-content">
-            <p>
-              <%= review.content %>
-            </p>
-          </div>
-          <div class="card-rating">
-            Rating:<%= review.rating  %>
-          </div>
-          <div class="card-btns">
-            <% if @user.admin || review.user == @user %>
-            <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn btn-primary"  %>
-            <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-            <% end %>
-          </div>
+        <div class="card-title">
+          <h3>
+            <%= review.title %>
+          </h3>
+        </div>
+        <div class="card-content">
+          <p>
+            <%= review.content %>
+          </p>
+        </div>
+        <div class="card-rating">
+          Rating:<%= review.rating  %>
+        </div>
+        <div class="card-btns">
+          <% if policy(review).update? %>
+          <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn btn-primary"  %>
+          <% end %>
+          <% if policy(review).destroy? %>
+          <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div class="card-leave-rating">
+          <%= form_for ([@review_rating]) do |f| %>
+          <%= f.label :rating %>
+          <%= f.integer :rating %>
+          <% end %>
+          <input id="input-id" type="text" class="rating" data-size="lg" id="star-rates" >
         </div>
       </div>
     </div>
@@ -52,6 +59,7 @@ Users Rating:
 <% end %>
 <br>
 <br>
-
+<% if policy(Review).create? %>
 <%= link_to 'Add Review', new_movie_review_path(@movie), class: "btn bn-primary" %>
+<% end %>
 <%= link_to 'Back to Movies', movies_path, class: "btn btn-primary" %>

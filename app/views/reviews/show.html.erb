@@ -12,11 +12,13 @@
         <%= @review.content %>
       </p>
       Rating:<%= @review.rating  %>
+      <% if policy(Review).update? %>
         <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn btn-primary"  %>
-        <% raise 'error' %>
+        <% end %>
+        <% if policy(Review).destroy? %>
         <%= link_to 'Delete', review_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+        <% end %>
     </div>
   </div>
 </div>
-<% end %>
 

@@ -23,12 +23,12 @@
           <h4>
            <%= movie.title%>
          </h4>
-         <p> Vegan Critic Rating: <%= movie.rating %></p>
+         <p> Rating: <%= movie.set_rating %></p>
          <%= link_to 'See Reviews!', movie_path(movie), class: "btn btn-primary" %>
-         <% if policy(Movie).update? %>
+         <% if policy(movie).update? %>
          <%= link_to 'Edit Movie', edit_movie_path(movie), class: "btn btn-primary" %>
          <% end %>
-         <% if policy(Movie).destroy? %>
+         <% if policy(movie).destroy? %>
          <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
          <% end %>
        </div>
