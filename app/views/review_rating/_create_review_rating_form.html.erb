@@ -1,6 +1,11 @@
-<%= form_for [@review_rating, review] do |f|%>
+
+<%= form_for @review_rating do |f|%>
+
+<%= f.hidden_field :review, value: review.id %>
+
 <%= f.label :rating %>
 <%= f.select :rating, [1,2,3,4,5] %>
+
 <%= f.submit "Submit" %>
 <% end %>
 
