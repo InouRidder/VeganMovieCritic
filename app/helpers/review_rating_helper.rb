@@ -1,0 +1,2 @@
+module ReviewRatingHelper
+end
