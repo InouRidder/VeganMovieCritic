@@ -4,18 +4,9 @@
 <p>
   Vegan Movie Critic Rating : <%=  @movie.rating %>
 </p>
-<% if @movie.reviews.any? %>
-Users Rating:
-<% a = 0 %>
-<%  @movie.reviews.each do |r|  %>
-<% a += r.rating %>
-<% end %>
-<%= a / @movie.reviews.length %>
-<% else %>
 <p>
-  Be the first to leave a review
+  User Rating: <%= @movie.user_rating  %>
 </p>
-<% end %>
 
 
 
@@ -36,7 +27,21 @@ Users Rating:
             </p>
           </div>
           <div class="card-rating">
-            Rating:<%= review.rating  %>
+            <%= review.user_rating  %>
+
+            <%= form_for @review_rating do |f|%>
+
+            <%= f.hidden_field :review, value: review.id %>
+            <%#= hidden_field_tag 'selected', 'none' %>
+
+            <%= f.label :rating %>
+            <%= f.select :rating, [1,2,3,4,5] %>
+
+            <%= f.submit "Submit" %>
+            <% end %>
+
+            <%#= render "review_rating/create_review_rating_form" %>
+            <!--    <input id="input-id" name="input-name" type="number" class="rating" min=1 max=10 step=2 data-size="lg" data-rtl="true"> -->
           </div>
           <div class="card-btns">
             <% if policy(review).update? %>
@@ -46,9 +51,6 @@ Users Rating:
             <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
             <% end %>
           </div>
-        </div>
-        <div class="review-rater">
-        <%= render "review_rating/create_review_rating_form" %>
         </div>
       </div>
     </div>

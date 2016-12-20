@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
+source 'https://rails-assets.org' do  # star rating
+  # gem "rails-assets-underscore"
+  gem "rails-assets-bootstrap-star-rating"
+end
+
 gem 'rails', '5.0.0.1'
 gem 'puma'
 gem 'pg'
