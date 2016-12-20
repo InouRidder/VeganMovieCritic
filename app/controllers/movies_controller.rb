@@ -9,6 +9,7 @@ class MoviesController < ApplicationController
 
   def show
     @reviews = @movie.reviews
+    @review_rating = ReviewRating.new
     @user = current_user
   end
 
