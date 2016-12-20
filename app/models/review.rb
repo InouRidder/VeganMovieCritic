@@ -3,9 +3,9 @@ class Review < ApplicationRecord
   belongs_to :user
   has_many :review_ratings
 
-  private
 
   def user_rating
-    self.review_ratings.reduce(:+).to_f / self.review_ratings.size
+    self.review_ratings != [] ? self.review_ratings.reduce(:+).to_f / self.review_ratings.size : "Not rated"
   end
+
 end
