@@ -27,11 +27,21 @@
             </p>
           </div>
           <div class="card-rating">
-          <%= review.user_rating  %>
-          <%= render "review_rating/create_review_rating_form" %>
-          <% else %>
-            <%=   %>
-          <% end %>
+            <%= review.user_rating  %>
+
+            <%= form_for @review_rating do |f|%>
+
+            <%= f.hidden_field :review, value: review.id %>
+            <%#= hidden_field_tag 'selected', 'none' %>
+
+            <%= f.label :rating %>
+            <%= f.select :rating, [1,2,3,4,5] %>
+
+            <%= f.submit "Submit" %>
+            <% end %>
+
+            <%#= render "review_rating/create_review_rating_form" %>
+            <!--    <input id="input-id" name="input-name" type="number" class="rating" min=1 max=10 step=2 data-size="lg" data-rtl="true"> -->
           </div>
           <div class="card-btns">
             <% if policy(review).update? %>
