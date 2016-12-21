@@ -10,6 +10,7 @@ class ReviewRatingsController < ApplicationController
     @review_rating = ReviewRating.new(review_params)
     @review_rating.user_id = @user_id
     @review_rating.review_id = @review_id
+    authorize @review_rating
     @review_rating.save!
     redirect_to movie_path(@review_rating.review.movie)
   end
@@ -21,12 +22,14 @@ class ReviewRatingsController < ApplicationController
     @review_rating.update(review_params)
     @review_rating.user_id = @user.id
     @review_rating.review_id = @review_id
+    authorize @review_rating
     @review_rating.save!
     redirect_to movie_path(@review_rating.review.movie)
   end
 
   def destroy
     @review_rating.destroy
+    authorize @review_rating
     redirect_to movie_path(movie)
   end
 
