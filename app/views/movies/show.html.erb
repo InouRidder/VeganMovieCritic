@@ -30,9 +30,9 @@
 
             movie rating : <%= review.rating %>
 
-           <% if review.has_rated %>
+            <% if review.has_rated %>
             review rating: <%= review.user_rating  %>
-          <% else %>
+            <% else %>
             <%= form_for @review_rating do |f|%>
 
             <%= f.hidden_field :review, value: review.id %>
@@ -43,8 +43,6 @@
             <%= f.submit "Submit" %>
             <% end %>
             <% end %>
-<!--
-            <input id="input-id" name="input-name" type="number" class="rating" min=1 max=10 step=2 data-size="lg" data-rtl="true"> -->
           </div>
           <div class="card-btns">
             <% if policy(review).update? %>
@@ -65,6 +63,12 @@
 
 <% if policy(Review.new).create? %>
 <%= link_to 'Add Review', new_movie_review_path(@movie), class: "btn bn-primary" %>
+<% end %>
+<% if policy(Movie).update? %>
+<%= link_to 'Edit Movie', edit_movie_path(@movie), class: "btn btn-primary" %>
+<% end %>
+<% if policy(Movie).destroy? %>
+<%= link_to 'Delete', @movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
 <% end %>
 
 <%= link_to 'Back to Movies', movies_path, class: "btn btn-primary" %>
