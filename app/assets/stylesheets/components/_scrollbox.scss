@@ -1,0 +1,35 @@
+.scrollbox {
+  height: 80vh;
+  width: 100%;
+  max-width:200px;
+    overflow-x: visible;
+    overflow-y: auto;
+      background-color:$black;
+  color:white;
+  scrollbar-base-color:$red;
+  font-family:sans-serif;
+  border-radius: 4px;
+}
+
+.list-item {
+  width: 200px;
+  height: 50px;
+  border-bottom: 0.5px $red solid;
+  display: flex;
+  align-text: left;
+  padding: 13px;
+  color: $gray;
+}
+
+.list-item:hover {
+  opacity: 0.3;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item a {
+  color: $gray;
+}

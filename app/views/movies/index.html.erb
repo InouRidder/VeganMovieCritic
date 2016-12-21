@@ -1,41 +1,40 @@
-  <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="title">
-        <h1>
-          All the Movies
-        </h1>
 
-        <% if policy(Movie).create? %>
-        <%= link_to 'Add a Movie', new_movie_path, class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="container">
   <div class="row">
-    <% @movies.each do |movie| %>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="caption">
-          <h4>
-           <%= movie.title%>
-         </h4>
-         <p> Vegan Critic Rating: <%= movie.rating %></p>
-         <%= link_to 'See Reviews!', movie_path(movie), class: "btn btn-primary" %>
-         <% if policy(Movie).update? %>
-         <%= link_to 'Edit Movie', edit_movie_path(movie), class: "btn btn-primary" %>
-         <% end %>
-         <% if policy(Movie).destroy? %>
-         <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+  <div class="col-xs-4">
+      <h2>
+        Archive
+      </h2>
+      <div class="scrollbox">
+        <div class="list">
+          <% @movies.each do |movie| %>
+          <div class="list-item">
+           <%= link_to "#{movie.title}", movie_path(movie) %>
+         </div>
          <% end %>
        </div>
      </div>
    </div>
-   <% end %>
  </div>
 </div>
 
 
+<!--
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="title">
+          <h1>
+            All the Movies
+          </h1>
+
+
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <%# if policy(Movie).create? %>
+  <%#= link_to 'Add a Movie', new_movie_path, class: "btn btn-primary" %>
+  <%# end %>
