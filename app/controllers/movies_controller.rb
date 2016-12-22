@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy]
+  before_action :disable_nav, only: [:show]
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
@@ -42,6 +43,10 @@ class MoviesController < ApplicationController
   end
 
   private
+
+  def disable_nav
+    @disable_nav = true
+  end
 
   def find_movie
     @movie = Movie.find(params[:id])

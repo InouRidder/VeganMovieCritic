@@ -11,20 +11,24 @@ $(document).ready(function(){
   $(".super-btn").click(function(){
   event.preventDefault();
     id = $(this).attr('href');
-    console.log(this);
+    $('.content-review-index').empty();
       $.ajax({
     type: 'GET',
     url: baseUrl + id,
       success: function(data) {
-      $('content-review-index').append(data);
-      console.log(data)
+       $('.content-review-index').html("");
+        $('.content-review-index').append(data);
     },
-    error: function(data){
-      console.log(data)
+    error: function(html){
+      console.log(html);
     }
   })
   });
 });
+        // console.log($('.review-content-container').val());
+
+
+      // $('content-review-index').append(html);
 
 
 
