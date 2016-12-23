@@ -1,17 +1,50 @@
-<h4>
-  Add a review for <%= @movie.title  %>
-</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="movie-details">
+        <div class="movie-title">
+          <h1>
+            <%= @movie.title  %>
+          </h1>
+        </div>
+        <div class="movie-info-box">
+          <%= @movie.plot  %>
+          <br>
+          <%= @movie.runtime  %>
+          <br>
+          <%= @movie.actors  %>
+          <br>
+          <%= @movie.awards  %>
+        </div>
+      </div>
+    </div>
 
-<%= form_for ([@movie, @review]) do |f| %>
 
-<%= f.label :title %>
-<%= f.text_field :title %>
+    <div class="col-xs-5">
+      <div class="review-form">
+        <%= form_for ([@movie, @review]) do |f| %>
+        <p> Title your review!</p>
+        <div class="title-form">
+          <%= f.text_area :title, class: "title-form" %>
+        </div>
 
-<%= f.label :content %>
-<%= f.text_field :content %>
+        <p> So how was it? </p>
+        <div class="content-form">
+          <%= f.text_area :content, class: "content-form" %>
+        </div>
+        <%= f.label :rating %>
+        <%= f.select :rating, [0,1,2,3,4,5] %>
 
-<%= f.label :rating %>
-<%= f.select :rating, [0,1,2,3,4,5] %>
+        <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
 
-<%= f.submit %>
-<% end %>
+    <div class="col-xs-3">
+      <div class="movie-poster">
+        <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
+      </div>
+    </div>
+  </div>
+</div>
+

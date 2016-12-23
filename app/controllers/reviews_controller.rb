@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review.user = @user
     authorize @review
     @review.save!
-    redirect_to movie_path(Movie.find(params[:movie_id]))
+    redirect_to movies_path
   end
 
   def edit
