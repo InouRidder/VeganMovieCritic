@@ -1,21 +1,23 @@
 <div class="review-content-container">
 
-<h1 id="movie-title">
-  <%= @movie.title %>
-</h1>
-<p>
-  Vegan Movie Critic Rating : <%=  @movie.rating %>
-</p>
-<p>
-  User Rating: <%= @movie.user_rating  %>
-</p>
+  <div class="container">
+    <div class="row">
+     <div class="col-md-6">
+      <div class="movie-info">
+        <h1 id="movie-title">
+          <%= @movie.title %>
+        </h1>
+        <div class=movie-ratings>
+          <p>
+            Vegan Movie Critic Rating : <%=  @movie.rating %>
+            <br>
+            User Rating: <%= @movie.user_rating  %>
+          </p>
+        </div>
+      </div>
 
 
-
-<% @movie.reviews.each do |review| %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
+      <% @movie.reviews.each do |review| %>
       <div class="card">
         <div class="card-background">
           <div class="card-title">
@@ -56,22 +58,23 @@
           </div>
         </div>
       </div>
+<div class="edit-btns">
+  <% if policy(Review.new).create? %>
+  <%= link_to 'Add Review', new_movie_review_path(@movie), class: "btn bn-primary" %>
+  <% end %>
+  <% if policy(Movie).update? %>
+  <%= link_to 'Edit Movie', edit_movie_path(@movie), class: "btn btn-primary" %>
+  <% end %>
+  <% if policy(Movie).destroy? %>
+  <%= link_to 'Delete', @movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'Back to Movies', movies_path, class: "btn btn-primary" %>
+</div>
     </div>
   </div>
 </div>
 <% end %>
 <br>
 <br>
-
-<% if policy(Review.new).create? %>
-<%= link_to 'Add Review', new_movie_review_path(@movie), class: "btn bn-primary" %>
-<% end %>
-<% if policy(Movie).update? %>
-<%= link_to 'Edit Movie', edit_movie_path(@movie), class: "btn btn-primary" %>
-<% end %>
-<% if policy(Movie).destroy? %>
-<%= link_to 'Delete', @movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-<% end %>
-
-<%= link_to 'Back to Movies', movies_path, class: "btn btn-primary" %>
 </div>
