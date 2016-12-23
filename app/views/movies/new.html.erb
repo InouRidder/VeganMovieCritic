@@ -1,12 +1,18 @@
-<h4>Add a new movie!</h4>
+<div class="container">
+  <div class="row">
+    <div class="new-movie-select">
+      <div class="col-xs-9 md-6">
+      <h4>What movie would you like to review?</h4>
 
-<%= form_for(@movie) do |f| %>
+      <%= form_for(@movie) do |f| %>
 
-<%= f.label :title %>
-<%= f.text_field :title %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
 
-<%= f.label :rating %>
-<%= f.select :rating, [1,2,3,4,5] %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
 
-<%= f.submit %>
-<% end %>

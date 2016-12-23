@@ -1,10 +1,12 @@
+require 'json'
+require 'open-uri'
+
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy]
   before_action :disable_nav, only: [:show]
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
-    # @movies = Movie.all
     @user = current_user
   end
 
@@ -20,10 +22,16 @@ class MoviesController < ApplicationController
   end
 
   def create
+    search_query = params["movie"]["title"]
+    url = "http://www.omdbapi.com/?t=#{search_query}&y=&plot=short&r=json"
+    returned_data = open(url).read
+    data = JSON.parse(returned_data)
+    raise
+
     @movie = Movie.new(movie_params)
     authorize @movie
     if @movie.save!
-      redirect_to movie_path(@movie)
+      redirect_to new_review_movie_path(@movie)
     end
   end
 
@@ -43,6 +51,8 @@ class MoviesController < ApplicationController
   end
 
   private
+
+
 
   def disable_nav
     @disable_nav = true
