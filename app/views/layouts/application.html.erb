@@ -17,7 +17,8 @@
 <!-- optionally if you need translation for your language then include locale file as mentioned below -->
 <script src="path/to/js/locales/{lang}.js"></script>
 
-    <title>TODO</title>
+
+    <title>VMR</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +26,8 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/navbar' unless @disable_nav %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

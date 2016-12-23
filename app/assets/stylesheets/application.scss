@@ -24,6 +24,18 @@ body {
   justify-content: right;
 }
 
+.vmr-logo {
+  color: $gray;
+  text-decoration: none;
+  transition: 500ms ease;
+  height: 50px;
+  border-radius: 30%;
+}
+
+.vmr-logo:hover {
+  background-color: $black;
+}
+
 
 .box {
   display: flex;
