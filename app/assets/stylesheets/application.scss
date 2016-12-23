@@ -22,18 +22,21 @@ body {
   left-padding: 60px;
   display: flex;
   justify-content: right;
+  color: $green;
 }
 
 .vmr-logo {
   color: $gray;
   text-decoration: none;
   transition: 500ms ease;
-  height: 50px;
+  height: 30px;
+  width: 100%;
   border-radius: 30%;
 }
 
 .vmr-logo:hover {
-  background-color: $black;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 

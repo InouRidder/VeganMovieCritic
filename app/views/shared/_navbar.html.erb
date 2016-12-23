@@ -1,9 +1,9 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to root_path class: "vmr-logo" do %>
   <div class="vmr-logo">
     <h4>
-      Vegan Movie Critic
+    Vegan Movie Critic
     </h4>
   </div>
   <% end %>
@@ -23,21 +23,25 @@
     <% if user_signed_in? %>
 
     <!-- Notification -->
-    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+    <%= link_to "/admin", class: "navbar-wagon-item navbar-wagon-link" do %>
     <div class="badge-container">
-      <i class="fa fa-envelope-o"></i>
-      <div class="badge badge-blue">3</div>
+      <i class="fa fa-lock"></i>
+      <div class="badge badge-blue"></div>
     </div>
     <% end %>
 
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to "#" do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "/admin" do %>
+            <i class="fa fa-lock"></i>
             <% end %>
           </li>
 
@@ -63,7 +67,7 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Add a Review"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Add a Review"), new_movie_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -74,6 +78,7 @@
         <li><a href="#">Some mobile link</a></li>
         <li><a href="#">Other one</a></li>
         <li><a href="#">Other one</a></li>
+        <li><a href="/admin"> Admin Panel</a></li>
       </ul>
     </div>
   </div>

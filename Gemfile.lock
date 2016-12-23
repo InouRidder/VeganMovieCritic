@@ -129,6 +129,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    json (2.0.2)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -261,6 +262,7 @@ DEPENDENCIES
   inherited_resources!
   jbuilder (~> 2.0)
   jquery-rails
+  json
   listen (~> 3.0.5)
   pg
   pry-byebug
