@@ -26,13 +26,25 @@ class MoviesController < ApplicationController
     url = "http://www.omdbapi.com/?t=#{search_query}&y=&plot=short&r=json"
     returned_data = open(url).read
     data = JSON.parse(returned_data)
-    raise
-
-    @movie = Movie.new(movie_params)
-    authorize @movie
-    if @movie.save!
-      redirect_to new_review_movie_path(@movie)
-    end
+      if @movie = Movie.all.find_by_title(data["Title"])
+        authorize @movie
+        redirect_to new_movie_review_path (@movie)
+      else
+        @movie = Movie.new
+        @movie.title = data["Title"]
+        @movie.released = data["Released"]
+        @movie.runtime = data["Runtime"]
+        @movie.genre = data["Genre"]
+        @movie.plot = data["Plot"]
+        @movie.actors = data["Actors"]
+        @movie.awards = data["Awards"]
+        @movie.poster = data["Poster"]
+        @movie.imdbrating = data["imdbrating"]
+        authorize @movie
+          if @movie.save!
+            redirect_to new_movie_review_path(@movie)
+          end
+      end
   end
 
   def edit
@@ -64,6 +76,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :rating)
+    params.require(:movie).permit(:title)
   end
 end
