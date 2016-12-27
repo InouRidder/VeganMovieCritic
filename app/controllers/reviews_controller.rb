@@ -16,6 +16,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.movie_id = params[:movie_id]
     @review.user = @user
+      if current_user.admin
+        @review.approved = true
+      else
+        @review.approved = false
+      end
     authorize @review
     @review.save!
     redirect_to movies_path

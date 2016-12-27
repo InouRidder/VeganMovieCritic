@@ -6,33 +6,34 @@
             <%= @movie.title  %>
           </h1>
         </div>
-        <% @movie.reviews.each do |review| %>
+
+        <% if @review %>
         <div class="card">
           <div class="card-background">
             <div class="card-title">
               <h3>
-                <%= review.title %>,
+                <%= @review.title %>,
               </h3>
-              rated: <%= review.rating %>
+              rated: <%= @review.rating %>
               <p>
-                by <%= review.user.email   %>
+                by <%= @review.user.email   %>
               </p>
             </div>
 
             <div class="card-content">
               <p>
-                <%= review.content %>
+                <%= @review.content %>
               </p>
             </div>
 
             <div class="card-rating">
 
-              <% if review.has_rated %>
-              review rating: <%= review.user_rating  %>
+              <% if @review.has_rated %>
+              review rating: <%= @review.user_rating  %>
               <% else %>
               <%= form_for @review_rating do |f|%>
 
-              <%= f.hidden_field :review, value: review.id %>
+              <%= f.hidden_field :review, value: @review.id %>
 
               <%= f.label :rating %>
               <%= f.select :rating, [1,2,3,4,5] %>
@@ -41,19 +42,20 @@
               <% end %>
               <% end %>
             </div>
-
           </div>
-
-
         </div>
-          <div class="card-btns">
-            <% if policy(review).update? %>
-            <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn btn-primary"  %>
-            <% end %>
-            <% if policy(review).destroy? %>
-            <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-            <% end %>
-          </div>
+
+        <div class="card-btns">
+          <% if policy(@review).update? %>
+          <%= link_to 'Edit Review', edit_movie_review_path(@movie, @review), class: "btn btn-primary"  %>
+          <% end %>
+          <% if policy(@review).destroy? %>
+          <%= link_to 'Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to 'More Reviews', movie_path(@movie), class: "btn btn-primary" %>
+        </div>
+        <% else %>
+        <p> No Reviews Yet!</p>
         <% end %>
       </div>
 
@@ -74,11 +76,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-
-
-
       </div>
     </div>
   </div>

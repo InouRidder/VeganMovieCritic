@@ -12,6 +12,10 @@ class MoviePolicy < ApplicationPolicy
     user.admin
   end
 
+  def partial?
+    true
+  end
+
    class Scope < Scope
     def resolve
       scope.all

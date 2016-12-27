@@ -2,8 +2,8 @@ require 'json'
 require 'open-uri'
 
 class MoviesController < ApplicationController
-  before_action :find_movie, only: [:show, :edit, :update, :destroy]
-  before_action :disable_nav, only: [:show]
+  before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
+  before_action :disable_nav, only: [:partial]
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
@@ -62,9 +62,25 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def partial
+    @review = @movie.reviews[0]
+    @review_rating = ReviewRating.new
+    @user = current_user
+  end
+
+  def highrated
+    # array of highest user_rating reviews
+  end
+
+  def newest
+    # array of objects of newest approved reviews
+  end
+
+  def pending
+    # array of still pending reviews...
+  end
+
   private
-
-
 
   def disable_nav
     @disable_nav = true
