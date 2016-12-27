@@ -13,4 +13,8 @@ class Movie < ApplicationRecord
     end
   end
 
+  def approve
+    self.approved = true
+  end
+
 end

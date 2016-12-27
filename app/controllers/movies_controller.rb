@@ -4,6 +4,7 @@ require 'open-uri'
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
   before_action :disable_nav, only: [:partial]
+  before_action :find_user, only: [:pending]
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
@@ -65,7 +66,7 @@ class MoviesController < ApplicationController
   def partial
     @review = @movie.reviews[0]
     @review_rating = ReviewRating.new
-    @user = current_user
+    @buser = current_user
   end
 
   def highrated
@@ -77,10 +78,16 @@ class MoviesController < ApplicationController
   end
 
   def pending
-    # array of still pending reviews...
+    # AUTHORIZATION DOES NOT WORK YET!
+    @pending_reviews = Review.where(approved: false)
+    authorize @user
   end
 
   private
+
+  def find_user
+    @user = current_user
+  end
 
   def disable_nav
     @disable_nav = true
