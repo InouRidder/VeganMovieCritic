@@ -1,4 +1,4 @@
-baseUrl = 'https://veganmoviecritic.herokuapp.com/'
+baseUrl = 'http://localhost:3000/'
 
 $(document).ready(function(){
   $(".super-btn").click(function(){
@@ -7,7 +7,7 @@ $(document).ready(function(){
     // $('.content-review-index').empty();
     $.ajax({
       type: 'GET',
-      url: baseUrl + id,
+      url: baseUrl + id + '/partial',
       success: function(data) {
         $('.content-review-index').html("");
         $('.content-review-index').append(data);
@@ -19,20 +19,20 @@ $(document).ready(function(){
   });
 });
 
-// window.onload = function(){
-//   var items = $('.card');
-//   $('.movie-info').append("I FOUND YOU");
-//   var currentItem = items.filter('.active');
-//   $(".next-button").on('click', function() {
-//     console.log("hello world");
-//     var nextItem = currentItem.next();
-//     currentItem.removeClass('active');
-//     if ( nextItem.length ) {
-//       currentItem = nextItem.addClass('active');
-//     } else {
-//         // If you want it to loop around
-//         currentItem = items.first().addClass('active');
-//       };
-//     });
-// };
+window.onload = function(){
+  var items = $('.card');
+  $('.movie-info').append("I FOUND YOU");
+  var currentItem = items.filter('.active');
+  $(".next-button").on('click', function() {
+    console.log("hello world");
+    var nextItem = currentItem.next();
+    currentItem.removeClass('active');
+    if ( nextItem.length ) {
+      currentItem = nextItem.addClass('active');
+    } else {
+        // If you want it to loop around
+        currentItem = items.first().addClass('active');
+      };
+    });
+};
 

@@ -12,6 +12,10 @@ class ReviewPolicy < ApplicationPolicy
     user == record.user || user.admin
   end
 
+  def pending
+    current_user.admin == true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
