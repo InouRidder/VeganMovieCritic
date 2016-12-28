@@ -1,1 +1,35 @@
 <h1> HIGH RATED </h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+  <% if @highest_reviews %>
+      <% @highest_reviews.each do |review| %>
+      <div class="card">
+        <div class="card-background">
+          <div class="card-title">
+            <h3>
+              <%= review.title %>,
+            </h3>
+            rated: <%= review.rating %>
+            <p>
+              by <%= review.user.email   %>
+            </p>
+          </div>
+
+          <div class="card-content">
+            <p>
+              <%= review.content %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <% end %>
+      <% else %>
+  <% raise %>
+      <h2> Not a single review has been rated </h2>
+      <% end %>
+  </div>
+</div>
+

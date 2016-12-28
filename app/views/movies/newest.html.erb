@@ -1,1 +1,32 @@
 <h1> Newest movies! </h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <% @newest_reviews.each do |review| %>
+      <div class="card">
+        <div class="card-background">
+          <div class="card-title">
+            <h3>
+              <%= review.title %>,
+            </h3>
+            rated: <%= review.rating %>
+            <p>
+              by <%= review.user.email   %>
+            </p>
+          </div>
+
+          <div class="card-content">
+            <p>
+              <%= review.content %>
+            </p>
+          </div>
+
+          <div class="card-approval">
+          <%#= link_to 'Approve',   %>
+
+          </div>
+        </div>
+      </div>
+      <% end %>

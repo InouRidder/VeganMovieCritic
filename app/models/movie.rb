@@ -12,9 +12,4 @@ class Movie < ApplicationRecord
         return (a / self.reviews.length)
     end
   end
-
-  def approve
-    self.approved = true
-  end
-
 end
