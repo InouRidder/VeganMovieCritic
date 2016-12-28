@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'movies/newest', to: 'movies#newest'
     get 'movies/highrated', to: 'movies#highrated'
     get 'movies/pending', to: 'movies#pending'
+    get 'movies/pending/approve/', to: 'reviews#approve'
 
     resources :movies do
       resources :reviews

@@ -12,9 +12,10 @@ class ReviewPolicy < ApplicationPolicy
     user == record.user || user.admin
   end
 
-  def pending
-    current_user.admin == true
+  def approve?
+    user.admin
   end
+
 
   class Scope < Scope
     def resolve

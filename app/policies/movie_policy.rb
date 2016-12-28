@@ -16,6 +16,18 @@ class MoviePolicy < ApplicationPolicy
     true
   end
 
+  def pending?
+    user.admin
+  end
+
+  def highrated?
+    true
+  end
+
+  def newest?
+    true
+  end
+
    class Scope < Scope
     def resolve
       scope.all

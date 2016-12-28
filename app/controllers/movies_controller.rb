@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @reviews = @movie.reviews
+    @reviews = @movie.reviews.where(approved: true)
     @review_rating = ReviewRating.new
     @user = current_user
   end
@@ -27,25 +27,25 @@ class MoviesController < ApplicationController
     url = "http://www.omdbapi.com/?t=#{search_query}&y=&plot=short&r=json"
     returned_data = open(url).read
     data = JSON.parse(returned_data)
-      if @movie = Movie.all.find_by_title(data["Title"])
-        authorize @movie
-        redirect_to new_movie_review_path (@movie)
-      else
-        @movie = Movie.new
-        @movie.title = data["Title"]
-        @movie.released = data["Released"]
-        @movie.runtime = data["Runtime"]
-        @movie.genre = data["Genre"]
-        @movie.plot = data["Plot"]
-        @movie.actors = data["Actors"]
-        @movie.awards = data["Awards"]
-        @movie.poster = data["Poster"]
-        @movie.imdbrating = data["imdbrating"]
-        authorize @movie
-          if @movie.save!
-            redirect_to new_movie_review_path(@movie)
-          end
+    if @movie = Movie.all.find_by_title(data["Title"])
+      authorize @movie
+      redirect_to new_movie_review_path (@movie)
+    else
+      @movie = Movie.new
+      @movie.title = data["Title"]
+      @movie.released = data["Released"]
+      @movie.runtime = data["Runtime"]
+      @movie.genre = data["Genre"]
+      @movie.plot = data["Plot"]
+      @movie.actors = data["Actors"]
+      @movie.awards = data["Awards"]
+      @movie.poster = data["Poster"]
+      @movie.imdbrating = data["imdbrating"]
+      authorize @movie
+      if @movie.save!
+        redirect_to new_movie_review_path(@movie)
       end
+    end
   end
 
   def edit
@@ -64,23 +64,33 @@ class MoviesController < ApplicationController
   end
 
   def partial
-    @review = @movie.reviews[0]
+    @review = @movie.reviews.where(approved: :true)[0]
     @review_rating = ReviewRating.new
     @buser = current_user
   end
 
   def highrated
+    reviews = Review.where(approved: true)
+    @highest_reviews = []
+    reviews.each do |review|
+      if review.has_rated
+        review.user_rating
+        @highest_reviews << review
+      end
+    end
+    @highest_reviews
+    authorize (Movie.first)
     # array of highest user_rating reviews
   end
 
   def newest
-    # array of objects of newest approved reviews
+    @newest_reviews = Review.where(approved: true).order(created_at: :desc)
+    authorize (Movie.first)
   end
 
   def pending
-    # AUTHORIZATION DOES NOT WORK YET!
     @pending_reviews = Review.where(approved: false)
-    authorize @user
+    authorize (Movie.first)
   end
 
   private

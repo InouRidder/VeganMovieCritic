@@ -5,13 +5,12 @@ class Review < ApplicationRecord
 
 
   def user_rating
-
     if self.review_ratings.size > 0
       sum = 0
       self.review_ratings.each do |e|
         sum += e.rating
       end
-        return sum / self.review_ratings.size
+        self.review_rating = sum / self.review_ratings.size
     else
       "Not Rated"
     end
@@ -25,6 +24,10 @@ class Review < ApplicationRecord
       end
     end
     users.include?(user)
+  end
+
+  def approve
+    self.approved = true
   end
 
 end

@@ -37,6 +37,14 @@ class ReviewsController < ApplicationController
     redirect_to movie_path(find_movie)
   end
 
+  def approve
+    @review = Review.find(params[:format])
+    @review.approve
+    @review.save!
+    authorize @review
+    redirect_to movies_pending_path
+  end
+
   def destroy
     @review.destroy
     redirect_to movie_path(find_movie)
