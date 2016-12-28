@@ -12,6 +12,11 @@ class ReviewPolicy < ApplicationPolicy
     user == record.user || user.admin
   end
 
+  def approve?
+    user.admin
+  end
+
+
   class Scope < Scope
     def resolve
       scope.all

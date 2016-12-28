@@ -1,5 +1,11 @@
-
 <div class="container">
+  <div class="row">
+    <div class="pending-reviews">
+      <h2>
+        Dear God among men, there are <%= @pending_reviews.size  %> reviews pending your approval.
+      </h2>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-6">
       <%  @pending_reviews.each do |review| %>
@@ -18,6 +24,9 @@
             <p>
               <%= review.content %>
             </p>
+          </div>
+          <div class="approve-btn">
+            <%= link_to 'I Approve!', movies_pending_approve_path(review), class: "btn btn-primary"  %>
           </div>
         </div>
       </div>
