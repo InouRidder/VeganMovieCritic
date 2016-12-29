@@ -27,6 +27,7 @@
           </div>
           <div class="approve-btn">
             <%= link_to 'I Approve!', movies_pending_approve_path(review), class: "btn btn-primary"  %>
+            <%= link_to 'Hell no', movie_review_path(review.movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
           </div>
         </div>
       </div>

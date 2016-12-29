@@ -2,6 +2,17 @@ class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
 
+  def set_rating
+    if self.reviews.size > 0
+      sum = 0
+      self.reviews.each do |e|
+        sum += e.rating
+      end
+        self.rating = sum / self.reviews.size
+    else
+      self.rating = 0
+    end
+  end
 
   def user_rating
     a = 0
@@ -9,7 +20,7 @@ class Movie < ApplicationRecord
       self.reviews.each do |e|
         a += e.rating
       end
-        return (a / self.reviews.length)
+        return (a / self.reviews.size)
     end
   end
 end

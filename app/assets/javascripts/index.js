@@ -9,7 +9,6 @@ $(document).ready(function(){
       type: 'GET',
       url: baseUrl + id + '/partial',
       success: function(data) {
-        $('.content-review-index').html("");
         $('.content-review-index').append(data);
       },
       error: function(html){

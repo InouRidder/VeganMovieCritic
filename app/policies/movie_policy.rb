@@ -28,6 +28,10 @@ class MoviePolicy < ApplicationPolicy
     true
   end
 
+  def top10?
+    true
+  end
+
    class Scope < Scope
     def resolve
       scope.all

@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>
+    Top 10 Highest Rated Movies!
+  </h2>
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="scrollbox">
+        <div class="list">
+          <% @top_movies.each do |movie| %>
+          <div class="list-item">
+            <ol>
+              <li>
+               <%= link_to "#{movie.title}", movie_path(movie), class: "click-btn" %>
+             </li>
+           </ol>
+         </div>
+         <% end %>
+       </div>
+     </div>
+   </div>
+   <div class="col-xs-6">
+     <div class="review-index">
+      <div class="content-review-index">
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,9 +1,9 @@
 
 <div class="container">
-<h1> Highest Rated Reviews</h1>
+  <h1> Highest Rated Reviews</h1>
   <div class="row">
-  <% if @highest_reviews %>
-      <% @highest_reviews.each do |review| %>
+    <% if @highest_reviews %>
+    <% @highest_reviews.each do |review| %>
     <div class="col-xs-12 col-sm-6">
       <div class="card">
         <div class="card-background">
@@ -25,11 +25,12 @@
         </div>
       </div>
     </div>
-      <% end %>
-      <% else %>
-  <% raise %>
-      <h2> Not a single review has been rated </h2>
-      <% end %>
-  </div>
+    <% end %>
+    <% else %>
+    <h2>
+     Not a single review has been rated
+   </h2>
+   <% end %>
+ </div>
 </div>
 

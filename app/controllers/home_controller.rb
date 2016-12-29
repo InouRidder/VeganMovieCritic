@@ -6,5 +6,9 @@ class HomeController < ApplicationController
     authorize (Review.first)
   end
 
+  def landing
+    @disable_nav = true
+    authorize (Review.first)
+  end
 end
 

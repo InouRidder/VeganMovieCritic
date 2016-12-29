@@ -8,10 +8,11 @@ Rails.application.routes.draw do
     get 'movies/highrated', to: 'movies#highrated'
     get 'movies/pending', to: 'movies#pending'
     get 'movies/pending/approve/', to: 'reviews#approve'
-
+    get '/home', to: 'home#home'
+    get '/movies/2016', to: 'movies#top10'
     resources :movies do
       resources :reviews
     end
-  root to: 'home#home'
+  root to: 'home#landing'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

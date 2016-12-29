@@ -16,11 +16,14 @@
     <% if user_signed_in? %>
 
     <!-- Notification -->
+      <% if current_user %>
+      <% if current_user.admin %>
     <%= link_to "/admin", class: "navbar-wagon-item navbar-wagon-link" do %>
     <div class="badge-container">
       <i class="fa fa-lock"></i>
-      <div class="badge badge-blue"></div>
     </div>
+      <% end %>
+    <% end %>
     <% end %>
 
     <!-- Profile picture and dropdown -->
@@ -58,26 +61,20 @@
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <%= link_to t(".top_call_to_action", default: "Archives"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
+      <% if current_user %>
     <% if current_user.admin %>
     <%= link_to t(".top_call_to_action", default: "Pending #{Review.where(approved: false).size}"), movies_pending_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <% end %>
+    <% end %>
+
 
     <%= link_to t(".top_call_to_action", default: "Whats New?"), movies_newest_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
-    <%= link_to t(".top_call_to_action", default: "Rating"), movies_highrated_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Top 10"), movies_2016_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <!-- Button (call-to-action) -->
     <%= link_to t(".top_call_to_action", default: "Add a Review"), new_movie_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
-
-  <!-- Search form -->
-  <form action="" class="navbar-wagon-search">
-    <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-    <button type="submit" class="navbar-wagon-search-btn">
-      <i class="fa fa-search"></i>
-    </button>
-  </form>
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
@@ -89,7 +86,11 @@
         <li><a href="/movies/archives">Archive</a></li>
         <li><a href="/movies/newest"> Newest</a></li>
         <li><a href="/movies/new"> Add A Review! </a></li>
+        <% if current_user %>
+        <% if current_user.admin %>
         <li><a href="/admin"> Admin Panel</a></li>
+        <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
