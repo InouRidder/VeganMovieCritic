@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     get 'movies/highrated', to: 'movies#highrated'
     get 'movies/pending', to: 'movies#pending'
     get 'movies/pending/approve/', to: 'reviews#approve'
-    get '/home', to: 'home#home'
-    get '/movies/2016', to: 'movies#top10'
+    get 'home', to: 'home#home'
+    get 'movies/2016', to: 'movies#top10'
     resources :movies do
       resources :reviews
     end
