@@ -10,7 +10,7 @@
         <div class="list">
           <% @movies.each do |movie| %>
           <div class="list-item">
-           <%= link_to "#{movie.title}", movie_path(movie), class: "super-btn" %>
+           <%= link_to "#{movie.title}", movie_path(movie), class: "click-btn" %>
          </div>
          <% end %>
        </div>

@@ -1,10 +1,10 @@
-<h1> Newest movies! </h1>
 
 
 <div class="container">
+<h1> Our latest Reviews! </h1>
   <div class="row">
-    <div class="col-xs-6">
-      <% @newest_reviews.each do |review| %>
+    <% @newest_reviews.each do |review| %>
+    <div class="col-sm-6 col-xs-12">
       <div class="card">
         <div class="card-background">
           <div class="card-title">
@@ -22,11 +22,9 @@
               <%= review.content %>
             </p>
           </div>
-
-          <div class="card-approval">
-          <%#= link_to 'Approve',   %>
-
-          </div>
         </div>
       </div>
-      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
