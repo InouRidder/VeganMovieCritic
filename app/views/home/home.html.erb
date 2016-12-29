@@ -1,4 +1,4 @@
-<meta HTTP-EQUIV="REFRESH" content="2; url=localhost:3000/movies">
+<meta HTTP-EQUIV="REFRESH" content="2; url=https://veganmoviecritic.herokuapp.com/home">
 </meta>
 
 
@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <div class="home-content" style="padding: 30px;">
+        <div class="home-content">
           <h3>
            Being Vegan and Watching Movies
          </h3>
@@ -17,16 +17,16 @@
          </blockquote>
          <div class="row">
            <div class="col-xs-4">
-            <%= link_to "Archives", movies_path, class: "btn btn-primary" %>
+            <%= link_to "Archives", movies_path, class: "btn vegan-btn" %>
           </div>
           <div class="col-xs-4">
-            <%= link_to "Whats New?", movies_newest_path, class: "btn btn-primary" %>
+            <%= link_to "Whats New?", movies_newest_path, class: "btn vegan-btn" %>
           </div>
           <div class="col-xs-4">
-            <%= link_to "Rating", movies_highrated_path, class: "btn btn-primary" %>
+            <%= link_to "Rating", movies_highrated_path, class: "btn vegan-btn" %>
           </div>
           <div class="col-xs-12">
-            <%= link_to "Review", new_movie_path, class: "btn btn-primary" %>
+            <%= link_to "Review", new_movie_path, class: "btn vegan-btn" %>
           </div>
         </div>
       </div>

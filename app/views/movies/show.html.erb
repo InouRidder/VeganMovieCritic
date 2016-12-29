@@ -46,10 +46,10 @@
 
           <div class="card-btns">
             <% if policy(review).update? %>
-            <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn btn-primary"  %>
+            <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn vegan-btn"  %>
             <% end %>
             <% if policy(review).destroy? %>
-            <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+            <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
             <% end %>
           </div>
         <% end %>

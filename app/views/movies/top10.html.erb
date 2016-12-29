@@ -8,11 +8,7 @@
         <div class="list">
           <% @top_movies.each do |movie| %>
           <div class="list-item">
-            <ol>
-              <li>
-               <%= link_to "#{movie.title}", movie_path(movie), class: "click-btn" %>
-             </li>
-           </ol>
+           <%= link_to "#{movie.title}", movie_path(movie), class: "click-btn" %>
          </div>
          <% end %>
        </div>
