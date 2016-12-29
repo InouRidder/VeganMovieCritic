@@ -16,6 +16,10 @@ class ReviewPolicy < ApplicationPolicy
     user.admin
   end
 
+  def home?
+    true
+  end
+
 
   class Scope < Scope
     def resolve

@@ -1,10 +1,10 @@
 baseUrl = 'http://localhost:3000/'
 
 $(document).ready(function(){
-  $(".super-btn").click(function(){
+  $(".click-btn").click(function(){
     event.preventDefault();
     id = $(this).attr('href');
-    // $('.content-review-index').empty();
+    $('.content-review-index').empty();
     $.ajax({
       type: 'GET',
       url: baseUrl + id + '/partial',
@@ -19,20 +19,20 @@ $(document).ready(function(){
   });
 });
 
-window.onload = function(){
-  var items = $('.card');
-  $('.movie-info').append("I FOUND YOU");
-  var currentItem = items.filter('.active');
-  $(".next-button").on('click', function() {
-    console.log("hello world");
-    var nextItem = currentItem.next();
-    currentItem.removeClass('active');
-    if ( nextItem.length ) {
-      currentItem = nextItem.addClass('active');
-    } else {
-        // If you want it to loop around
-        currentItem = items.first().addClass('active');
-      };
-    });
-};
+// window.onload = function(){
+//   var items = $('.card');
+//   $('.movie-info').append("I FOUND YOU");
+//   var currentItem = items.filter('.active');
+//   $(".next-button").on('click', function() {
+//     console.log("hello world");
+//     var nextItem = currentItem.next();
+//     currentItem.removeClass('active');
+//     if ( nextItem.length ) {
+//       currentItem = nextItem.addClass('active');
+//     } else {
+//         // If you want it to loop around
+//         currentItem = items.first().addClass('active');
+//       };
+//     });
+// };
 

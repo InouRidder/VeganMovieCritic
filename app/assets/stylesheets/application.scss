@@ -18,6 +18,14 @@ body {
   background-color: $gray;
 }
 
+h2 {
+  font-size: 32px;
+  position:relative;
+  padding:10px 5px;
+  display: inline-block;
+  color: #474A48;
+}
+
 .title {
   left-padding: 60px;
   display: flex;
