@@ -1,12 +1,18 @@
-  <div class="container">
+    <div class="col-xs-12">
+      <div class="movie-title">
+        <h1>
+          <%= @movie.title  %>
+        </h1>
+      </div>
+    </div>
+<div class="container">
+
+  <% @movie.reviews.each_with_index do |review, i| %>
+
+  <% if i == 0   %>
+  <div class="next-method">
     <div class="row">
-      <div class="col-xs-12">
-        <div class="movie-title">
-          <h1>
-            <%= @movie.title  %>
-          </h1>
-        </div>
-        <% @movie.reviews.each do |review| %>
+      <div class="col-xs-12 col-sm-6">
         <div class="card">
           <div class="card-background">
             <div class="card-title">
@@ -28,7 +34,7 @@
             <div class="card-rating">
 
               <% if review.has_rated %>
-              review rating: <%= review.user_rating  %>
+              review rating: <%= review.set_rating  %>
               <% else %>
               <%= form_for @review_rating do |f|%>
 
@@ -42,8 +48,6 @@
               <% end %>
             </div>
           </div>
-        </div>
-
           <div class="card-btns">
             <% if policy(review).update? %>
             <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn vegan-btn"  %>
@@ -52,33 +56,87 @@
             <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
             <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
+    </div>
+  </div>
 
+  <% else  %>
 
-      <div class="col-xs-3">
-        <div class="movie-info">
-
-          <div class="movie-info-box">
-            <%= @movie.plot  %>
-            <br>
-            <div class=movie-ratings>
+  <div class="next-method hidden">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="card">
+          <div class="card-background">
+            <div class="card-title">
+              <h3>
+                <%= review.title %>,
+              </h3>
+              rated: <%= review.rating %>
               <p>
-                User Rating: <%= @movie.user_rating  %>
+                by <%= review.user.email   %>
               </p>
             </div>
-            <div class="movie-poster">
-              <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
+
+            <div class="card-content">
+              <p>
+                <%= review.content %>
+              </p>
             </div>
+
+            <div class="card-rating">
+
+              <% if review.has_rated %>
+              review rating: <%= review.set_rating  %>
+              <% else %>
+              <%= form_for @review_rating do |f|%>
+
+              <%= f.hidden_field :review, value: review.id %>
+
+              <%= f.label :rating %>
+              <%= f.select :rating, [1,2,3,4,5] %>
+
+              <%= f.submit "Submit" %>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-btns">
+            <% if policy(review).update? %>
+            <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn vegan-btn"  %>
+            <% end %>
+            <% if policy(review).destroy? %>
+            <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
+            <% end %>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
+  <% end %>
+  <% end %>
 
+  <button class="next-btn"> Next </button>
+  <button class="prev-btn"> Previous </button>
 
+  <div class="col-xs-3">
+    <div class="movie-info">
 
+      <div class="movie-info-box">
+        <%= @movie.plot  %>
+        <br>
+        <div class=movie-ratings>
+          <p>
+            User Rating: <%= @movie.user_rating  %>
+          </p>
+        </div>
+        <div class="movie-poster">
+          <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 

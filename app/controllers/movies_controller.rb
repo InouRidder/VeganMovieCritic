@@ -12,7 +12,12 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @reviews = @movie.reviews.where(approved: true)
+    array = @movie.reviews.where(approved: true)
+    array.each do |review|
+      review.set_rating
+      review.save!
+    end
+    @reviews = @movie.reviews.where(approved: true).order(rating: :desc)
     @review_rating = ReviewRating.new
     @user = current_user
   end
@@ -72,7 +77,7 @@ class MoviesController < ApplicationController
   def highrated
     reviews = Review.where(approved: true)
     reviews.each do |review|
-      review.user_rating
+      review.set_rating
       review.save!
     end
     @highest_reviews = Review.where(approved: true).order(rating: :desc)

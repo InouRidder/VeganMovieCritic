@@ -4,7 +4,7 @@ class Review < ApplicationRecord
   has_many :review_ratings
 
 
-  def user_rating
+  def set_rating
     if self.review_ratings.size > 0
       sum = 0
       self.review_ratings.each do |e|

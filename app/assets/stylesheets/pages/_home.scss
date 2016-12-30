@@ -7,6 +7,7 @@
  color: $gray;
  background-color: $black;
  margin: 10px;
+ border: $black solid 1px;
  transition: 400ms ease;
 }
 
@@ -14,6 +15,7 @@
   opacity: 0.8;
   background-color: $gray;
   color: $black;
+  border: $red solid 1px;
 }
 
 .home-content h3{
