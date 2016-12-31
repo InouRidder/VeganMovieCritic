@@ -4,11 +4,10 @@ require 'open-uri'
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
   before_action :disable_nav, only: [:partial]
-  before_action :find_user, only: [:pending]
+  before_action :find_user, only: [:pending, :index, :rated, :show, :alphabetical]
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
-    @user = current_user
   end
 
   def show
@@ -19,7 +18,6 @@ class MoviesController < ApplicationController
     end
     @reviews = @movie.reviews.where(approved: true).order(rating: :desc)
     @review_rating = ReviewRating.new
-    @user = current_user
   end
 
   def new
@@ -104,6 +102,16 @@ class MoviesController < ApplicationController
 
   def pending
     @pending_reviews = Review.where(approved: false)
+    authorize (Movie.first)
+  end
+
+  def rated
+    @movies = Movie.order(rating: :desc)
+    authorize (Movie.first)
+  end
+
+  def alphabetical
+    @movies = Movie.order(:title)
     authorize (Movie.first)
   end
 

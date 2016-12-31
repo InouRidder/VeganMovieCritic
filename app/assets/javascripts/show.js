@@ -9,5 +9,6 @@ $(document).ready(function(){
     $(".next-method").prev().removeClass("hidden");
     $(".next-method").next().addClass("hidden");
     $(".next-btn").removeClass("hidden");
+    $(".col-xs-2 pull-right").removeClass("hidden");
   });
 });

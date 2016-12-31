@@ -1,28 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="pending-reviews">
+    <div class="pending-reviews text-center">
       <h2>
         Dear God among men, there are <%= @pending_reviews.size  %> reviews pending your approval.
       </h2>
     </div>
   </div>
   <div class="row">
-      <%  @pending_reviews.each do |review| %>
-    <div class="col-sm-6 col-xs-12 ">
+   <% @pending_reviews.each do |review| %>
+    <div class="col-xs-12 col-sm-6">
       <div class="card">
-        <div class="card-background">
-          <div class="card-title">
-            <h3>
-              <%= review.title %>,
-            </h3>
-            rated: <%= review.rating %>
-            <p>
-              by <%= review.user.email   %>
-            </p>
-          </div>
+        <div class="text-center">
+          <h3>
+            Movie: <%= review.movie.title %> <br>
+            Title:  <%= review.title %>,
+          </h3>
+            Rating: <%= review.rating %>
+          <p>
+            Username: <%= review.user.username   %>
+            <br>
+            <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+          </p>
           <div class="card-content">
             <p>
-              <%= review.content %>
+              <%= review.content[0..100] %> ...
             </p>
           </div>
           <div class="approve-btn">
@@ -31,7 +32,8 @@
           </div>
         </div>
       </div>
-      <% end %>
     </div>
+  <% end %>
   </div>
 </div>
+

@@ -1,30 +1,33 @@
 
 
+<h1 class="text-center">
+ Our latest Reviews!
+</h1>
 <div class="container">
-<h1> Our latest Reviews! </h1>
-  <div class="row">
-    <% @newest_reviews.each do |review| %>
-    <div class="col-sm-6 col-xs-12">
-      <div class="card">
-        <div class="card-background">
-          <div class="card-title">
-            <h3>
-              <%= review.title %>,
-            </h3>
-            rated: <%= review.rating %>
-            <p>
-              by <%= review.user.email   %>
-            </p>
-          </div>
-
-          <div class="card-content">
-            <p>
-              <%= review.content %>
-            </p>
-          </div>
+ <div class="row">
+   <% @newest_reviews.each do |review| %>
+   <div class="col-xs-12 col-sm-6">
+    <div class="card">
+      <div class="text-center">
+        <h3>
+          Movie: <%= review.movie.title %> <br>
+          Title:  <%= review.title %>,
+        </h3>
+        Rating: <%= review.rating %>
+        <p>
+          Username: <%= review.user.username   %>
+        </p>
+        <div class="card-content">
+          <p>
+            <%= review.content[0..100] %> ...
+          </p>
+        </div>
+        <div class="card-btns">
+          <%= link_to "See this review!", movie_review_path(review.movie, review), class: "btn vegan-btn" %>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
+  <% end %>
+</div>
 </div>

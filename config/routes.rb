@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get '/movies/pending/approve', to: 'reviews#approve'
     get '/home', to: 'home#home'
     get '/movies/2016', to: 'movies#top10'
+    get '/movies/alphabetical', to: 'movies#alphabetical'
+    get '/movies/rated', to: 'movies#rated'
+
     resources :movies do
       resources :reviews
     end

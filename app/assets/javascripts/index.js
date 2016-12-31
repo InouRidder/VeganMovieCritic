@@ -1,6 +1,6 @@
 // CHANGE WHEN PUSHING TO HEROKU!
 
-baseUrl = 'http://localhost:3000/'
+baseUrl = 'http://veganmoviecritic.herokuapp.com/'
 
 $(document).ready(function(){
   $(".click-btn").click(function(){

@@ -1,10 +1,10 @@
-    <div class="col-xs-12">
-      <div class="movie-title">
-        <h1>
-          <%= @movie.title  %>
-        </h1>
-      </div>
-    </div>
+<div class="col-xs-12 text-center">
+  <div class="movie-title">
+    <h1>
+      <%= @movie.title  %>
+    </h1>
+  </div>
+</div>
 <div class="container">
 
   <% @movie.reviews.each_with_index do |review, i| %>
@@ -12,43 +12,50 @@
   <% if i == 0   %>
   <div class="next-method">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="card">
-          <div class="card-background">
-            <div class="card-title">
-              <h3>
-                <%= review.title %>,
-              </h3>
-              rated: <%= review.rating %>
-              <p>
-                by <%= review.user.email   %>
-              </p>
-            </div>
+      <div class="col-xs-12 col-sm-5 text-right hidden-xs">
+        <%= image_tag "#{@movie.poster}", class: "poster-info-box "  %>
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <div class="card-info text-left">
+          <h3>
+            Title:  <%= review.title %>,
+          </h3>
+          Rating: <%= review.rating %>
+          <p>
+            Username: <%= review.user.username   %>
+            <br>
+            <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-center">
 
-            <div class="card-content">
-              <p>
-                <%= review.content %>
-              </p>
-            </div>
+        <div class="card-content-show">
+          <p>
+            <%= review.content %>
+          </p>
+        </div>
 
-            <div class="card-rating">
+        <div class="card-rating">
 
-              <% if review.has_rated %>
-              review rating: <%= review.set_rating  %>
-              <% else %>
-              <%= form_for @review_rating do |f|%>
+          <% if review.has_rated %>
+          review rating: <%= review.set_rating  %>
+          <% else %>
+          <%= form_for @review_rating do |f|%>
 
-              <%= f.hidden_field :review, value: review.id %>
+          <%= f.hidden_field :review, value: review.id %>
 
-              <%= f.label :rating %>
-              <%= f.select :rating, [1,2,3,4,5] %>
+          <%= f.label :rating %>
+          <%= f.select :rating, [1,2,3,4,5] %>
 
-              <%= f.submit "Submit" %>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div class="card-btns">
+          <%= f.submit "Submit" %>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="col-xs-12">
+          <div class="card-btns center-block">
             <% if policy(review).update? %>
             <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn vegan-btn"  %>
             <% end %>
@@ -59,49 +66,56 @@
         </div>
       </div>
     </div>
+
   </div>
+
 
   <% else  %>
 
   <div class="next-method hidden">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="card">
-          <div class="card-background">
-            <div class="card-title">
-              <h3>
-                <%= review.title %>,
-              </h3>
-              rated: <%= review.rating %>
-              <p>
-                by <%= review.user.email   %>
-              </p>
-            </div>
+      <div class="col-xs-12 col-sm-5 text-right hidden-xs">
+        <%= image_tag "#{@movie.poster}", class: "poster-info-box "  %>
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <div class="card-info text-left">
+          <h3>
+            Title:  <%= review.title %>,
+          </h3>
+          Rating: <%= review.rating %>
+          <p>
+            Username: <%= review.user.username   %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-center">
 
-            <div class="card-content">
-              <p>
-                <%= review.content %>
-              </p>
-            </div>
+        <div class="card-content-show">
+          <p>
+            <%= review.content %>
+          </p>
+        </div>
 
-            <div class="card-rating">
+        <div class="card-rating">
 
-              <% if review.has_rated %>
-              review rating: <%= review.set_rating  %>
-              <% else %>
-              <%= form_for @review_rating do |f|%>
+          <% if review.has_rated %>
+          review rating: <%= review.set_rating  %>
+          <% else %>
+          <%= form_for @review_rating do |f|%>
 
-              <%= f.hidden_field :review, value: review.id %>
+          <%= f.hidden_field :review, value: review.id %>
 
-              <%= f.label :rating %>
-              <%= f.select :rating, [1,2,3,4,5] %>
+          <%= f.label :rating %>
+          <%= f.select :rating, [1,2,3,4,5] %>
 
-              <%= f.submit "Submit" %>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div class="card-btns">
+          <%= f.submit "Submit" %>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="col-xs-12">
+          <div class="card-btns center-block">
             <% if policy(review).update? %>
             <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn vegan-btn"  %>
             <% end %>
@@ -117,26 +131,11 @@
   <% end %>
   <% end %>
 
-  <button class="next-btn"> Next </button>
-  <button class="prev-btn"> Previous </button>
+  <button class="next-btn pull-right"> Next </button>
+  <button class="prev-btn pull-left"> Previous </button>
 
-  <div class="col-xs-3">
-    <div class="movie-info">
 
-      <div class="movie-info-box">
-        <%= @movie.plot  %>
-        <br>
-        <div class=movie-ratings>
-          <p>
-            User Rating: <%= @movie.user_rating  %>
-          </p>
-        </div>
-        <div class="movie-poster">
-          <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
 
 
