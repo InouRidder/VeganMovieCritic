@@ -1,9 +1,10 @@
+
 <div class="container">
   <h2>
-    Top 10 Highest Rated Movies!
+    Our Top 10 Highest Rated Movies
   </h2>
   <div class="row">
-    <div class="col-xs-3">
+    <div class="col-sm-6 hidden-xs">
       <div class="scrollbox">
         <div class="list">
           <% @top_movies.each do |movie| %>
@@ -14,11 +15,27 @@
        </div>
      </div>
    </div>
-   <div class="col-xs-6">
+
+  <div class="visible-xs-block xs-12">
+    <div class="scrollbox-small">
+      <div class="list">
+        <% @top_movies.each do |movie| %>
+        <div class="list-item">
+          <%= link_to "#{movie.title}", movie_path(movie), class: "" %>
+        </div>
+        <% end %>
+      </div>
+     </div>
+   </div>
+
+   <div class="col-xs-6 hidden-xs">
      <div class="review-index">
       <div class="content-review-index">
       </div>
     </div>
   </div>
 </div>
+
+
+
 </div>

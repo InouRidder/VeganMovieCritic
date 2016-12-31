@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :find_user, only: [:create, :update]
 
   def show
+    @review_rating = ReviewRating.new
   end
 
   def new

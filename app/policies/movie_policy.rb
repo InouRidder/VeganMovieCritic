@@ -32,6 +32,14 @@ class MoviePolicy < ApplicationPolicy
     true
   end
 
+  def rated?
+    true
+  end
+
+  def alphabetical?
+    true
+  end
+
    class Scope < Scope
     def resolve
       scope.all
