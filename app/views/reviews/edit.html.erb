@@ -1,18 +1,26 @@
-<h4>
-  Edit Review
-</h4>
+<div class="container">
+  <div class="row">
+  <div class="col-sm-4 hidden-xs">
 
-<%= form_for ([@movie, @review]) do |f| %>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+      <div class="review-form">
+        <%= form_for ([@movie, @review]) do |f| %>
+        <p> Title</p>
+        <div class="title-form">
+          <%= f.text_area :title, class: "title-form" %>
+        </div>
 
-<%= f.label :title %>
-<%= f.text_field :title %>
+        <p> Review </p>
+        <div class="content-form ">
+          <%= f.text_area :content, class: "content-form" %>
+        </div>
+        <%= f.label :rating %>
+        <%= f.select :rating, [0,1,2,3,4,5] %>
 
-<%= f.label :content %>
-<%= f.text_field :content %>
-
-<%= f.label :rating %>
-<%= f.select :rating, [0,1,2,3,4,5] %>
-
-<%= f.submit %>
-
-<% end %>
+        <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
