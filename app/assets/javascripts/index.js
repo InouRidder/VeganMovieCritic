@@ -1,6 +1,6 @@
 // CHANGE WHEN PUSHING TO HEROKU!
 
-baseUrl = 'http://veganmoviecritic.herokuapp.com/'
+baseUrl = 'https://veganmoviecritic.herokuapp.com/'
 
 $(document).ready(function(){
   $(".click-btn").click(function(){
