@@ -5,6 +5,9 @@
           <h1>
             <%= @movie.title  %>
           </h1>
+          <p>
+            users rating: <%= @movie.user_rating %>
+          </p>
         </div>
 
         <% if @review %>
@@ -66,11 +69,6 @@
           <div class="movie-info-box">
             <%= @movie.plot  %>
             <br>
-            <div class=movie-ratings>
-              <p>
-                User Rating: <%= @movie.user_rating  %>
-              </p>
-            </div>
             <div class="movie-poster">
               <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
             </div>

@@ -1,6 +1,9 @@
 class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
+  def best_review
+    self.reviews.where(approved: true).order(rating: :desc)[0]
+  end
 
   def set_rating
     if self.reviews.size > 0
