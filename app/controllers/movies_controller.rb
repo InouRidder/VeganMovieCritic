@@ -91,7 +91,7 @@ class MoviesController < ApplicationController
       movie.rating = movie.set_rating
       movie.save!
     end
-    @top_movies = Movie.order(rating: :desc)[1..10]
+    @movies = Movie.order(rating: :desc)[1..10]
     @review_rating = ReviewRating.new
     authorize (Movie.first)
   end
