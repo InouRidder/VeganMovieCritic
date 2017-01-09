@@ -15,6 +15,7 @@ gem 'devise'
 gem 'redis'
 gem 'pundit'
 gem 'json'
+gem 'pg_search'
 
 gem 'sass-rails'
 gem 'jquery-rails'

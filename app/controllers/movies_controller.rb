@@ -67,6 +67,11 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def results
+    @movies = Movie.search_title(params[:title])
+    authorize (Movie.first)
+  end
+
   def partial
     @review = @movie.reviews.where(approved: :true).order(rating: :desc)[0]
     @review_rating = ReviewRating.new

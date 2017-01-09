@@ -12,6 +12,10 @@ class MoviePolicy < ApplicationPolicy
     user.admin
   end
 
+  def results?
+    true
+  end
+
   def most_reviewed?
     true
   end

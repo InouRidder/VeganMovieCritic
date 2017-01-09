@@ -87,9 +87,9 @@
         <li><a href="/movies/newest"> Newest</a></li>
         <li><a href="/movies/new"> Add A Review! </a></li>
         <% if current_user %>
-        <% if current_user.admin %>
+          <% if current_user.admin %>
         <li><a href="/admin"> Admin Panel</a></li>
-        <% end %>
+          <% end %>
         <% end %>
       </ul>
     </div>

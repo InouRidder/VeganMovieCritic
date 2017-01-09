@@ -1,5 +1,10 @@
 class Movie < ApplicationRecord
+
+  include PgSearch
+  pg_search_scope :search_title, :against => [:title]
+
   has_many :reviews
+
 
   def best_review
     self.reviews.where(approved: true).order(rating: :desc)[0]

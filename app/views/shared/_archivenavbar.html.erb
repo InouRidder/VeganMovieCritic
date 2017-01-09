@@ -50,26 +50,24 @@
   </div>
 
 
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="/movies/pending">Pending</a></li>
-        <li><a href="/movies/rated">Rated</a></li>
-        <li><a href="/movies">Archive</a></li>
-        <li><a href="/movies/newest"> Newest</a></li>
-        <li><a href="/movies/new"> Add A Review! </a></li>
-        <li><a href="/admin"> Admin Panel</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <form action="" class="navbar-wagon-search">
-    <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+    <form accept-charset="UTF-8" method='get' action='movies/results' class="navbar-wagon-search">
+    <input type="text" class="navbar-wagon-search-input" name="title" placeholder="Search for a movie">
     <button type="submit" class="navbar-wagon-search-btn">
       <i class="fa fa-search"></i>
     </button>
   </form>
 
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      Sorting methods
+        <li><a href="/movies/alphabetical">Alphabetical</a></li>
+        <li><a href="/movies/rated">Best Rated</a></li>
+        <li><a href="/movies">Newest</a></li>
+        <li><a href="/movies/most-reviewed"> Most Reviewed</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
