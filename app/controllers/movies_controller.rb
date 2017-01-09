@@ -98,9 +98,8 @@ class MoviesController < ApplicationController
 
   def most_reviewed
       # Add class method : reviews, save size of array -> then sort class in object.
-    @movies = Movie.all
-    @most_reviewed = []
-    @movies.each do |e|
+    movies = Movie.all
+    movies.each do |e|
       e.set_times_reviewed
     end
     @most_reviewed = Movie.where("times_reviewed > ?", 0).order(times_reviewed: :desc)[1..10]

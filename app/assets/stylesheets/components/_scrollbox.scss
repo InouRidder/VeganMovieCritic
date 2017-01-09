@@ -1,13 +1,14 @@
 .scrollbox {
-  height: 80vh;
+  height: 100vh;
   width: 100%;
-  max-width:200px;
+  max-width:250px;
   overflow-x: visible;
   overflow-y: auto;
   background-color:$black;
   color:white;
   font-family:sans-serif;
   border-radius: 4px;
+  margin-top: 5%;
 }
 .scrollbox-small {
   height: 100vh;
@@ -27,10 +28,13 @@
   align-text: left;
   padding: 13px;
   color: $gray;
+  transition: 400ms ease;
+  text-decoration: none;
 }
 
 .list-item:hover {
-  opacity: 0.3;
+  background-color: $red;
+  color: $gray;
 }
 
 .list {

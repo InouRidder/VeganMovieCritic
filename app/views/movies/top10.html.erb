@@ -6,9 +6,7 @@
     <div class="scrollbox-small">
       <div class="list">
         <% @top_movies.each_with_index do |movie, i| %>
-        <div class="list-item">
-          <%= link_to "#{i + 1}. #{movie.title}", movie_path(movie), class: "" %>
-        </div>
+          <%= link_to "#{i + 1}. #{movie.title}", movie_path(movie), class: "list-item" %>
         <% end %>
       </div>
      </div>
@@ -18,9 +16,7 @@
       <div class="scrollbox">
         <div class="list">
           <% @top_movies.each_with_index do |movie, i| %>
-          <div class="list-item">
-           <%= link_to "#{i + 1}. #{movie.title}", movie_path(movie), class: "click-btn" %>
-         </div>
+           <%= link_to "#{i + 1}. #{movie.title}", movie_path(movie), class: "click-btn list-item" %>
          <% end %>
        </div>
      </div>
