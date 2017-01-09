@@ -1,24 +1,26 @@
 <div class="container">
-  <div class="row">
+ <div class="row">
    <% @newest_reviews.each do |review| %>
-    <div class="col-xs-12 col-sm-6">
-      <div class="card text-center">
-        <div class="card-header">
-          <h3>
-            <%= review.title %>
-          </h3>
-        </div>
-        <div class="card-block">
-          <div class="card-text">
-              <p>
-                <%= review.content[0..50] %>
-              </p>
-              <footer>
-                <cite>
-                 <%= review.rating %>
-               </cite>
-              </footer>
-          </div>
+   <div class="col-xs-12 col-sm-6">
+    <div class="card">
+      <div class="text-center">
+        <h3>
+          <%= review.title %>,
+        </h3>
+        <p>
+        </p>
+        <div class="card-content">
+          <p>
+            <%= review.content[0..100] %>
+          </p>
+          By: <%= review.user.username ? review.user.username : review.user.email   %>
+          <br>
+          Rating: <%= review.rating %>
+          <br>
+          <strong> <%= review.movie.title  %>
+          </strong>
+          <br>
+          <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
         </div>
         <div class="card-btns">
           <%= link_to "See more", movie_review_path(review.movie, review), class: "btn vegan-btn" %>
@@ -27,4 +29,5 @@
     </div>
   </div>
   <% end %>
+</div>
 </div>
