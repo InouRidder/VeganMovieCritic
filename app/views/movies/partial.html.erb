@@ -1,6 +1,62 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+
+      <% if @review %>
+      <div class="card">
+        <div class="card-background">
+          <div class="card-title">
+            <h3>
+              <%= @review.title %>,
+            </h3>
+            rated: <%= @review.rating %>
+            <p>
+              by <%= @review.user.email   %>
+            </p>
+          </div>
+
+          <div class="card-content">
+            <p>
+              <%= @review.content %>
+            </p>
+          </div>
+
+          <div class="card-rating">
+
+            <% if @review.has_rated %>
+            review rating: <%= @review.user_rating  %>
+            <% else %>
+            <%= form_for @review_rating do |f|%>
+
+            <%= f.hidden_field :review, value: @review.id %>
+
+            <%= f.label :rating %>
+            <%= f.select :rating, [1,2,3,4,5] %>
+
+            <%= f.submit "Submit" %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-btns">
+        <% if policy(@review).update? %>
+        <%= link_to 'Edit Review', edit_movie_review_path(@movie, @review), class: "btn vegan-btn"  %>
+        <% end %>
+        <% if policy(@review).destroy? %>
+        <%= link_to 'Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
+        <% end %>
+        <%= link_to 'More Reviews', movie_path(@movie), class: "btn vegan-btn" %>
+      </div>
+      <% else %>
+      <p> No Reviews Yet!</p>
+      <% end %>
+    </div>
+
+
+    <div class="col-xs-3">
+      <div class="movie-info">
         <div class="movie-title">
           <h1>
             <%= @movie.title  %>
@@ -10,68 +66,11 @@
           </p>
         </div>
 
-        <% if @review %>
-        <div class="card">
-          <div class="card-background">
-            <div class="card-title">
-              <h3>
-                <%= @review.title %>,
-              </h3>
-              rated: <%= @review.rating %>
-              <p>
-                by <%= @review.user.email   %>
-              </p>
-            </div>
-
-            <div class="card-content">
-              <p>
-                <%= @review.content %>
-              </p>
-            </div>
-
-            <div class="card-rating">
-
-              <% if @review.has_rated %>
-              review rating: <%= @review.user_rating  %>
-              <% else %>
-              <%= form_for @review_rating do |f|%>
-
-              <%= f.hidden_field :review, value: @review.id %>
-
-              <%= f.label :rating %>
-              <%= f.select :rating, [1,2,3,4,5] %>
-
-              <%= f.submit "Submit" %>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-btns">
-          <% if policy(@review).update? %>
-          <%= link_to 'Edit Review', edit_movie_review_path(@movie, @review), class: "btn vegan-btn"  %>
-          <% end %>
-          <% if policy(@review).destroy? %>
-          <%= link_to 'Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
-          <% end %>
-          <%= link_to 'More Reviews', movie_path(@movie), class: "btn vegan-btn" %>
-        </div>
-        <% else %>
-        <p> No Reviews Yet!</p>
-        <% end %>
-      </div>
-
-
-      <div class="col-xs-3">
-        <div class="movie-info">
-
-          <div class="movie-info-box">
-            <%= @movie.plot  %>
-            <br>
-            <div class="movie-poster">
-              <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
-            </div>
+        <div class="movie-info-box">
+          <%= @movie.plot  %>
+          <br>
+          <div class="movie-poster">
+            <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
           </div>
         </div>
       </div>

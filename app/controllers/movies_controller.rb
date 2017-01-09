@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
   before_action :disable_nav, only: [:partial]
   before_action :find_user, only: [:pending, :index, :rated, :show, :alphabetical]
+  skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated, :alphabetical]
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
@@ -97,14 +98,14 @@ class MoviesController < ApplicationController
 
   def most_reviewed
       # Add class method : reviews, save size of array -> then sort class in object.
-    # @movies = Movie.all
-    # @most_reviewed = []
-    # @movies.each do |e|
-    #   @most_reviewed <<
-
-    # end
+    @movies = Movie.all
+    @most_reviewed = []
+    @movies.each do |e|
+      e.set_times_reviewed
+    end
+    @most_reviewed = Movie.where("times_reviewed > ?", 0).order(times_reviewed: :desc)[1..10]
+    authorize (Movie.first)
   end
-
 
   def newest
     @newest_reviews = Review.where(approved: true).order(created_at: :desc)

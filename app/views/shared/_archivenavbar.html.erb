@@ -1,12 +1,5 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path class: "vmr-logo" do %>
-  <div class="vmr-logo">
-    <h4>
-      Vegan Movie Critic
-    </h4>
-  </div>
-  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -14,17 +7,6 @@
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
-    <!-- Notification -->
-      <% if current_user %>
-      <% if current_user.admin %>
-    <%= link_to "/admin", class: "navbar-wagon-item navbar-wagon-link" do %>
-    <div class="badge-container">
-      <i class="fa fa-lock"></i>
-    </div>
-      <% end %>
-    <% end %>
-    <% end %>
 
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
@@ -60,21 +42,13 @@
     <!-- Login text link -->
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-
-    <%= link_to t(".top_call_to_action", default: "What's new"), movies_newest_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Top 10"), movies_2016_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Archive"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Add review"), new_movie_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
-      <% if current_user %>
-    <% if current_user.admin %>
-    <%= link_to t(".top_call_to_action", default: "Pending #{Review.where(approved: false).size}"), movies_pending_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <% end %>
-    <% end %>
-
-
+    <%= link_to t(".top_call_to_action", default: "Alphabetical"), movies_alphabetical_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Best rated"), movies_rated_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <!-- Button (call-to-action) -->
+    <%= link_to t(".top_call_to_action", default: "Newest"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Most reviewed"), movies_most_reviewed_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
+
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
@@ -86,13 +60,16 @@
         <li><a href="/movies">Archive</a></li>
         <li><a href="/movies/newest"> Newest</a></li>
         <li><a href="/movies/new"> Add A Review! </a></li>
-        <% if current_user %>
-        <% if current_user.admin %>
         <li><a href="/admin"> Admin Panel</a></li>
-        <% end %>
-        <% end %>
       </ul>
     </div>
   </div>
-</div>
 
+  <form action="" class="navbar-wagon-search">
+    <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+    <button type="submit" class="navbar-wagon-search-btn">
+      <i class="fa fa-search"></i>
+    </button>
+  </form>
+
+</div>

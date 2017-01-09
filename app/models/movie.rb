@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
 
   def best_review
     self.reviews.where(approved: true).order(rating: :desc)[0]
@@ -15,6 +15,11 @@ class Movie < ApplicationRecord
     else
       self.rating = 0
     end
+  end
+
+  def set_times_reviewed
+    self.times_reviewed = self.reviews.size
+    self.save!
   end
 
   def user_rating
