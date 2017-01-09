@@ -11,18 +11,18 @@
           </h3>
         </div>
         <div class="card-block">
-        <div class="card-text">
-          <blockquote class="card-blockquote">
-            <p>
-              <%= @review.content %>
-            </p>
-            <footer>
-              <cite>
-                rated: <%= @review.rating %>
-              </cite>
-            </footer>
-          </blockquote>
-        </div>
+          <div class="card-text">
+            <blockquote class="card-blockquote">
+              <p>
+                <%= @review.content %>
+              </p>
+              <footer>
+                <cite>
+                  rated: <%= @review.rating %>
+                </cite>
+              </footer>
+            </blockquote>
+          </div>
         </div>
 
         <div class="card-rating">
@@ -51,9 +51,6 @@
           <% end %>
           <%= link_to 'More Reviews', movie_path(@movie), class: "btn vegan-btn" %>
         </div>
-        <% else %>
-        <p> No Reviews Yet!</p>
-        <% end %>
       </div>
     </div>
 
@@ -77,5 +74,11 @@
         </div>
       </div>
     </div>
-  </div>
+    <% else %>
+    <p style="padding: 100px;">
+    No reviews yet! <br>
+    Be the first to leave one <%= link_to 'Leave a review', new_movie_review_path(@movie), class: "btn vegan-btn"  %>
+   </p>
+   <% end %>
+ </div>
 </div>
