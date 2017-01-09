@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/movies/2016', to: 'movies#top10'
     get '/movies/alphabetical', to: 'movies#alphabetical'
     get '/movies/rated', to: 'movies#rated'
+    get '/movies/most-reviewed', to: 'movies#most_reviewed'
 
     resources :movies do
       resources :reviews

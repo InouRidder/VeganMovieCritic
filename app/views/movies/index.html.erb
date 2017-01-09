@@ -49,10 +49,11 @@
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <%= link_to t(".top_call_to_action", default: "Alphabetical"), movies_alphabetical_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Rated"), movies_rated_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Best rated"), movies_rated_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <!-- Button (call-to-action) -->
     <%= link_to t(".top_call_to_action", default: "Newest"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
+
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
@@ -81,7 +82,6 @@
 
 <div class="container">
   <h2>
-    Archive
   </h2>
   <div class="row">
 
@@ -90,7 +90,7 @@
       <div class="list">
         <% @movies.each do |movie| %>
         <div class="list-item">
-          <%= link_to "#{movie.title}", movie_path(movie), class: "" %>
+          <%= link_to "#{movie.title}", movie_path(movie) %>
         </div>
         <% end %>
       </div>

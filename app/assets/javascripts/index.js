@@ -1,7 +1,7 @@
 // CHANGE WHEN PUSHING TO HEROKU!
 
-// baseUrl = 'http://localhost:3000/'
-baseUrl = 'https://veganmoviecritic.herokuapp.com/'
+baseUrl = 'http://localhost:3000/'
+// baseUrl = 'https://veganmoviecritic.herokuapp.com/'
 
 $(document).ready(function(){
   $(".click-btn").click(function(){
@@ -19,4 +19,20 @@ $(document).ready(function(){
       }
     })
   });
+
+  $(window).load(function(){
+    id = $(".click-btn:first-child").attr('href');
+    console.log(id);
+      $.ajax({
+      type: 'GET',
+      url: baseUrl + id + '/partial',
+      success: function(data) {
+        $('.content-review-index').append(data);
+      },
+      error: function(html){
+        console.log(html);
+      }
+    })
+  });
+
 });

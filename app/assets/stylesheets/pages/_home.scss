@@ -3,19 +3,34 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-.vegan-btn {
- color: $gray;
- background-color: $black;
- margin: 10px;
- border: $black solid 1px;
- transition: 400ms ease;
-}
+ .vegan-btn {
+   color: $gray;
+   background-color: $black;
+   margin: 10px;
+   border: $black solid 1px;
+   transition: 400ms ease;
+ }
 
-.vegan-btn:hover {
+ .vegan-btn:hover {
   opacity: 0.8;
   background-color: $gray;
   color: $black;
   border: $red solid 1px;
+}
+
+.home-content {
+  padding-top: 110px;
+  padding-left: 25%;
+  padding-right: 25%;
+  font-size: large;
+}
+
+.home-btns {
+  margin-top: 2%;
+}
+
+.btn-home {
+  margin: 15px;
 }
 
 .home-content h3{
@@ -25,3 +40,15 @@
 .home-content p{
   color: $gray;
 }
+
+.home-contact {
+  color: $gray;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0
+  }
+
+  .home-title {
+    margin-bottom: 40px;
+  }

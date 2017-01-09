@@ -95,6 +95,16 @@ class MoviesController < ApplicationController
     authorize (Movie.first)
   end
 
+  def most_reviewed
+      # Add class method : reviews, save size of array -> then sort class in object.
+    # @movies = Movie.all
+    # @most_reviewed = []
+    # @movies.each do |e|
+    #   @most_reviewed <<
+
+    # end
+  end
+
 
   def newest
     @newest_reviews = Review.where(approved: true).order(created_at: :desc)

@@ -4,26 +4,31 @@
     <div class="row">
       <div class="col-xs-12 text-center">
         <div class="home-content">
-          <h3>
+          <h3 class="home-title">
            Being Vegan and Watching Movies
          </h3>
-         <blockquote>
-         <p>
+         <p class="home-story">
            Veganism isn’t just about refusing to eat animal products, it’s about eating a diet of produce which is good for us and the environment. Valueing our world and the things we create can makes us healthier, wiser and happier. Movies help us grow in similar ways. Here is where movie lovers come together. Here is where we celebrate great movies.
          </p>
-         </blockquote>
          <div class="row">
-           <div class="col-xs-4">
-            <%= link_to "Archives", movies_path, class: "btn vegan-btn" %>
+           <div class="home-btns">
+            <div class="col-xs-4">
+            <%= link_to "Whats New?", movies_newest_path, class: "btn btn-home vegan-btn" %>
+            </div>
+            <div class="col-xs-4">
+              <%= link_to "2016 Top 10", movies_2016_path, class: "btn btn-home vegan-btn" %>
+            </div>
+            <div class="col-xs-4">
+              <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
+            </div>
+            <div class="col-xs-12">
+              <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
+            </div>
           </div>
-          <div class="col-xs-4">
-            <%= link_to "Whats New?", movies_newest_path, class: "btn vegan-btn" %>
-          </div>
-          <div class="col-xs-4">
-            <%= link_to "Rating", movies_highrated_path, class: "btn vegan-btn" %>
-          </div>
-          <div class="col-xs-12">
-            <%= link_to "Review", new_movie_path, class: "btn vegan-btn" %>
+        </div>
+        <div class="row">
+          <div class="home-contact">
+        <%#= link_to 'Contact', contact_path %>
           </div>
         </div>
       </div>

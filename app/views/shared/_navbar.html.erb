@@ -60,7 +60,12 @@
     <!-- Login text link -->
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-    <%= link_to t(".top_call_to_action", default: "Archives"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
+    <%= link_to t(".top_call_to_action", default: "What's new"), movies_newest_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Top 10"), movies_2016_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Archive"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Add review"), new_movie_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
       <% if current_user %>
     <% if current_user.admin %>
     <%= link_to t(".top_call_to_action", default: "Pending #{Review.where(approved: false).size}"), movies_pending_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
@@ -68,12 +73,7 @@
     <% end %>
 
 
-    <%= link_to t(".top_call_to_action", default: "Whats New?"), movies_newest_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
-    <%= link_to t(".top_call_to_action", default: "Top 10"), movies_2016_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Add a Review"), new_movie_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
