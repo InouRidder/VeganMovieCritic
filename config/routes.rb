@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     get '/movies/rated', to: 'movies#rated'
     get '/movies/most-reviewed', to: 'movies#most_reviewed'
     get '/movies/results', to: 'movies#results'
+    get '/movies/custom_new', to: 'movies#custom_new'
+    post '/movies/custom_create', to: 'movies#custom_create'
 
     resources :movies do
       resources :reviews

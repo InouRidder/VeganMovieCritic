@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="new-movie-select">
+      <div class="col-xs-12 text-center">
+
+        <h3>
+          We couldnt find your movie, we hope you dont mind adding it to your database. Thanks a million!
+        </h3>
+
+        <%= form_for @movie, :url => { :action => "custom_create" }, :html => { :method => "post" } do |f| %>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <%= f.text_area :title, placeholder: "Add your title here", class: "custom-form" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <%= f.text_area :released, placeholder: "When was it released?", class: "custom-form" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <%= f.text_area :actors, placeholder: "Add some of the cast here", class: "custom-form" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <%= f.text_area :country, placeholder: "From what country is the movie?", class: "custom-form" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <%= f.submit :Thanks! %>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

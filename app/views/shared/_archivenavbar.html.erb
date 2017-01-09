@@ -4,44 +4,6 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-
-    <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
-
-    <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "/admin" do %>
-            <i class="fa fa-lock"></i>
-            <% end %>
-          </li>
-
-          <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <% else %>
-
-    <!-- Login text link -->
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
     <%= link_to t(".top_call_to_action", default: "Alphabetical"), movies_alphabetical_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <%= link_to t(".top_call_to_action", default: "Best rated"), movies_rated_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <!-- Button (call-to-action) -->

@@ -22,20 +22,30 @@
 
 }
 .list-item {
-  height: 50px;
+  height: 70px;
   border-bottom: 0.5px $red solid;
   display: flex;
   align-text: left;
   padding: 13px;
   color: $gray;
-  transition: 400ms ease;
+  transition: 200ms ease;
   text-decoration: none;
 }
 
 .list-item:hover {
   background-color: $red;
+  color: $gray !important;
+  text-decoration: none;
+
+}
+
+.list-item-active {
+  background-color: $red;
+  text-decoration: none !important;
   color: $gray;
 }
+
+
 
 .list {
   display: flex;

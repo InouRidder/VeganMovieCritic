@@ -4,6 +4,14 @@ class MoviePolicy < ApplicationPolicy
     user
   end
 
+  def custom_create?
+    user
+  end
+
+  def custom_new?
+    user
+  end
+
   def update?
     user.admin
   end

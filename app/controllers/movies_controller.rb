@@ -27,29 +27,46 @@ class MoviesController < ApplicationController
   end
 
   def create
-    search_query = params["movie"]["title"]
-    url = "http://www.omdbapi.com/?t=#{search_query}&y=&plot=short&r=json"
-    returned_data = open(url).read
-    data = JSON.parse(returned_data)
-    if @movie = Movie.all.find_by_title(data["Title"])
+    if @movie = Movie.all.find_by_title(params["movie"]["title"])
       authorize @movie
       redirect_to new_movie_review_path (@movie)
     else
-      @movie = Movie.new
-      @movie.title = data["Title"]
-      @movie.released = data["Released"]
-      @movie.runtime = data["Runtime"]
-      @movie.genre = data["Genre"]
-      @movie.plot = data["Plot"]
-      @movie.actors = data["Actors"]
-      @movie.awards = data["Awards"]
-      @movie.poster = data["Poster"]
-      @movie.imdbrating = data["imdbrating"]
-      authorize @movie
-      if @movie.save!
-        redirect_to new_movie_review_path(@movie)
+      search_query = params["movie"]["title"]
+      url = "http://www.omdbapi.com/?t=#{search_query}&y=&plot=short&r=json"
+      returned_data = open(url).read
+      data = JSON.parse(returned_data)
+      if data["Response"] == "False"
+        authorize Movie.new
+        redirect_to movies_custom_new_path
+      else
+        @movie = Movie.new
+        @movie.title = data["Title"]
+        @movie.released = data["Released"]
+        @movie.runtime = data["Runtime"]
+        @movie.genre = data["Genre"]
+        @movie.plot = data["Plot"]
+        @movie.actors = data["Actors"]
+        @movie.awards = data["Awards"]
+        @movie.poster = data["Poster"]
+        @movie.imdbrating = data["imdbrating"]
+        authorize @movie
+        if @movie.save!
+          redirect_to new_movie_review_path(@movie)
+        end
       end
     end
+  end
+
+  def custom_new
+    @movie = Movie.new
+    authorize @movie
+  end
+
+  def custom_create
+    @movie = Movie.new(movie_params)
+    @movie.save!
+    authorize @movie
+    redirect_to movie_path(@movie)
   end
 
   def edit
@@ -103,50 +120,50 @@ class MoviesController < ApplicationController
 
   def most_reviewed
       # Add class method : reviews, save size of array -> then sort class in object.
-    movies = Movie.all
-    movies.each do |e|
-      e.set_times_reviewed
+      movies = Movie.all
+      movies.each do |e|
+        e.set_times_reviewed
+      end
+      @most_reviewed = Movie.where("times_reviewed > ?", 0).order(times_reviewed: :desc)[1..10]
+      authorize (Movie.first)
     end
-    @most_reviewed = Movie.where("times_reviewed > ?", 0).order(times_reviewed: :desc)[1..10]
-    authorize (Movie.first)
-  end
 
-  def newest
-    @newest_reviews = Review.where(approved: true).order(created_at: :desc)
-    authorize (Movie.first)
-  end
+    def newest
+      @newest_reviews = Review.where(approved: true).order(created_at: :desc)
+      authorize (Movie.first)
+    end
 
-  def pending
-    @pending_reviews = Review.where(approved: false)
-    authorize (Movie.first)
-  end
+    def pending
+      @pending_reviews = Review.where(approved: false)
+      authorize (Movie.first)
+    end
 
-  def rated
-    @movies = Movie.order(rating: :desc)
-    authorize (Movie.first)
-  end
+    def rated
+      @movies = Movie.order(rating: :desc)
+      authorize (Movie.first)
+    end
 
-  def alphabetical
-    @movies = Movie.order(:title)
-    authorize (Movie.first)
-  end
+    def alphabetical
+      @movies = Movie.order(:title)
+      authorize (Movie.first)
+    end
 
-  private
+    private
 
-  def find_user
-    @user = current_user
-  end
+    def find_user
+      @user = current_user
+    end
 
-  def disable_nav
-    @disable_nav = true
-  end
+    def disable_nav
+      @disable_nav = true
+    end
 
-  def find_movie
-    @movie = Movie.find(params[:id])
-    authorize @movie
-  end
+    def find_movie
+      @movie = Movie.find(params[:id])
+      authorize @movie
+    end
 
-  def movie_params
-    params.require(:movie).permit(:title)
+    def movie_params
+      params.require(:movie).permit(:title, :country, :actors, :released)
+    end
   end
-end
