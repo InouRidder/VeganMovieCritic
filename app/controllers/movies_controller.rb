@@ -26,6 +26,8 @@ class MoviesController < ApplicationController
     authorize @movie
   end
 
+
+# IDEA : Call method on data to remove all this logic from controller. It's hideous.
   def create
     if @movie = Movie.all.find_by_title(params["movie"]["title"])
       authorize @movie
@@ -119,12 +121,11 @@ class MoviesController < ApplicationController
   end
 
   def most_reviewed
-      # Add class method : reviews, save size of array -> then sort class in object.
       movies = Movie.all
       movies.each do |e|
         e.set_times_reviewed
       end
-      @most_reviewed = Movie.where("times_reviewed > ?", 0).order(times_reviewed: :desc)[1..10]
+      @movies = Movie.where("times_reviewed > ?", 0).order(times_reviewed: :desc)[1..10]
       authorize (Movie.first)
     end
 
