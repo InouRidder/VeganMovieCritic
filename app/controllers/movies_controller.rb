@@ -26,6 +26,8 @@ class MoviesController < ApplicationController
     authorize @movie
   end
 
+
+# IDEA : Call method on data to remove all this logic from controller. It's hideous.
   def create
     if @movie = Movie.all.find_by_title(params["movie"]["title"])
       authorize @movie
