@@ -125,7 +125,7 @@ class MoviesController < ApplicationController
       movies.each do |e|
         e.set_times_reviewed
       end
-      @movies = Movie.where("times_reviewed > ?", 0).order(times_reviewed: :desc)[1..10]
+      @movies = Movie.order(times_reviewed: :desc)[1..10]
       authorize (Movie.first)
     end
 
