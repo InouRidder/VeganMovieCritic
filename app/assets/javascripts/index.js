@@ -37,8 +37,9 @@ $(document).ready(function(){
       }
     })
   });
-    // $('.navbar-wagon-button').click(function() {
-    //   console.log(this);
-    //   $(this).siblings().removeClass('button-active');
-    //   $(this).addClass('button-active');
+
+    $('.navbar-wagon-button').click(function() {
+      console.log(this);
+      $('.navbar-wagon-button').siblings().removeClass('button-active');
+      $(this).addClass('button-active');
 });
