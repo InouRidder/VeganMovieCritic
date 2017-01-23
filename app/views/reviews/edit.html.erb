@@ -8,12 +8,12 @@
         <%= form_for ([@movie, @review]) do |f| %>
         <p> Title</p>
         <div class="title-form">
-          <%= f.text_area :title, class: "title-form" %>
+          <%= f.text_area :title, class: "form-control input-lg edit-input title-form" %>
         </div>
 
         <p> Review </p>
         <div class="content-form ">
-          <%= f.text_area :content, class: "content-form" %>
+          <%= f.text_area :content, class: "form-control input-lg edit-input content-form" %>
         </div>
         <%= f.label :rating %>
         <%= f.select :rating, [0,1,2,3,4,5] %>

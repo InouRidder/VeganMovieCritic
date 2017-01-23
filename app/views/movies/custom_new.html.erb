@@ -10,22 +10,22 @@
         <%= form_for @movie, :url => { :action => "custom_create" }, :html => { :method => "post" } do |f| %>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_area :title, placeholder: "Add your title here", class: "custom-form" %>
+            <%= f.text_field :title, placeholder: "Add your title here", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_area :released, placeholder: "When was it released?", class: "custom-form" %>
+            <%= f.date_field :released, placeholder: "When was it released?", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_area :actors, placeholder: "Add some of the cast here", class: "custom-form" %>
+            <%= f.text_field :actors, placeholder: "Add some of the cast here", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_area :country, placeholder: "From what country is the movie?", class: "custom-form" %>
+            <%= f.text_field :country, placeholder: "From what country is the movie?", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <div class="row">
