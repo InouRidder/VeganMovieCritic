@@ -1,7 +1,7 @@
 // CHANGE WHEN PUSHING TO HEROKU!
 
-// baseUrl = 'http://localhost:3000/'
-baseUrl = 'https://veganmoviecritic.herokuapp.com'
+baseUrl = 'http://localhost:3000/'
+// baseUrl = 'https://veganmoviecritic.herokuapp.com'
 
 $(document).ready(function(){
   $(".click-btn").click(function(){
@@ -26,7 +26,7 @@ $(document).ready(function(){
     id = $(".click-btn:first-child").attr('href');
     $(".click-btn").removeClass('list-item-active');
     $(".click-btn:first-child").addClass('list-item-active');
-      $.ajax({
+    $.ajax({
       type: 'GET',
       url: baseUrl + id + '/partial',
       success: function(data) {
@@ -37,9 +37,9 @@ $(document).ready(function(){
       }
     })
   });
-
-    $('.navbar-wagon-button').click(function() {
-      console.log(this);
-      $('.navbar-wagon-button').siblings().removeClass('button-active');
-      $(this).addClass('button-active');
+  // $('.navbar-wagon-button').click(function() {
+  //   console.log(this);
+  //   $('.navbar-wagon-button').removeClass('button-active');
+  //   $(this).addClass('button-active');
+  // });
 });

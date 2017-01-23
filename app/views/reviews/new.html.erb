@@ -1,23 +1,23 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
 
-    <div class="col-xs-3 hidden-xs hidden-sm">
+    <div class="col-xs-4 hidden-xs hidden-sm">
       <div class="movie-poster">
         <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
       </div>
     </div>
 
-    <div class="col-xs-3" style="">
+    <div class="col-xs-4">
       <div class="review-form">
         <%= form_for ([@movie, @review]) do |f| %>
         <p> Title your review!</p>
         <div class="title-form">
-          <%= f.text_area :title, class: "title-form" %>
+          <%= f.text_area :title, class: "form-control input-lg edit-input title-form" %>
         </div>
 
         <p> Leave your review here </p>
         <div class="content-form ">
-          <%= f.text_area :content, class: "content-form" %>
+          <%= f.text_area :content, class: "form-control input-lg edit-input content-form" %>
         </div>
         <%= f.label :rating %>
         <%= f.select :rating, [0,1,2,3,4,5] %>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="col-xs-3 hidden-sm pull-right hidden-xs">
+    <div class="col-xs-3 hidden-sm hidden-xs">
       <div class="movie-details">
         <div class="movie-title">
           <h1>
