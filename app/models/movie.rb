@@ -23,7 +23,7 @@ class Movie < ApplicationRecord
   end
 
   def set_times_reviewed
-    self.times_reviewed = self.reviews.size
+    self.times_reviewed = self.reviews.where(approved: true).size
     self.save!
   end
 
