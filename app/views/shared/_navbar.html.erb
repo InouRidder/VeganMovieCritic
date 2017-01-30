@@ -55,12 +55,12 @@
       </div>
     </div>
 
-    <% else %>
-
-    <!-- Login text link -->
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
+    <!-- Login text link -->
+    <% unless current_user %>
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
     <%= link_to t(".top_call_to_action", default: "What's new"), movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn" %>
     <%= link_to t(".top_call_to_action", default: "Top 10"), movies_2016_path, id: 'top10', class: "navbar-wagon-item navbar-wagon-button btn" %>
     <%= link_to t(".top_call_to_action", default: "Archive"), movies_path, id: 'archive', class: "navbar-wagon-item navbar-wagon-button btn" %>
