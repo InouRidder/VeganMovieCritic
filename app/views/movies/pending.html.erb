@@ -1,21 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="pending-reviews text-center">
-      <h2>
-        Dear God among men, there are <%= @pending_reviews.size  %> reviews pending your approval.
-      </h2>
+<section class='selector' id='pending'>
+  <div class="container">
+    <div class="row">
+      <div class="pending-reviews text-center">
+        <h2>
+          Dear God among men, there are <%= @pending_reviews.size  %> reviews pending your approval.
+        </h2>
+      </div>
     </div>
-  </div>
-  <div class="row">
-   <% @pending_reviews.each do |review| %>
-    <div class="col-xs-12 col-sm-6">
+    <div class="row">
+     <% @pending_reviews.each do |review| %>
+     <div class="col-xs-12 col-sm-6">
       <div class="card">
         <div class="text-center">
           <h3>
             Movie: <%= review.movie.title %> <br>
             Title:  <%= review.title %>,
           </h3>
-            Rating: <%= review.rating %>
+          Rating: <%= review.rating %>
           <p>
             Username: <%= review.user.username   %>
             <br>
@@ -33,7 +34,8 @@
         </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
+</section>
 

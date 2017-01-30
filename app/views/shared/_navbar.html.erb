@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+ <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path class: "vmr-logo" do %>
   <div class="vmr-logo">
@@ -61,14 +61,14 @@
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
-    <%= link_to t(".top_call_to_action", default: "What's new"), movies_newest_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Top 10"), movies_2016_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Archive"), movies_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Add review"), new_movie_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "What's new"), movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Top 10"), movies_2016_path, id: 'top10', class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Archive"), movies_path, id: 'archive', class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Add review"),  new_movie_path, id: 'review', class: "navbar-wagon-item navbar-wagon-button btn" %>
 
       <% if current_user %>
     <% if current_user.admin %>
-    <%= link_to t(".top_call_to_action", default: "Pending #{Review.where(approved: false).size}"), movies_pending_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Pending #{Review.where(approved: false).size}"), movies_pending_path, id: 'pending', class: "navbar-wagon-item navbar-wagon-button btn" %>
     <% end %>
     <% end %>
 
