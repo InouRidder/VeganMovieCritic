@@ -3,4 +3,4 @@
 //= require bootstrap-sprockets
 //= require index
 //= require navbar
-//= require star-rating
+//= require show

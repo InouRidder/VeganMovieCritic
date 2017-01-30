@@ -40,20 +40,7 @@
         </div>
 
         <div class="card-rating">
-
-          <% if review.has_rated %>
-          review rating: <%= review.set_rating  %>
-          <% else %>
-          <%= form_for @review_rating do |f|%>
-
-          <%= f.hidden_field :review, value: review.id %>
-
-          <%= f.label :rating %>
-          <%= f.select :rating, [1,2,3,4,5] %>
-
-          <%= f.submit "Submit" %>
-          <% end %>
-          <% end %>
+        <%= render 'shared/star-rating' %>
         </div>
         <div class="col-xs-12">
           <div class="card-btns center-block">

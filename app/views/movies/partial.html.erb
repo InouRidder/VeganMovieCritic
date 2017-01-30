@@ -4,8 +4,8 @@
 
       <% if @review.present? %>
 
-      <div class="card card-outline-primary mb-3 text-center">
-        <div class="card-header">
+      <div class= "card card-outline-primary mb-3 text-center">
+        <div class= "card-header">
           <h3>
             <%= @review.title %>
           </h3>
@@ -62,7 +62,9 @@
         </div>
       </div>
     </div>
+
     <% else %>
+
     <p style="padding: 100px;">
       No reviews yet! <br>
       Be the first to leave one <%= link_to 'Leave a review', new_movie_review_path(@movie), class: "btn vegan-btn"  %>
