@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+
   ActiveAdmin.routes(self)
   devise_for :users
     resources :review_ratings, only: [:create, :new, :edit, :update]

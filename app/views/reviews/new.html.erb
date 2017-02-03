@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-xs-4 hidden-xs hidden-sm">
+    <div class="col-xs-3 hidden-xs hidden-sm">
       <div class="movie-poster">
         <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
       </div>
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-6">
       <div class="review-form">
         <%= form_for ([@movie, @review]) do |f| %>
         <p> Title your review!</p>
@@ -17,7 +17,7 @@
 
         <p> Leave your review here </p>
         <div class="content-form ">
-          <%= f.text_area :content, class: "form-control input-lg edit-input content-form" %>
+          <%= f.bootsy_area :content, class: "size-it" %>
         </div>
         <%= f.label :rating %>
         <%= f.select :rating, [0,1,2,3,4,5] %>

@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-  <div class="col-sm-4 hidden-xs">
+    <div class="col-sm-3 hidden-xs">
 
-  </div>
-  <div class="col-sm-6 col-xs-12">
+    </div>
+    <div class="col-sm-6 col-xs-12">
       <div class="review-form">
         <%= form_for ([@movie, @review]) do |f| %>
         <p> Title</p>
@@ -11,14 +11,16 @@
           <%= f.text_area :title, class: "form-control input-lg edit-input title-form" %>
         </div>
 
-        <p> Review </p>
+        <p> Leave your review here </p>
         <div class="content-form ">
-          <%= f.text_area :content, class: "form-control input-lg edit-input content-form" %>
+          <%= f.bootsy_area :content, class: "size-it" %>
         </div>
-        <%= f.label :rating %>
-        <%= f.select :rating, [0,1,2,3,4,5] %>
+        <div style="margin-top: 20px;">
+          <%= f.label :rating %>
+          <%= f.select :rating, [0,1,2,3,4,5] %>
 
-        <%= f.submit %>
+          <%= f.submit %>
+        </div>
         <% end %>
       </div>
     </div>

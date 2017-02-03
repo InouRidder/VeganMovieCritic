@@ -5,6 +5,7 @@
 // External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootsy";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -59,4 +60,13 @@ h2 {
   height: 30%;
   border: black solid 5px;
   margin: 30px;
+}
+
+.size-it {
+  height: 45vh;
+  width: 100%;
+  padding: 2px;
+  border-radius: 10px;
+  // border-width: 4px;
+  border-color: lightgrey;
 }

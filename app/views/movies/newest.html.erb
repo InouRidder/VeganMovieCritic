@@ -12,7 +12,7 @@
         </p>
         <div class="card-content">
           <p>
-            <%= review.content[0..100] %>
+            <%=raw review.content[0..100] %>
           </p>
           By: <%= review.user.username ? review.user.username : review.user.email   %>
           <br>
