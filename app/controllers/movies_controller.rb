@@ -68,7 +68,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     @movie.save!
     authorize @movie
-    redirect_to movie_path(@movie)
+    redirect_to new_movie_review_path(@movie)
   end
 
   def edit

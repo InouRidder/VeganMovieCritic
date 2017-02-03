@@ -3,7 +3,7 @@ class Movie < ApplicationRecord
   include PgSearch
   pg_search_scope :search_title, :against => [:title]
 
-  has_many :reviews
+  has_many :reviews, :dependent => :destroy
 
 
   def best_review
