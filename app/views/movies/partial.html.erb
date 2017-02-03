@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="partial-container">
   <div class="row">
     <div class="col-xs-6">
 
@@ -38,6 +38,7 @@
           <%= link_to 'Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
           <% end %>
           <%= link_to 'More Reviews', movie_path(@movie), class: "btn vegan-btn" %>
+          <button class="debug-button">hello</button>
         </div>
       </div>
     </div>

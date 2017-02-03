@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   devise_for :users
-    resources :review_ratings, only: [:create, :new, :edit, :update]
 
     get '/movies/:id/partial', to: 'movies#partial'
     get '/movies/newest', to: 'movies#newest'
@@ -20,7 +19,9 @@ Rails.application.routes.draw do
     post '/movies/custom_create', to: 'movies#custom_create'
 
     resources :movies do
-      resources :reviews
+      resources :reviews do
+        resources :review_ratings, only: [:create, :new, :edit, :update]
+      end
     end
   root to: 'home#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

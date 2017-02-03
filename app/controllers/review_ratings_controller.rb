@@ -1,6 +1,6 @@
 class ReviewRatingsController < ApplicationController
-  before_action :find_user_id, only: [:create, :update, :edit]
-  before_action :find_review_id, only: [:create, :update, :edit]
+  # before_action :find_user_id, only: [:create, :update, :edit]
+  # before_action :find_review_id, only: [:create, :update, :edit]
 
   def new
     @review_rating = ReviewRating.new
@@ -8,11 +8,10 @@ class ReviewRatingsController < ApplicationController
 
   def create
     @review_rating = ReviewRating.new(review_params)
-    @review_rating.user_id = @user_id
     @review_rating.review_id = @review_id
+    @review_rating.movie_id = @movie_id
     authorize @review_rating
     @review_rating.save!
-    redirect_to movie_path(@review_rating.review.movie)
   end
 
   def edit
@@ -35,15 +34,19 @@ class ReviewRatingsController < ApplicationController
 
   private
 
-  def find_user_id
-    @user_id = current_user.id
-  end
+  # def find_user_id
+  #   @user_id = current_user.id
+  # end
 
   def find_review_id
-    @review_id = params["review_rating"]["review"].to_i
+    @review_id = params[:review_id].to_i
+  end
+
+  def find_movie_id
+    @movie_id = params[:movie_id].to_i
   end
 
   def review_params
-    params.require(:review_rating).permit(:rating)
+    params.require(:review_rating).permit(:rating, :user_id)
   end
 end
