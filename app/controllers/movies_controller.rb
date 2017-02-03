@@ -4,7 +4,7 @@ require 'open-uri'
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
   before_action :disable_nav, only: [:partial]
-  before_action :find_user, only: [:partial, :pending, :index, :rated, :show, :alphabetical]
+  before_action :find_user, only: [:pending, :index, :rated, :show, :alphabetical]
   skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated, :alphabetical]
 
   def index

@@ -9,7 +9,6 @@ class ReviewRatingsController < ApplicationController
   def create
     @review_rating = ReviewRating.new(review_params)
     @review_rating.review_id = @review_id
-    @review_rating.movie_id = @movie_id
     authorize @review_rating
     @review_rating.save!
   end
