@@ -4,3 +4,4 @@
 //= require index
 //= require navbar
 //= require show
+//= require bootsy

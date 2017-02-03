@@ -16,6 +16,8 @@ gem 'redis'
 gem 'pundit'
 gem 'json'
 gem 'pg_search'
+gem 'bootsy'
+
 
 gem 'sass-rails'
 gem 'jquery-rails'

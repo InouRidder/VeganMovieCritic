@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
+  include Bootsy::Container
+
   belongs_to :movie
   belongs_to :user
   has_many :review_ratings, :dependent => :destroy
