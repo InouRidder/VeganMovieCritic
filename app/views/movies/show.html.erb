@@ -45,6 +45,7 @@
             <% if policy(review).destroy? %>
             <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
             <% end %>
+            <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
           </div>
         </div>
       </div>

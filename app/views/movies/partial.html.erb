@@ -37,19 +37,20 @@
         <% else %>
         <div class="row">
           <div class="card-rating center-block">
-          <p> Rate this review</p>
+            <p> Rate this review</p>
             <%= render 'shared/star-rating' %>
           </div>
         </div>
         <% end %>
         <div class="card-btns">
           <% if policy(@review).update? %>
-          <%= link_to 'Edit Review', edit_movie_review_path(@movie, @review), class: "btn vegan-btn"  %>
+          <%= link_to 'Edit review', edit_movie_review_path(@movie, @review), class: "btn vegan-btn"  %>
           <% end %>
           <% if policy(@review).destroy? %>
           <%= link_to 'Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
           <% end %>
-          <%= link_to 'More Reviews', movie_path(@movie), class: "btn vegan-btn" %>
+          <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
+          <%= link_to 'More reviews', movie_path(@movie), class: "btn vegan-btn" %>
         </div>
       </div>
     </div>
@@ -61,7 +62,7 @@
             <%= @movie.title  %>
           </h1>
           <p>
-          <%= @movie.user_rating %> <i class="fa fa-star" aria-hidden="true"> </i> out of <%= @movie.reviews.size %> reviews!
+            <%= @movie.user_rating %> <i class="fa fa-star" aria-hidden="true"> </i> out of <%= @movie.reviews.size %> reviews!
           </p>
         </div>
 
