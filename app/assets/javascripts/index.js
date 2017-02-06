@@ -20,6 +20,7 @@ $(document).ready(function(){
       }
     })
   });
+
   $(window).load(function(){
     id = $(".click-btn:first-child").attr('href');
     $(".click-btn").removeClass('list-item-active');
@@ -43,9 +44,12 @@ $(document).ready(function(){
       type: 'POST',
       url: $(this).attr('action'),
       data: { "review_rating" : { "user_id" : user, "rating" : star } },
-      succes: function(data) {
-        $('.card-rating').append("Thanks for voting!");
-      }
+      succes: function(){
+        console.log("reverse error, awesome coding");
+      },
+      error: function(){
+      $('.card-rating').empty();
+      $('.card-rating').append("Thanks for voting!")      }
     });
   });
 });

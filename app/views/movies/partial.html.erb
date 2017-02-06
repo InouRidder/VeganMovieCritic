@@ -18,7 +18,7 @@
               </p>
               <footer>
                 <cite>
-                  rating: <%= @review.rating %>
+                  <%= @review.rating %> stars
                   <%= @review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
                 </cite>
               </footer>
@@ -26,10 +26,19 @@
           </div>
         </div>
 
-        <div class="card-rating">
-          <%= render 'shared/star-rating' %>
+        <% if @review.has_rated %>
+        <div>
+          <p>
+            You gave this review <%= @review_rating.rating / 2 %> star(s)
+          </p>
         </div>
-
+        <% else %>
+        <div class="row">
+          <div class="card-rating center-block">
+            <%= render 'shared/star-rating' %>
+          </div>
+        </div>
+        <% end %>
         <div class="card-btns">
           <% if policy(@review).update? %>
           <%= link_to 'Edit Review', edit_movie_review_path(@movie, @review), class: "btn vegan-btn"  %>
@@ -38,7 +47,6 @@
           <%= link_to 'Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
           <% end %>
           <%= link_to 'More Reviews', movie_path(@movie), class: "btn vegan-btn" %>
-          <button class="debug-button">hello</button>
         </div>
       </div>
     </div>
@@ -50,7 +58,7 @@
             <%= @movie.title  %>
           </h1>
           <p>
-            users rating: <%= @movie.user_rating %>
+          <%= @movie.user_rating %> out of <%= @movie.reviews.size %> reviews!
           </p>
         </div>
 

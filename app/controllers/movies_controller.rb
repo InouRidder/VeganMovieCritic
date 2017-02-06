@@ -18,7 +18,6 @@ class MoviesController < ApplicationController
       review.save!
     end
     @reviews = @movie.reviews.where(approved: true).order(rating: :desc)
-    @review_rating = ReviewRating.new
   end
 
   def new
@@ -93,8 +92,8 @@ class MoviesController < ApplicationController
 
   def partial
     @review = @movie.reviews.where(approved: :true).order(rating: :desc)[0]
-    @review_rating = ReviewRating.new
     @buser = current_user
+    @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @buser.id)[0] || ReviewRating.new
   end
 
   def highrated
