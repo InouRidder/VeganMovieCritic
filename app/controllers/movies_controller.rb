@@ -4,7 +4,7 @@ require 'open-uri'
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
   before_action :disable_nav, only: [:partial]
-  before_action :find_user, only: [:pending, :index, :rated, :show, :alphabetical]
+  before_action :find_user, only: [:show, :pending, :index, :rated, :show, :alphabetical]
   skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated, :alphabetical]
 
   def index
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
 
 # IDEA : Call method on data to remove all this logic from controller. It's hideous.
   def create
-    if @movie = Movie.all.find_by_title(params["movie"]["title"])
+    if @movie = Movie.all.find_by_title(params["movie"]["title"].strip)
       authorize @movie
       redirect_to new_movie_review_path (@movie)
     else
@@ -92,8 +92,10 @@ class MoviesController < ApplicationController
 
   def partial
     @review = @movie.reviews.where(approved: :true).order(rating: :desc)[0]
-    @buser = current_user
-    @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @buser.id)[0] || ReviewRating.new
+    @user = current_user
+    if @review
+      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id)[0] || ReviewRating.new
+    end
   end
 
   def highrated

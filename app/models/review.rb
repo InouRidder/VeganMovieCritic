@@ -25,7 +25,8 @@ class Review < ApplicationRecord
         users << e.user
       end
     end
-    users.include?(user)
+    # Waar komt onderstaand user object vandaan?
+    users
   end
 
   def approve

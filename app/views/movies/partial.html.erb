@@ -18,7 +18,7 @@
               </p>
               <footer>
                 <cite>
-                  <%= @review.rating %> stars
+                  <%= @review.rating %> <i class="fa fa-star" aria-hidden="true"> </i>
                   <%= @review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
                 </cite>
               </footer>
@@ -26,15 +26,18 @@
           </div>
         </div>
 
-        <% if @review.has_rated %>
+        <% if @review.has_rated.include?(@user) %>
         <div>
           <p>
-            You gave this review <%= @review_rating.rating / 2 %> star(s)
+            You gave this review
+            <%= @review_rating.rating / 2 %>
+            <i class="fa fa-star" aria-hidden="true">  </i>
           </p>
         </div>
         <% else %>
         <div class="row">
           <div class="card-rating center-block">
+          <p> Rate this review</p>
             <%= render 'shared/star-rating' %>
           </div>
         </div>
@@ -58,7 +61,7 @@
             <%= @movie.title  %>
           </h1>
           <p>
-          <%= @movie.user_rating %> out of <%= @movie.reviews.size %> reviews!
+          <%= @movie.user_rating %> <i class="fa fa-star" aria-hidden="true"> </i> out of <%= @movie.reviews.size %> reviews!
           </p>
         </div>
 

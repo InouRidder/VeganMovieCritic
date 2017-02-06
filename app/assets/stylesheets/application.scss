@@ -19,6 +19,20 @@ body {
   background-color: $gray;
 }
 
+.fa-star {
+  color: yellow;
+}
+
+.next-btn {
+  background-color: $gray;
+  border: none;
+}
+
+.prev-btn {
+  background-color: $gray;
+  border: none;
+}
+
 h2 {
   font-size: 32px;
   position:relative;

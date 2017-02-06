@@ -29,7 +29,7 @@
 
         <div class="card-rating">
 
-          <% if @review.has_rated %>
+          <% if @review.has_rated.include?(@user) %>
           review rating: <%= @review.set_rating  %>
           <% else %>
           <%= form_for @review_rating do |f|%>
