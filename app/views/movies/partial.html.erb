@@ -26,13 +26,14 @@
           </div>
         </div>
 
-        <% if @review.has_rated.include?(@user) && @review_rating %>
+        <% if @review.has_rated.include?(@user) && @review_rating.rating %>
         <div>
           <p>
             You gave this review
             <%= @review_rating.rating / 2 %>
             <i class="fa fa-star" aria-hidden="true">  </i>
           </p>
+            Users rating <%= @review.set_rating.to_f / 2 %> <i class="fa fa-star" aria-hidden="true">  </i>
         </div>
         <% else %>
         <div class="row">
