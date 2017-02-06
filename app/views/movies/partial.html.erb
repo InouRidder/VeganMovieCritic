@@ -1,9 +1,29 @@
 <div class="container" id="partial-container">
   <div class="row">
+
+    <div class="col-xs-4">
+      <div class="movie-info">
+        <div class="movie-title">
+          <h1>
+            <%= @movie.title  %>
+          </h1>
+          <p>
+            <%= @movie.user_rating %> <i class="fa fa-star" aria-hidden="true"> </i> out of <%= @movie.reviews.size %> reviews!
+          </p>
+        </div>
+
+        <div class="movie-info-box">
+          <%= @movie.plot  %>
+          <br>
+          <div class="movie-poster">
+            <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="col-xs-6">
-
       <% if @review.present? %>
-
       <div class= "card card-outline-primary mb-3 text-center">
         <div class= "card-header">
           <h3>
@@ -56,26 +76,6 @@
       </div>
     </div>
 
-    <div class="col-xs-3">
-      <div class="movie-info">
-        <div class="movie-title">
-          <h1>
-            <%= @movie.title  %>
-          </h1>
-          <p>
-            <%= @movie.user_rating %> <i class="fa fa-star" aria-hidden="true"> </i> out of <%= @movie.reviews.size %> reviews!
-          </p>
-        </div>
-
-        <div class="movie-info-box">
-          <%= @movie.plot  %>
-          <br>
-          <div class="movie-poster">
-            <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <% else %>
 
