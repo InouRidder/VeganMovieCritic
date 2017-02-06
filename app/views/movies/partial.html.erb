@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <% if @review.has_rated.include?(@user) %>
+        <% if @review.has_rated.include?(@user) && @review_rating %>
         <div>
           <p>
             You gave this review
