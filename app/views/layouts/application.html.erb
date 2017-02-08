@@ -3,11 +3,9 @@
 <head>
 
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
- <script src="path/to/js/locales/{lang}.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
 
 
-  <title> VMR </title>
+  <title> VMC </title>
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +17,7 @@
   <%= render 'shared/navbar' unless @disable_nav %>
   <%= render 'shared/flashes' %>
   <%= yield %>
-
-
 </body>
+ <script src="path/to/js/locales/{lang}.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
 </html>
