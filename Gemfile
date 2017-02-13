@@ -17,6 +17,8 @@ gem 'pundit'
 gem 'json'
 gem 'pg_search'
 gem 'bootsy'
+gem 'country_select'
+
 
 
 gem 'sass-rails'

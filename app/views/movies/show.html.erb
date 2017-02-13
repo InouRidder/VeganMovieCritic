@@ -8,6 +8,10 @@
 </div>
 <div class="container">
 
+<% if @movie.reviews.empty? %>
+<%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
+<% end %>
+
   <% @movie.reviews.each_with_index do |review, i| %>
 
   <% if i == 0   %>
