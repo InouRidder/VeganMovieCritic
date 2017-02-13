@@ -2,6 +2,21 @@
 // baseUrl = 'http://localhost:3000/'
 baseUrl = 'http://www.veganmoviecritic.com'
 
+$(window).load(function(){
+  id = $(".click-btn:first-child").attr('href');
+  $(".click-btn").removeClass('list-item-active');
+  $(".click-btn:first-child").addClass('list-item-active');
+  $.ajax({
+    type: 'GET',
+    url: baseUrl + id + '/partial',
+    success: function(data) {
+      $('.content-review-index').append(data);
+    },
+    error: function(html){
+    }
+  })
+});
+
 $(document).ready(function(){
   $(".click-btn").click(function(){
     event.preventDefault();
@@ -14,28 +29,10 @@ $(document).ready(function(){
       url: baseUrl + id + '/partial',
       success: function(data) {
         $('.content-review-index').append(data);
-      },
-      error: function(html){
-        console.log(html);
       }
     })
   });
 
-  $(window).load(function(){
-    id = $(".click-btn:first-child").attr('href');
-    $(".click-btn").removeClass('list-item-active');
-    $(".click-btn:first-child").addClass('list-item-active');
-    $.ajax({
-      type: 'GET',
-      url: baseUrl + id + '/partial',
-      success: function(data) {
-        $('.content-review-index').append(data);
-      },
-      error: function(html){
-        console.log(html);
-      }
-    })
-  });
 
   $('.content-review-index').on('click', '.review-rater', function(event){
     var star = $(this).attr('value');
