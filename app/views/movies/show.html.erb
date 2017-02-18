@@ -1,16 +1,16 @@
 
 <div class="col-xs-12 text-center">
-  <div class="movie-title">
-    <h1>
-      <%= @movie.title  %>
-    </h1>
-  </div>
+  <div class="movie-title" style="margin-left: 7%; font-size: 30px;">
+  <h1>
+    <%= @movie.title  %>
+  </h1>
+</div>
 </div>
 <div class="container">
 
-<% if @movie.reviews.empty? %>
-<%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
-<% end %>
+  <% if @movie.reviews.empty? %>
+  <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
+  <% end %>
 
   <% @movie.reviews.each_with_index do |review, i| %>
 
@@ -23,12 +23,24 @@
       <div class="col-xs-12 col-sm-5">
         <div class="card-info text-left">
           <h3>
-            Title:  <%= review.title %>,
+            <%= review.title %>
           </h3>
-          Rating: <%= review.rating %>
+          <br>
+          <br>
+          <%= @movie.genre %>
+          <br>
+          <br>
+          <br>
+          <%= @movie.actors %>
+          <br>
+          <br>
+          <%= review.rating %> <div class="fa fa-star"></div>
           <p>
-            Username: <%= review.user.username   %>
+            <% if review.user.username %>
+            By <%= review.user.username   %>
+            <% end %>
             <br>
+            Reviewed on
             <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
           </p>
         </div>

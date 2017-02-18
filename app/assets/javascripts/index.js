@@ -38,8 +38,6 @@ $(document).ready(function(){
     // var star = $(this).attr('value');
     // console.log(star);
     $('#review_rating').val($(this).attr('value'));
-    console.log($('#review_rating').attr('value'));
-
   });
 
 

@@ -1,35 +1,38 @@
+  <div style="background-color: #D3D0CD ">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <div class="home-content">
+          <h3 class="home-title" style="color:black;">
+              The height of current cinema snobery
+            </h3>
+            <p class="home-story" style="color:black;">
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(245, 245, 245, 0) 0%, rgba(132, 138, 142, 0.7) 50%), url(<%= image_path("background2.jpg")%>);">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 text-center">
-        <div class="home-content">
-          <h3 class="home-title">
-           Being Vegan and Watching Movies
-         </h3>
-         <p class="home-story">
-           Veganism isn’t just about refusing to eat animal products, it’s about eating a diet of produce which is good for us and the environment. Valueing our world and the things we create can makes us healthier, wiser and happier. Movies help us grow in similar ways. Here is where movie lovers come together. Here is where we celebrate great movies.
-         </p>
-           <img src="<%= image_path("cinegif.gif")  %>" alt="" style="width: 65%; margin-left: -4%;">
-         <div class="row">
-           <div class="home-btns">
-            <div class="col-xs-4">
-            <%= link_to "Whats new?", movies_newest_path, class: "btn btn-home vegan-btn" %>
-            </div>
-            <div class="col-xs-4">
-              <%= link_to "2017 Top 10", movies_2016_path, class: "btn btn-home vegan-btn" %>
-            </div>
-            <div class="col-xs-4">
-              <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
-            </div>
-            <div class="col-xs-12">
-              <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
+
+              Don’t be fooled, veganism isn’nt just about  healthy food and the environment, but also about being a judgemental know it all, eager to preach. What better type to review today’s movies? You can be one to!
+
+              Don’t just be a critic: be a Vegan Movie Critic
+            </p>
+            <img src="<%= image_path("cinegif.gif")  %>" alt="" style="width: 65%; margin-left: -4%;">
+            <div class="row">
+             <div class="home-btns">
+              <div class="col-xs-4">
+                <%= link_to "Whats new?", movies_newest_path, class: "btn btn-home vegan-btn" %>
+              </div>
+              <div class="col-xs-4">
+                <%= link_to "2017 Top 10", movies_2016_path, class: "btn btn-home vegan-btn" %>
+              </div>
+              <div class="col-xs-4">
+                <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
+              </div>
+              <div class="col-xs-12">
+                <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
