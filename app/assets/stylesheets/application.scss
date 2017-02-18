@@ -14,6 +14,17 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import url('https://fonts.googleapis.com/css?family=Trirong:400,500');
+
+
+html *
+{
+  font-family: 'Trirong', serif;
+}
+
+h1 {
+  font-family: 'Trirong'
+}
 
 body {
   background-color: #fafcf4;
@@ -31,6 +42,10 @@ body {
 .prev-btn {
   background-color: #fafcf4;
   border: none;
+}
+
+.rating-change {
+  display: none;
 }
 
 h2 {

@@ -10,5 +10,11 @@ skip_before_action :authenticate_user!, only: [:home, :landing]
     @disable_nav = true
     authorize (Review.first)
   end
+
+  def thankyou
+    @disable_nav = true
+    authorize (Review.first)
+  end
+
 end
 

@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
       end
     authorize @review
     @review.save!
-    redirect_to movies_path
+    redirect_to thankyou_path
   end
 
   def edit

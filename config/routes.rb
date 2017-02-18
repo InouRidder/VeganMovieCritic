@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get '/results', to: 'movies#results'
     get '/movies/custom_new', to: 'movies#custom_new'
     post '/movies/custom_create', to: 'movies#custom_create'
+    get '/thankyou', to: 'home#thankyou'
 
     resources :movies do
       resources :reviews do

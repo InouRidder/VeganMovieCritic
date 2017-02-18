@@ -18,11 +18,14 @@
         <p> Leave your review here </p>
         <div class="content-form ">
           <%= f.bootsy_area :content, class: "size-it" %>
+          <div style="display:none;">
+            <%= f.select :rating, [0,1,2,3,4,5,6,7,8,9,10], class: 'rating-change' %>
+          </div>
         </div>
-        <%= f.label :rating %>
-        <%= f.select :rating, [0,1,2,3,4,5] %>
-
-        <%= f.submit %>
+        <div style="margin-left:25%;">
+        <%= render 'shared/starrating-review-new'  %>
+        </div>
+        <%= f.submit class: "btn-save", style: 'margin-left:33%;'%>
         <% end %>
       </div>
     </div>

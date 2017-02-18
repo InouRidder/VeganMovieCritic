@@ -15,6 +15,7 @@ $(window).load(function(){
     error: function(html){
     }
   })
+
 });
 
 $(document).ready(function(){
@@ -31,6 +32,14 @@ $(document).ready(function(){
         $('.content-review-index').append(data);
       }
     })
+  });
+
+  $('.review-rater').on('click', function(event){
+    // var star = $(this).attr('value');
+    // console.log(star);
+    $('#review_rating').val($(this).attr('value'));
+    console.log($('#review_rating').attr('value'));
+
   });
 
 
@@ -50,6 +59,8 @@ $(document).ready(function(){
     });
   });
 });
+
+// need to save this.attr('value') into a temporary variable - then pass it as :rating on submit.
 
 
 

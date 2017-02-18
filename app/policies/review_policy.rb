@@ -24,6 +24,11 @@ class ReviewPolicy < ApplicationPolicy
     true
   end
 
+  def thankyou?
+    true
+  end
+
+
   class Scope < Scope
     def resolve
       scope.all
