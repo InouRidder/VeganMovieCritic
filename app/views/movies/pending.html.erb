@@ -9,22 +9,24 @@
     </div>
     <div class="row">
      <% @pending_reviews.each do |review| %>
-     <div class="col-xs-12 col-sm-6">
+     <div class="col-xs-12">
       <div class="card">
         <div class="text-center">
-          <h3>
-            Movie: <%= review.movie.title %> <br>
-            Title:  <%= review.title %>,
-          </h3>
-          Rating: <%= review.rating %>
+          <h2>
+            <%= review.movie.title %>
+          </h2>
+          <h4>
+            <%= review.title %>,
+          </h4>
+          <%= review.rating.to_f / 2 %>
           <p>
-            Username: <%= review.user.username   %>
+            by <%= review.user.username   %>
             <br>
             <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
           </p>
           <div class="card-content">
             <p>
-              <%=raw review.content[0..100] %> ...
+              <%=raw review.content %>
             </p>
           </div>
           <div class="approve-btn">

@@ -9,15 +9,46 @@
   margin-right: auto;
 }
 
+.movie-title h1 {
+  font-size: 40px;
+  margin-left: 8%;
+}
 
-.card-content-show {
+
+.card-content-container {
   text-align: center;
   vertical-align: middle;
   line-height: 30px;
   width: 100%;
   font-size: 18px;
+  margin-top: 10px;
 }
 
+@media (min-width: 700px) {
+
+.review-content {
+  width: 70%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.movie-title h1 {
+  font-size: 40px;
+  margin-left: 8%;
+}
+
+
+}
+@media (max-width: 700px) {
+  .review-content {
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+}
 .card {
   padding: 10px;
   margin-bottom: 25px;
@@ -27,7 +58,10 @@
 .card-info-revshow {
   margin-top: 10px;
   margin-bottom: 5px;
+}
 
+.card-info {
+  line-height: 30px;
 }
 
 .poster-info-box-revshow {

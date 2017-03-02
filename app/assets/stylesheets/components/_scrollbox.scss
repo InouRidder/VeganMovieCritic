@@ -4,8 +4,7 @@
   max-width:250px;
   overflow-x: visible;
   overflow-y: auto;
-  background-color:$gray;
-  color:white;
+  background-color: $gray;
   font-family:sans-serif;
   border-radius: 4px;
   margin-top: 5%;
@@ -15,8 +14,7 @@
   width: 100%;
   overflow-x: visible;
   overflow-y: auto;
-  background-color:$gray;
-  color: white;
+  background-color: $gray;
   font-family:sans-serif;
   border-radius: 4px;
 
@@ -27,7 +25,7 @@
   display: flex;
   align-text: left;
   padding: 13px;
-  color: green;
+  color: $green;
   transition: 200ms ease;
   text-decoration: none;
 }
@@ -43,6 +41,7 @@
   background-color: $red;
   text-decoration: none !important;
   color: $gray;
+  font-size: bold;
 }
 
 

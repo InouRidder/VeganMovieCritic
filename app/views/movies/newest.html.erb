@@ -21,7 +21,7 @@
             <%=raw review.content %>
           </p>
           <br>
-          <div class="fa fa-star"></div> <%= review.rating %>
+          <div class="fa fa-star"></div> <%= review.rating.to_f / 2  %>
           <br>
           <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
         </div>
