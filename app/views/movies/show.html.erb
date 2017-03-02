@@ -34,7 +34,7 @@
           <%= @movie.actors %>
           <br>
           <br>
-          <%= review.rating %> <div class="fa fa-star"></div>
+          <%= review.rating.to_f / 2 %> <div class="fa fa-star"></div>
           <p>
             <% if review.user.username %>
             By <%= review.user.username   %>
