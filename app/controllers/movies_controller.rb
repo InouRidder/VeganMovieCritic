@@ -91,10 +91,12 @@ class MoviesController < ApplicationController
   end
 
   def partial
-    @review = @movie.reviews.where(approved: :true).order(rating: :desc)[0]
+    @review = @movie.reviews.where(approved: :true).order(rating: :desc).first
     @user = current_user
     if @review
-      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id)[0] || ReviewRating.new
+      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first
+    else
+      @review_rating = ReviewRating.new
     end
   end
 
@@ -131,7 +133,7 @@ class MoviesController < ApplicationController
     end
 
     def newest
-      @newest_reviews = Review.where(approved: true).order(created_at: :desc)
+      @newest_reviews = Review.where(approved: true).order(created_at: :desc)[0..10]
       authorize (Movie.first)
     end
 

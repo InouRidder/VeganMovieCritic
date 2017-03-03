@@ -1,38 +1,46 @@
 
+<div class="col-xs-12 text-center">
+  <div class="movie-title">
+    <h1 class="">
+      <%= @review.movie.title  %>
+    </h1>
+  </div>
+</div>
 <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-5 text-right hidden-xs">
-        <%= image_tag "#{@review.movie.poster}", class: "poster-info-box-revshow "  %>
+        <%= image_tag "#{@review.movie.poster}", class: "poster-info-box "  %>
       </div>
       <div class="col-xs-12 col-sm-5">
-        <div class="card-info-revshow text-left">
+        <div class="card-info text-left">
           <h3>
-            Title:  <%= @review.title %>,
+            <%= @review.title %>
           </h3>
-          Rating: <%= @review.rating %>
+          <%= @review.movie.genre %>
+          <br>
+          <%= @review.movie.actors %>
+          <br>
+          <%= @review.rating.to_f / 2 %> <div class="fa fa-star"></div>
           <p>
-            By: <%= @review.user.username   %>
             <br>
-            On: <%= @review.created_at %>
+            Reviewed on
+            <%= @review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+            <% if @review.user.username %>
+            By <%= @review.user.username   %>
+            <% end %>
           </p>
-
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 text-center">
 
-        <div class="card-content-revshow">
+        <div class="card-content-container">
+          <div class="review-content">
             <%=raw @review.content %>
-
+          </div>
         </div>
 
-        <div class="card-rating">
-
-          <% if @review.has_rated.include?(@user) %>
-          review rating: <%= @review.set_rating / 2 %>
-          <% end %>
-        </div>
         <div class="col-xs-12">
           <div class="card-btns center-block">
             <% if policy(@review).update? %>
@@ -41,9 +49,11 @@
             <% if policy(@review).destroy? %>
             <%= link_to 'Delete', movie_review_path(@review.movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
             <% end %>
-            <%= link_to 'More Reviews', movie_path(@review.movie), class: "btn vegan-btn"  %>
+            <%= link_to 'Add a review', new_movie_review_path(@review.movie), class: "btn vegan-btn" %>
+            <%= link_to 'More Reviews', movie_path(@review.movie), class: "btn vegan-btn" %>
           </div>
         </div>
       </div>
     </div>
   </div>
+

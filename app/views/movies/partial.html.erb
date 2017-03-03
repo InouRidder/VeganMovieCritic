@@ -1,7 +1,7 @@
 <div class="container" id="partial-container">
   <div class="row">
 
-    <div class="col-xs-4">
+    <div class="col-xs-4" style="margin-top: 20px">
       <div class="movie-info">
         <div class="movie-title">
           <h1>
@@ -38,7 +38,7 @@
               </p>
               <footer>
                 <cite>
-                  <%= @review.rating %> <i class="fa fa-star" aria-hidden="true"> </i>
+                  <%= @review.rating.to_f / 2 %> <i class="fa fa-star" aria-hidden="true"> </i>
                   <%= @review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
                 </cite>
               </footer>
@@ -49,10 +49,10 @@
         <div>
           <p>
             You gave this review
-            <%= @review_rating.rating / 2 %>
+            <%= @review_rating.rating.to_f / 2 %>
             <i class="fa fa-star" aria-hidden="true">  </i>
           </p>
-            Users rating <%= @review.set_rating.to_f / 2 %> <i class="fa fa-star" aria-hidden="true">  </i>
+            Users rate this review <%= @review.set_rating.to_f / 2 %> <i class="fa fa-star" aria-hidden="true">  </i>
         </div>
         <% else %>
         <div class="row">

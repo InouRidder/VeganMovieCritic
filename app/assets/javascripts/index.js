@@ -15,7 +15,6 @@ $(window).load(function(){
     error: function(html){
     }
   })
-
 });
 
 $(document).ready(function(){
