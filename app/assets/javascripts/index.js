@@ -49,16 +49,14 @@ $(document).ready(function(){
       url: $(this).attr('action'),
       data: { "review_rating" : { "user_id" : user, "rating" : star } },
       succes: function(){
+        $('.card-rating').empty();
+        $('.card-rating').append("Thanks for voting!")
         console.log("reverse error, awesome coding");
       },
       error: function(){
-      $('.card-rating').empty();
-      $('.card-rating').append("Thanks for voting!")      }
+        $('.card-rating').empty();
+        $('.card-rating').append("Thanks for voting!")
+      }
     });
   });
 });
-
-// need to save this.attr('value') into a temporary variable - then pass it as :rating on submit.
-
-
-
