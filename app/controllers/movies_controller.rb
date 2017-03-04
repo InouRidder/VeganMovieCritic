@@ -93,10 +93,8 @@ class MoviesController < ApplicationController
   def partial
     @review = @movie.reviews.where(approved: :true).order(rating: :desc).first
     @user = current_user
-    if @review
-      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first
-    else
-      @review_rating = ReviewRating.new
+    if @review && current_user
+      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first || ReviewRating.new
     end
   end
 

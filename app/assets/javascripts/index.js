@@ -1,4 +1,4 @@
-// CHANGE WHEN PUSHING TO HEROKU!
+// CHANGE WHEN PUSHING HEROKU!
 baseUrl = 'http://localhost:3000/'
 // baseUrl = 'http://www.veganmoviecritic.com'
 
