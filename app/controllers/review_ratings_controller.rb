@@ -12,6 +12,9 @@ class ReviewRatingsController < ApplicationController
     @review_rating.user_id = @user_id
     authorize @review_rating
     @review_rating.save!
+    @review = Review.find(@review_id)
+    @review.set_rating
+    @review.save!
   end
 
   def edit
