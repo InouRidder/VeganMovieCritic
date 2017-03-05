@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update, :destroy]
   before_action :find_movie, only: [:edit, :update]
   before_action :find_user, only: [:create, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def show
     @review_rating = ReviewRating.new

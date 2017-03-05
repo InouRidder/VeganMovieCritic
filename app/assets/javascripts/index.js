@@ -1,6 +1,6 @@
-// CHANGE WHEN PUSHING TO HEROKU!
-// baseUrl = 'http://localhost:3000/'
-baseUrl = 'http://www.veganmoviecritic.com'
+// CHANGE WHEN PUSHING HEROKU!
+baseUrl = 'http://localhost:3000/'
+// baseUrl = 'http://www.veganmoviecritic.com'
 
 $(window).load(function(){
   id = $(".click-btn:first-child").attr('href');
@@ -41,20 +41,27 @@ $(document).ready(function(){
 
 
   $('.content-review-index').on('click', '.review-rater', function(event){
-    var star = $(this).attr('value');
-    var user = $(this).attr('hidden-value');
+    var gist = {
+      "review_rating":
+      {
+        "user_id": $(this).attr('hidden-value'),
+        "rating" : $(this).attr('value')
+      }
+    }
+
     $.ajax({
       type: 'POST',
       url: $(this).attr('action'),
-      data: { "review_rating" : { "user_id" : user, "rating" : star } },
-      succes: function(){
+      data: gist,
+      succes: function(data){
         $('.card-rating').empty();
         $('.card-rating').append("Thanks for voting!")
-        console.log("reverse error, awesome coding");
+        return false;
       },
-      error: function(){
+      error: function(data){
         $('.card-rating').empty();
         $('.card-rating').append("Thanks for voting!")
+        return false;
       }
     });
   });

@@ -6,6 +6,7 @@ ActiveAdmin.register User do
     # column :name
     # column :created_at
     # column :admin
+    column :username
     actions
   end
 # See permitted parameters documentation:
