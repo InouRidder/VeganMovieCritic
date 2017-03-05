@@ -117,7 +117,7 @@ class MoviesController < ApplicationController
       movie.rating = movie.set_rating
       movie.save!
     end
-    @movies = Movie.order(rating: :desc)[1..10]
+    @movies = Movie.order(rating: :desc)[0..9]
     @review_rating = ReviewRating.new
     authorize (Movie.first)
   end
@@ -146,10 +146,6 @@ class MoviesController < ApplicationController
       authorize (Movie.first)
     end
 
-    def alphabetical
-      @movies = Movie.order(:title)
-      authorize (Movie.first)
-    end
 
     private
 
