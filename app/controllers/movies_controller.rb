@@ -96,6 +96,7 @@ class MoviesController < ApplicationController
     if @review && current_user
       @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first || ReviewRating.new
     end
+    render :layout => false
   end
 
   def highrated
