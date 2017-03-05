@@ -56,11 +56,12 @@ $(document).ready(function(){
       succes: function(data){
         $('.card-rating').empty();
         $('.card-rating').append("Thanks for voting!")
-        console.log("reverse error, awesome coding");
+        return false;
       },
       error: function(data){
         $('.card-rating').empty();
         $('.card-rating').append("Thanks for voting!")
+        return false;
       }
     });
   });

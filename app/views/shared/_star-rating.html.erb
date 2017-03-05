@@ -1,6 +1,6 @@
 <fieldset class="rating">
   <input class="star-rating review-rater" action="<%= movie_review_review_ratings_path(@movie, @review) %>" method="post" type="radio" id="star5" name="rating" value="10" hidden-value= "<%= @user.id %>" />
-  <label class = "full review-rater" for="star5" title="Awesome - 5 stars" action="<%= movie_review_review_ratings_path(@movie, @review) %>" method="post" hidden-value= "<%= @user.id  %>">
+  <label class ="full review-rater" for="star5" title="Awesome - 5 stars" hidden-value= "<%= @user.id  %>">
   </label>
   <input class="star-rating review-rater" action="<%= movie_review_review_ratings_path(@movie, @review) %>" method="post" type="radio" id="star4half" name="rating" value="9" hidden-value= "<%= @user.id  %>"/>
   <label class="half review-rater" for="star4half" title="Pretty good - 4.5 stars" hidden-value= "<%= @user.id  %>">
