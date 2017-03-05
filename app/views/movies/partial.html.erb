@@ -45,7 +45,7 @@
             </blockquote>
           </div>
         </div>
-        <% if @review.has_rated.include?(@user) && @review_rating.rating %>
+        <% if @review.has_rated(@user) && @review_rating.rating %>
         <div>
           <p>
             You gave this review

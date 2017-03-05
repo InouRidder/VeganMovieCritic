@@ -18,15 +18,14 @@ class Review < ApplicationRecord
     end
   end
 
-  def has_rated
+  def has_rated(user)
     users = []
     if self.review_ratings.size > 0
       self.review_ratings.each do |e|
         users << e.user
       end
     end
-    # Waar komt onderstaand user object vandaan?
-    users
+    users.include?(user)
   end
 
   def approve
