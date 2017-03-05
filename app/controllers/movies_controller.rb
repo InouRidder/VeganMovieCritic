@@ -91,7 +91,7 @@ class MoviesController < ApplicationController
   end
 
   def partial
-    @review = @movie.reviews.where(approved: :true).order(rating: :desc).first
+    @review = @movie.reviews.where(approved: :true).where.not(review_rating: nil).order(review_rating: :desc).first
     @user = current_user
     if @review && current_user
       @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first || ReviewRating.new
@@ -105,7 +105,7 @@ class MoviesController < ApplicationController
       review.set_rating
       review.save!
     end
-    @highest_reviews = Review.where(approved: true).order(rating: :desc)
+    @highest_reviews = Review.where.not(approved: nil).order(rating: :desc)
     @highest_reviews
     authorize (Movie.first)
     # array of highest user_rating reviews
