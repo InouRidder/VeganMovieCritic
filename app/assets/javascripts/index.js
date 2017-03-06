@@ -1,6 +1,9 @@
 // CHANGE WHEN PUSHING HEROKU!
-// baseUrl = 'http://localhost:3000/'
-baseUrl = 'http://www.veganmoviecritic.com'
+
+// validatie op aantal woorden
+
+baseUrl = 'http://localhost:3000/'
+// baseUrl = 'http://www.veganmoviecritic.com'
 
 $(window).load(function(){
   id = $(".click-btn:first-child").attr('href');
@@ -34,33 +37,38 @@ $(document).ready(function(){
   });
 
   $('.review-rater').on('click', function(event){
-    // var star = $(this).attr('value');
-    // console.log(star);
     $('#review_rating').val($(this).attr('value'));
   });
 
 
   $('.content-review-index').on('click', '.review-rater', function(event){
+
+    var element = $(this).prev('input');
+
     var gist = {
       "review_rating":
       {
-        "user_id": $(this).attr('hidden-value'),
-        "rating" : $(this).attr('value')
+        "user_id": element.attr('hidden-value'),
+        "rating" : element.attr('value')
       }
+    }
+    var action = element.attr('action');
+
+    if (!action){
+      return false;
     }
 
     $.ajax({
       type: 'POST',
-      url: $(this).attr('action'),
+      url: action,
       data: gist,
-      succes: function(data){
+      success: function(data){
         $('.card-rating').empty();
         $('.card-rating').append("Thanks for voting!")
         return false;
       },
       error: function(data){
-        $('.card-rating').empty();
-        $('.card-rating').append("Thanks for voting!")
+        console.log('error');
         return false;
       }
     });
