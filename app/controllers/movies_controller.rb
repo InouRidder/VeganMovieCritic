@@ -25,12 +25,11 @@ class MoviesController < ApplicationController
     authorize @movie
   end
 
-
 # IDEA : Call method on data to remove all this logic from controller. It's hideous.
   def create
     if @movie = Movie.all.find_by_title(params["movie"]["title"].strip)
       authorize @movie
-      redirect_to new_movie_review_path (@movie)
+      redirect_to select_path(@movie)
     else
       search_query = params["movie"]["title"]
       url = "http://www.omdbapi.com/?t=#{search_query}&y=&plot=short&r=json"
@@ -52,10 +51,15 @@ class MoviesController < ApplicationController
         @movie.imdbrating = data["imdbrating"]
         authorize @movie
         if @movie.save!
-          redirect_to new_movie_review_path(@movie)
+          redirect_to select_path(@movie)
         end
       end
     end
+  end
+
+  def select
+    @movie = Movie.find(params[:format])
+    authorize @movie
   end
 
   def custom_new

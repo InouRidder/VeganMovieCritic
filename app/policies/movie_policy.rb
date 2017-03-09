@@ -12,6 +12,10 @@ class MoviePolicy < ApplicationPolicy
     user
   end
 
+  def select?
+    user
+  end
+
   def update?
     user.admin
   end

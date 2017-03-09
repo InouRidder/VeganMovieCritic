@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-6 col-xs-12">
+
+      <h1>
+        Would you like to review the following movie?
+      </h1>
+      <div class="choose-buttons">
+        <%= link_to 'Correct Movie', new_movie_review_path(@movie), class: 'btn vegan-btn' %>
+        <%= link_to 'Add a custom movie to review', movies_custom_new_path, class: 'btn vegan-btn' %>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xs-12" style="margin-top: 20px">
+      <div class="movie-info">
+        <div class="movie-title">
+          <h1>
+            <%= @movie.title  %>
+          </h1>
+          <p>
+            <%= @movie.plot  %>
+          </p>
+        </div>
+
+        <div class="movie-info-box">
+          <%= @movie.awards  %>
+          <br>
+          <%= @movie.actors %>
+          <br>
+          <%= @movie.runtime  %>
+          <br>
+          <%= @movie.genre  %>
+          <div class="movie-poster">
+            <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

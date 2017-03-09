@@ -13,22 +13,44 @@
             <%= f.text_field :title, placeholder: "Add your title here", class: "form-control input-lg edit-input" %>
           </div>
         </div>
+        <br>
         <div class="row">
-        <p> When was the movie released?</p>
+          <p> When was the movie released? Only contemporary movies allowed!</p>
           <div class="col-xs-12 text-center">
             <%= f.date_field :released, class: "form-control input-lg edit-input" %>
           </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-xs-12 text-center">
             <%= f.text_field :actors, placeholder: "Add some of the cast here", class: "form-control input-lg edit-input" %>
           </div>
         </div>
+        <br>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <%= f.text_field :genre, placeholder: "What genre?", class: "form-control input-lg edit-input" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <%= f.text_field :runtime, placeholder: "What is the runtime?", class: "form-control input-lg edit-input" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+          <%= f.text_field :poster, placeholder: "Here you can add an url to a movie", class: "form-control input-lg edit-input" %>
+          </div>
+        </div>
+        <br>
         <div class="row">
           <div class="col-xs-12 text-center">
             <%= f.text_field :country, placeholder: "From what country is the movie?", class: "form-control input-lg edit-input" %>
           </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-xs-12 text-center">
             <%= f.submit :Thanks! %>
@@ -40,5 +62,3 @@
     </div>
   </div>
 </div>
-
-

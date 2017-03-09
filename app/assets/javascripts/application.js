@@ -5,3 +5,4 @@
 //= require navbar
 //= require show
 //= require bootsy
+//= require word_count.js

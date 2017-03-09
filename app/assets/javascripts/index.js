@@ -2,8 +2,8 @@
 
 // validatie op aantal woorden
 
-// baseUrl = 'http://localhost:3000/'
-baseUrl = 'http://www.veganmoviecritic.com'
+baseUrl = 'http://localhost:3000/'
+// baseUrl = 'http://www.veganmoviecritic.com'
 
 $(window).load(function(){
   id = $(".click-btn:first-child").attr('href');
