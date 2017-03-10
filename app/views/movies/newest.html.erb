@@ -9,7 +9,7 @@
           <%= review.movie.title %>
         </h3>
         <p>
-        as reviewed by <%= review.user.username ? review.user.username : review.user.email   %>
+        as reviewed by <%= review.user.profile.username ? review.user.profile.username : review.user.email %>
         </p>
         <h5>
         <strong>
