@@ -22,3 +22,9 @@
 .review-input-height {
   height: 80vh;
 }
+
+@media (max-width: 700px) {
+  .star-rating-rev-new {
+    margin-top: 80px;
+  }
+}

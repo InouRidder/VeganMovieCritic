@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-sm-6 col-xs-12">
       <div class="review-form">
         <%= form_for ([@movie, @review]) do |f| %>
         <div id="review_title-error" style="color: red;">
@@ -29,10 +29,10 @@
           <div class='current-word-count'></div>
         </div>
           <div class="word-counter-error" style="color: red;"></div>
-        <div style="margin-left:25%;">
+        <div class="star-rating-rev-new"style="margin-left:25%;">
           <%= render 'shared/starrating-review-new'  %>
         </div>
-        <%= f.submit class: "btn-save", style: 'margin-left:33%;'%>
+        <%= f.submit class: "btn vegan-btn btn-save", style: 'margin-left:33%;'%>
         <% end %>
       </div>
     </div>

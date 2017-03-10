@@ -18,12 +18,24 @@
   border: $red solid 1px;
 }
 
-.home-content {
-  padding-top: 110px;
-  padding-left: 25%;
-  padding-right: 25%;
-  font-size: large;
+@media (min-width: 700px) {
+  .home-content {
+    padding-top: 110px;
+    padding-left: 25%;
+    padding-right: 25%;
+    font-size: large;
+  }
 }
+
+@media (max-width: 700px) {
+  .home-content {
+    padding-top: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: large;
+  }
+}
+
 
 .home-btns {
   margin-top: 2%;
@@ -47,9 +59,9 @@
   bottom: 0;
   left: 0;
   right: 0
-  }
+}
 
-  .home-title {
-    margin-bottom: 40px;
-    margin-top: -30px;
-  }
+.home-title {
+  margin-bottom: 40px;
+  margin-top: -30px;
+}
