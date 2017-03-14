@@ -1,9 +1,7 @@
 // CHANGE WHEN PUSHING HEROKU!
 
-// validatie op aantal woorden
-
-// baseUrl = 'http://localhost:3000/'
-baseUrl = 'http://www.veganmoviecritic.com'
+baseUrl = 'http://localhost:3000/'
+// baseUrl = 'http://www.veganmoviecritic.com'
 
 $(window).load(function(){
   id = $(".click-btn:first-child").attr('href');
@@ -26,12 +24,11 @@ $(document).ready(function(){
     $(".click-btn").removeClass('list-item-active');
     $(this).addClass('list-item-active');
     id = $(this).attr('href');
-    $('.content-review-index').empty();
     $.ajax({
       type: 'GET',
       url: baseUrl + id + '/partial',
       success: function(data) {
-        $('.content-review-index').append(data);
+        $('.content-review-index').html(data);
       }
     })
   });

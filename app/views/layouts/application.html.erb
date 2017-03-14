@@ -2,6 +2,7 @@
 <html>
 <head>
 
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
 
@@ -18,7 +19,10 @@
   <%= javascript_include_tag 'application' %>
   <%= render 'shared/navbar' unless @disable_nav %>
   <%= render 'shared/flashes' %>
-  <%= yield %>
+
+  <div class="container-background" style="background-image: url(<%= yield :background %>)">
+    <%= yield %>
+  </div>
 </body>
 
 

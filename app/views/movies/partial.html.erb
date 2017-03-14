@@ -1,6 +1,5 @@
 <div class="container" id="partial-container">
   <div class="row">
-
     <div class="col-xs-4" style="margin-top: 20px">
       <div class="movie-info">
         <div class="movie-title">
@@ -21,7 +20,9 @@
         </div>
       </div>
     </div>
-
+      <% content_for :background do  %>
+        <%= @review.artwork if @review.artwork %>
+      <% end %>
     <div class="col-xs-8">
       <% if @review %>
       <div class= "card card-outline-primary mb-3 text-center">
@@ -29,6 +30,7 @@
           <h3>
             <%= @review.title %>
           </h3>
+          <%= @review.artwork %>
         </div>
         <div class="card-block">
           <div class="card-text">

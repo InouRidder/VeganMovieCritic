@@ -7,32 +7,33 @@
       </div>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-sm-6 col-xs-12">
       <div class="review-form">
         <%= form_for ([@movie, @review]) do |f| %>
         <div id="review_title-error" style="color: red;">
 
         </div>
-        <p> Title your review!</p>
         <div class="title-form">
-          <%= f.text_area :title, class: "form-control input-lg edit-input title-form" %>
+          <%= f.text_area :title, placeholder: "Title your review", class: "form-control input-lg edit-input title-form top-margin" %>
         </div>
-
-        <p> Leave your review here </p>
         <div class="content-form ">
-          <%= f.bootsy_area :content, class: "size-it" %>
+          <%= f.bootsy_area :content, placeholder: "Leave your review here", class: "size-it" %>
           <div style="display:none;">
             <%= f.select :rating, [0,1,2,3,4,5,6,7,8,9,10], class: 'rating-change' %>
           </div>
+        </div>
+
+        <div class="artwork-form">
+          <%= f.text_area :artwork, placeholder: "Please add an url to an artwork image, if you'd like to add one. It will be used as the background of your review", class: "form-control input-lg edit-input title-form" %>
         </div>
         <div class="word-counter">
           <div class='current-word-count'></div>
         </div>
           <div class="word-counter-error" style="color: red;"></div>
-        <div style="margin-left:25%;">
+        <div class="star-rating-rev-new"style="margin-left:25%;">
           <%= render 'shared/starrating-review-new'  %>
         </div>
-        <%= f.submit class: "btn-save", style: 'margin-left:33%;'%>
+        <%= f.submit class: "btn vegan-btn btn-save", style: 'margin-left:33%;'%>
         <% end %>
       </div>
     </div>
@@ -58,6 +59,3 @@
 
   </div>
 </div>
-
-
-
