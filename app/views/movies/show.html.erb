@@ -12,11 +12,6 @@
 
   <% @reviews.each_with_index do |review, i| %>
 
-    <% content_for :background do  %>
-      <%= review.artwork if review.artwork %>
-    <% end %>
-
-
   <% if i == 0 %>
 
   <div class="next-method current-element">
@@ -49,7 +44,7 @@
       <div class="col-xs-12 text-center">
 
         <div class="card-content-container">
-          <div class="review-content">
+          <div class="review-content" style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork if review.artwork %>); border-radius: 4px;">
             <%=raw review.content %>
           </div>
         </div>
@@ -117,7 +112,7 @@
     <div class="col-xs-12 text-center">
 
       <div class="card-content-container">
-        <div class="review-content">
+        <div class="review-content" style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork if review.artwork %>); border-radius: 4px;">
           <%=raw review.content %>
         </div>
       </div>
