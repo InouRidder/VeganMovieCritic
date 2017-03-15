@@ -1,48 +1,56 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-xs-12 col-sm-12 col-sm-offset-3">
-      <h2>
-        Hi, <%= @profile.username %>
-      </h2>
-    </div>
-    <div class="row">
-
-      <div class="col-sm-3 col-sm-offset-2 col-xs-12">
-        <h3>
-          Profile information
-        </h3>
-        <h4>
-          <%= @profile.first_name + " " +  @profile.last_name %>
-          <br>
-          <%= @profile.info %>
-          <br>
-          <%= @profile.country %>
-          <br>
-          You have contributed <%= @profile.user.reviews.size %> reviews
-          so far!
-        </h4>
-        <%= link_to 'Edit Profile', edit_profile_path(@profile), class: 'btn vegan-btn' %>
-      </div>
-
-      <div class="recent-activity">
-        <div class="col-sm-6 col-xs-12">
-          <h3>
-            Recent Activity
-          </h3>
-          <% @profile.user.reviews.each do |r| %>
-          <ul>
-            <%= r.movie.title %>
-            <li>
-              <h4>
-                <%= r.title %> @ <%= r.created_at.strftime('%A, %d %b %Y %l:%M %p') %> has been rated <%= r.review_ratings.size %> times!
-                <%= r.review_rating ? r.review_rating : 'Not rated yet' %> <div class='fa fa-star'></div>
-              </h4>
-            </li>
+    <div class="col-sm-6 col-xs-12">
+      <div class="portfoliocard ">
+        <div class="coverphoto"></div>
+        <div class="left_col">
+          <div class="followers">
+            <h4>
+              Reviews:
+            </h4>
+            <div class="follow_count"><%= @profile.user.reviews.size %></div>
+            Written
+          </div>
+          <div class="following">
+            <div class="follow_count"><%= @profile.user.review_ratings.size %></div>
+            Reviewed
+          </div>
+        </div>
+        <div class="right_col">
+          <h2 class="name"><%= @profile.username %></h2>
+          <br><br>
+          <h3 class="location"><%=  @profile.country.capitalize  %> </h3>
+          <ul class="contact_information">
+            <li class="work">Vegan Critic</li>
+            <li class="website"><%= @profile.info  %></li>
+            <li class="info"> <%= @profile.first_name + " " + @profile.last_name%> </li>
           </ul>
-          <% end %>
         </div>
       </div>
     </div>
+
+    <div class="col-sm-6 col-xs-12">
+      <div class="profile-scrollbox">
+        <% @profile.user.reviews.each do |review| %>
+        <div class="recent-activity">
+          <div class="product">
+            <div class='product-body'>
+              <h3>
+                <%= review.movie.title %>
+              </h3>
+              <p>
+                <%= review.title %> @ <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %> has been rated <%= review.review_ratings.size %> times!
+                <%= review.review_rating ? review.review_rating : 'Not rated yet' %> <div class='fa fa-star'></div>
+              </p>
+            </div>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+            </ul>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
