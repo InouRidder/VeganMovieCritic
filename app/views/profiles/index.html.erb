@@ -22,10 +22,10 @@
           <br><br>
           <h3 class="location"><%=  @profile.country.capitalize  %> </h3>
           <ul class="contact_information">
-            <li class="work">Vegan Critic</li>
-            <li class="website"><%= @profile.info  %></li>
-            <li class="info"> <%= @profile.first_name + " " + @profile.last_name%> </li>
+          <li class="work">Vegan Critic</li>
+          <li class="info"> <%= @profile.first_name + " " + @profile.last_name%> </li>
           </ul>
+          <%= link_to 'Edit profile', edit_profile_path(@profile), class: 'btn vegan-btn', style: "    margin-top: 10%; margin-left: 25%;" %>
         </div>
       </div>
     </div>
@@ -34,17 +34,20 @@
       <div class="profile-scrollbox">
         <% @profile.user.reviews.each do |review| %>
         <div class="recent-activity">
+          <%= link_to movie_review_path(review.movie, review) do %>
           <div class="product">
             <div class='product-body'>
-              <h3>
+              <h3 style="color: black;">
                 <%= review.movie.title %>
               </h3>
+              <%= review.approved ? "" : "Waiting for approval" %>
               <p>
                 <%= review.title %> @ <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %> has been rated <%= review.review_ratings.size %> times!
-                <%= review.review_rating ? review.review_rating : 'Not rated yet' %> <div class='fa fa-star'></div>
+                <%= review.review_rating ? review.review_rating : 'Not rated yet' %> <div style="color: green" class='fa fa-star'></div>
               </p>
             </div>
           </div>
+          <% end %>
         </div>
         <% end %>
       </div>

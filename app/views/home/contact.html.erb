@@ -3,29 +3,31 @@
       <div class="row">
         <div class="col-xs-12 text-center">
           <div class="home-content">
-          <h3 class="home-title" style="color:black;">
-              The Height of Current Cinema Snobbery
+            <h3 class="home-title" style="color: black">
+              Contact us
             </h3>
-            <p class="home-story" style="color:black;">
-
-              Don’t be fooled: veganism isn’nt just about healthy food and the environment, but also about being a judgemental know it all, eager to preach. What better type to review today’s movies? You can be one too!
-            <br>
-              Don’t just be a critic: be a Vegan Movie Critic
-
+            <p class="home-story" style="color: black">
+              Your review is currently under review.
+              <br>
+              <br>
+              This is no censure, only to make sure you respect the integrity of this website.
+              <br>
+              Now go and eat some Gary.
             </p>
             <img src="<%= image_path("cinegif.gif")  %>" alt="" style="width: 65%; margin-left: -4%;">
+
             <div class="row">
              <div class="home-btns">
-              <div class="col-sm-4 col-xs-12 ">
-                <%= link_to "Whats new", movies_newest_path, class: "btn btn-home vegan-btn" %>
+              <div class="col-xs-4">
+                <%= link_to "Whats New?", movies_newest_path, class: "btn btn-home vegan-btn" %>
               </div>
-              <div class="col-sm-4 col-xs-12">
+              <div class="col-xs-4">
                 <%= link_to "2017 Top 10", movies_2017_path, class: "btn btn-home vegan-btn" %>
               </div>
-              <div class="col-sm-4 col-xs-12">
+              <div class="col-xs-4">
                 <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
               </div>
-              <div class="col-sm-12 col-xs-12">
+              <div class="col-xs-12">
                 <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
               </div>
             </div>
@@ -36,5 +38,4 @@
   </div>
 </div>
 </body>
-
 

@@ -38,6 +38,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profile = current_user.profile
+    @reviews = @profile.user.reviews.newest
     policy_scope(@profile)
   end
 
