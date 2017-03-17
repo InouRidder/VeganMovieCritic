@@ -1,26 +1,27 @@
 <div class="container">
-  <div class="col-xs-12 text-center">
-    <div class="movie-title">
-      <h1 class="">
-        <%= @movie.title  %>
-      </h1>
-    </div>
-  </div>
+
   <% if @movie.reviews.empty? %>
-    <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
+  <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
   <% end %>
 
   <% @reviews.each_with_index do |review, i| %>
 
   <% if i == 0 %>
 
-  <div class="next-method current-element">
+  <div class="next-method current-element"
+    <% if review.artwork %>
+      style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork %>)"
+    <% end %>>
     <div class="row">
       <div class="col-xs-12 col-sm-5 text-right hidden-xs">
         <%= image_tag "#{@movie.poster}", class: "poster-info-box "  %>
       </div>
       <div class="col-xs-12 col-sm-5">
         <div class="card-info text-left">
+          <h1 >
+            <%= @movie.title  %>
+          </h1>
+          <br>
           <h3>
             <%= review.title %>
           </h3>
@@ -44,7 +45,7 @@
       <div class="col-xs-12 text-center">
 
         <div class="card-content-container">
-          <div class="review-content" style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork if review.artwork %>); border-radius: 4px;">
+          <div class="review-content">
             <%=raw review.content %>
           </div>
         </div>
@@ -82,13 +83,19 @@
 
   <% else  %>
 
-  <div class="next-method hidden">
+  <div class="next-method hidden"
+    <% if review.artwork %>
+      style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork %>)"
+    <% end %>>
    <div class="row">
     <div class="col-xs-12 col-sm-5 text-right hidden-xs">
       <%= image_tag "#{@movie.poster}", class: "poster-info-box "  %>
     </div>
     <div class="col-xs-12 col-sm-5">
       <div class="card-info text-left">
+        <h1 class="">
+          <%= @movie.title  %>
+        </h1>
         <h3>
           <%= review.title %>
         </h3>
@@ -112,7 +119,7 @@
     <div class="col-xs-12 text-center">
 
       <div class="card-content-container">
-        <div class="review-content" style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork if review.artwork %>); border-radius: 4px;">
+        <div class="review-content">
           <%=raw review.content %>
         </div>
       </div>
@@ -126,7 +133,7 @@
             <% if policy(review).destroy? %>
               <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
             <% end %>
-          <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
+            <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
           <% end %>
         </div>
       </div>
@@ -138,17 +145,16 @@
       <button class="next-btn pull-right">
         <%= i + 1%> of <%= @reviews.size  %> <i class="fa fa-arrow-right fa-5x"></i>
       </button>
-    <% end %>
+  <% end %>
 
-    <% if i != 0 %>
-      <button class="prev-btn pull-left">  <i class="fa fa-arrow-left fa-5x"></i> </button>
+  <% if i != 0 %>
+    <button class="prev-btn pull-left">  <i class="fa fa-arrow-left fa-5x"></i> </button>
     <% end %>
   <% end %>
 
-      </div>
-    <% end %>
-    <% end %>
-  </div>
+</div>
+<% end %>
+<% end %>
 </div>
 
 

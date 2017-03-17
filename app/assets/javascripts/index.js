@@ -1,7 +1,7 @@
 // CHANGE WHEN PUSHING HEROKU!
 
-// baseUrl = 'http://localhost:3000/'
-baseUrl = 'http://www.veganmoviecritic.com'
+baseUrl = 'http://localhost:3000/'
+// baseUrl = 'http://www.veganmoviecritic.com'
 
 $(window).load(function(){
   id = $(".click-btn:first-child").attr('href');
@@ -14,9 +14,9 @@ $(window).load(function(){
       $('.content-review-index').append(data);
       $('.container-background').css('background-size', 'cover');
       var background_url = $(".background-value").attr('data-hidden');
-      $('.container-background').css('background-image', background_url);
-      console.log(background_url);
-    },
+        $('.container-background').css('background-image', background_url);
+        console.log(background_url);
+   },
     error: function(html){
     }
   })
@@ -35,7 +35,8 @@ $(document).ready(function(){
         $('.content-review-index').html(data);
         $('.container-background').css('background-size', 'cover');
         var background_url = $(".background-value").attr('data-hidden');
-        $('.container-background').css('background-image', "linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(" + background_url + ")");
+        $('.container-background').css('background-image', background_url);
+        console.log(background_url);
       }
     })
   });
