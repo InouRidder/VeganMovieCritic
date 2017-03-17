@@ -30,31 +30,14 @@ body {
   background-color: #fafcf4;
 }
 
-.container-background {
-
-}
 
 .fa-star {
   color: yellow;
 }
 
-.next-btn {
-  background-color: #fafcf4;
-  border: none;
-}
-
-.prev-btn {
-  background-color: #fafcf4;
-  border: none;
-}
-
-.rating-change {
-  display: none;
-}
-
 h2 {
   font-size: 32px;
-  position:relative;
+  position: relative;
   padding:10px 5px;
   display: inline-block;
   color: #474A48;
@@ -67,38 +50,5 @@ h2 {
   color: $green;
 }
 
-.vmr-logo {
-  color: $gray;
-  text-decoration: none;
-  transition: 500ms ease;
-  height: 30px;
-  width: 100%;
-  border-radius: 30%;
-}
 
-.vmr-logo:hover {
-  text-decoration: none;
-  opacity: 0.8;
-}
 
-.navbar-wagon-button:active {
-  background-color: $red;
-}
-
-.box {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 30%;
-  border: black solid 5px;
-  margin: 30px;
-}
-
-.size-it {
-  height: 45vh;
-  width: 100%;
-  padding: 2px;
-  margin: 1px;
-  border-radius: 10px;
-  border-color: lightgrey;
-}

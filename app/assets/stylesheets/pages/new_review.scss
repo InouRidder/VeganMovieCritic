@@ -6,6 +6,9 @@
   height: 400px;
 }
 
+.rating-change {
+  display: none;
+}
 
 .review-form {
   margin-top: 10px;
@@ -14,6 +17,15 @@
 .custom-form {
   width: 250px;
   height: 100px;
+}
+
+.size-it {
+  height: 45vh;
+  width: 100%;
+  padding: 2px;
+  margin: 1px;
+  border-radius: 10px;
+  border-color: lightgrey;
 }
 
 .review-input-height {

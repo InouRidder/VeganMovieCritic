@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    Review.new.set_ratings(@movie.reviews.approved)
+    Review.set_ratings(@movie.reviews.approved)
     @reviews = @movie.reviews.approved.order(review_rating: :desc)
   end
 
@@ -88,7 +88,7 @@ class MoviesController < ApplicationController
   end
 
     def most_reviewed
-      Movie.new.set_times_reviewed
+      Movie.set_times_reviewed
       @movies = Movie.most_reviewed
       authorize (Movie.first)
     end
@@ -107,7 +107,6 @@ class MoviesController < ApplicationController
       @movies = Movie.order(rating: :desc)
       authorize (Movie.first)
     end
-
 
   private
 

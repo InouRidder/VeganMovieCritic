@@ -25,6 +25,9 @@
           <h3>
             <%= review.title %>
           </h3>
+          <p>
+          by <%= review.user.profile.username  %>
+          </p>
           <%= @movie.genre %>
           <br>
           <%= @movie.actors %>

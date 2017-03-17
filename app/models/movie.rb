@@ -12,7 +12,7 @@ class Movie < ApplicationRecord
   scope :most_reviewed, -> { order(times_reviewed: :desc)[0..9] }
 
 
-  def set_ratings
+  def self.set_ratings
     movies = Movie.all
     movies.each do |movie|
       movie.rating = movie.set_rating
@@ -32,7 +32,7 @@ class Movie < ApplicationRecord
     end
   end
 
-  def set_times_reviewed
+  def self.set_times_reviewed
     Movie.all.each do |movie|
       movie.times_reviewed = movie.reviews.where(approved: true).size
       movie.save!

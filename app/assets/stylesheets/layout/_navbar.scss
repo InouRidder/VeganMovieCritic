@@ -10,6 +10,10 @@
   justify-content: space-between;
 }
 
+.navbar-wagon-button:active {
+  background-color: $red;
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;

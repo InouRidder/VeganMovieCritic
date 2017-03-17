@@ -10,7 +10,7 @@ class Review < ApplicationRecord
   scope :newest, -> { where(approved: true).order(created_at: :desc)[0..9]}
 
 
-  def set_ratings(array)
+  def self.set_ratings(array)
     array.each do |review|
       review.set_rating
       review.save!
