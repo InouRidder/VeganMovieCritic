@@ -19,13 +19,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.movie_id = params[:movie_id]
     @review.user = @user
-      if current_user.email == "stefan.wermenbol@gmail.com"
-        @review.approved = true
-      else
-        @review.approved = false
-      end
+    current_user.id == 3 ? @review.approved = true : @review.approved = false
     authorize @review
     @review.save!
+    @review.movie.set_rating
     redirect_to thankyou_path
   end
 

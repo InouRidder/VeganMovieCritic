@@ -5,6 +5,17 @@ class Review < ApplicationRecord
   belongs_to :user
   has_many :review_ratings, :dependent => :destroy
 
+  scope :approved, -> { where(approved: true)}
+  scope :unapproved, -> { where.not(approved: true)}
+  scope :newest, -> { where(approved: true).order(created_at: :desc)[0..9]}
+
+
+  def set_ratings(array)
+    array.each do |review|
+      review.set_rating
+      review.save!
+    end
+  end
 
   def set_rating
     if self.review_ratings.size > 0
