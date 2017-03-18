@@ -6,6 +6,11 @@
   height: 400px;
 }
 
+.movie-poster {
+  margin-top: 20px;
+  width: 100%;
+}
+
 .rating-change {
   display: none;
 }
@@ -19,14 +24,17 @@
   height: 100px;
 }
 
-.size-it {
-  height: 45vh;
-  width: 100%;
-  padding: 2px;
-  margin: 1px;
-  border-radius: 10px;
-  border-color: lightgrey;
+@media (min-width: 700px) {
+  .size-it {
+    height: 300px;
+    width: 100%;
+    padding: 2px;
+    margin: 1px;
+    border-radius: 10px;
+    border-color: lightgrey;
+  }
 }
+
 
 .review-input-height {
   height: 80vh;
@@ -35,5 +43,13 @@
 @media (max-width: 700px) {
   .star-rating-rev-new {
     margin-top: 80px;
+  }
+  .size-it {
+    height: 250px;
+    width: 100%;
+    padding: 2px;
+    margin: 1px;
+    border-radius: 10px;
+    border-color: lightgrey;
   }
 }

@@ -25,6 +25,12 @@
     padding-right: 25%;
     font-size: large;
   }
+  .home-image {
+    width: 65%;
+    margin-left: -4%;
+    margin-top: 8%;
+    margin-left: 8%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -33,6 +39,10 @@
     padding-left: 5%;
     padding-right: 5%;
     font-size: large;
+  }
+  .home-image {
+    width: 65%;
+    margin-left: -4%;
   }
 }
 

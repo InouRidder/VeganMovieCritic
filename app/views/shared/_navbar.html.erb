@@ -30,7 +30,6 @@
 
 
     <!-- Button (call-to-action) -->
-  </div>
     <!-- Different navigation if login or not -->
     <!-- Profile picture and dropdown -->
   <% if current_user %>
@@ -51,12 +50,6 @@
               <% end %>
             <% end %>
           </li>
-
-          <li>
-            <%= link_to "/home" do %>
-            <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-            <% end %>
-          </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
@@ -67,8 +60,11 @@
     </div>
   <% end %>
 
+  </div>
+
+
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-wagon-item hidden-md hidden-lg" style="display: flex;">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -78,7 +74,33 @@
         <li><a href="/movies/new"> Add A Review! </a></li>
       </ul>
     </div>
+        <% if current_user %>
+    <!-- Notification -->
+      <div class="dropdown" style="margin: 60%;">
+        <i class="fa fa-user dropdown-toggle" data-toggle="dropdown" ></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+         <li>
+            <%= link_to (current_user.profile ? profiles_path(current_user.profile) : new_profile_path ), class: "navbar-wagon-item navbar-wagon-link" do %>
+            <i class="fa fa-user"> </i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user.admin %>
+              <%= link_to "/admin", class: "navbar-wagon-item navbar-wagon-link" do %>
+                <i class="fa fa-lock"></i>
+              <% end %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+  <% end %>
   </div>
+
 </div>
 
 

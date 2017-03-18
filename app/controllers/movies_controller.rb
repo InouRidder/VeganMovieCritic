@@ -29,6 +29,7 @@ class MoviesController < ApplicationController
         authorize @movie
         redirect_to select_path(@movie)
       else
+        authorize Movie.new
         redirect_to movies_custom_new_path
       end
     end
