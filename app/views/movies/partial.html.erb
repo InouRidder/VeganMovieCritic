@@ -72,14 +72,14 @@
         <div class="card-btns">
           <% if current_user %>
           <% if policy(@review).update? %>
-          <%= link_to 'Edit review', edit_movie_review_path(@movie, @review), class: "btn vegan-btn"  %>
+          <%= link_to ' - Edit review', edit_movie_review_path(@movie, @review), class: "btn vegan-btn fa fa-eraser"  %>
           <% end %>
           <% if policy(@review).destroy? %>
-          <%= link_to 'Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
+          <%= link_to ' - Delete', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o btn vegan-btn" %>
           <% end %>
-          <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
+          <%= link_to ' - Add a review', new_movie_review_path(@movie), class: "fa fa-pencil-square-o btn vegan-btn" %>
           <% end %>
-          <%= link_to 'More reviews', movie_path(@movie), class: "btn vegan-btn" %>
+          <%= link_to ' - More reviews', movie_path(@movie), class: "fa fa-comments-o btn vegan-btn" %>
         </div>
       </div>
     </div>

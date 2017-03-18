@@ -4,10 +4,10 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to t(".top_call_to_action", default: "Best rated"), movies_rated_path, id: 'rated', class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: " - Best rated"), movies_rated_path, id: 'rated', class: "navbar-wagon-item navbar-wagon-button btn fa fa-star-o" %>
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Newest"), movies_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "Most reviewed"), movies_most_reviewed_path, id: 'most_reviewed', class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: " - Newest"), movies_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn fa fa-calendar-check-o" %>
+    <%= link_to t(".top_call_to_action", default: " - Most reviewed"), movies_most_reviewed_path, id: 'most_reviewed', class: "navbar-wagon-item navbar-wagon-button btn fa fa-comments-o" %>
   </div>
 
 
@@ -23,9 +23,9 @@
     <div class="dropdown">
       <i class="fa fa-sort dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="/movies/rated">Best Rated</a></li>
-        <li><a href="/movies">Newest</a></li>
-        <li><a href="/movies/most-reviewed"> Most Reviewed</a></li>
+        <li><a class="fa fa-star-o" href="/movies/rated"> - Best Rated</a></li>
+        <li><a class="fa fa-calendar-check-o" href="/movies"> - Newest</a></li>
+        <li ><a class="fa fa-comments-o" href="/movies/most-reviewed"> - Most Reviewed</a></li>
       </ul>
     </div>
   </div>
