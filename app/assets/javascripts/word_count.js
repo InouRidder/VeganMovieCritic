@@ -2,14 +2,14 @@ $(document).ready(function(e) {
 
   $('.btn-save').on('click', function(e) {
 
-    var title_words = $('#review_title').val().trim().replace(/\s+/gi, ' ')
+    // var title_words = $('#review_title').val().trim().replace(/\s+/gi, ' ')
 
-    if (( title_words.length > 20 ) || ((title_words.length - 1) < 1 )) {
-      $('#review_title-error').empty().append('Please supply a title!');
-      e.preventDefault();
-      $("html, body").animate({ scrollTop: 0 }, 600);
+    // if (( title_words.length > 20 ) || ((title_words.length - 1) < 1 )) {
+    //   $('#review_title-error').empty().append('Please supply a title!');
+    //   e.preventDefault();
+    //   $("html, body").animate({ scrollTop: 0 }, 600);
 
-    }
+    // }
 
     var content_words = $('.size-it').val().trim().replace(/\s+/gi, ' ').split(' ')
 
