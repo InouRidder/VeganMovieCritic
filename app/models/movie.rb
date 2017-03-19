@@ -70,4 +70,9 @@ class Movie < ApplicationRecord
       return @movie
     end
   end
+
+  def reviewed?
+    self.reviews.size > 0
+  end
+
 end

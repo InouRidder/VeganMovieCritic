@@ -16,5 +16,10 @@ skip_before_action :authenticate_user!, only: [:home, :landing]
     authorize (Review.first)
   end
 
+  def test_page
+    @movie = Movie.new
+    @review = Review.new(movie_id: 1)
+  end
+
 end
 

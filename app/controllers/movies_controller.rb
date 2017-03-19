@@ -42,6 +42,10 @@ class MoviesController < ApplicationController
   end
 
   def custom_new
+    @movie = Movie.find(params[:format])
+    unless @movie.reviewed?
+      @movie.destroy
+    end
     @movie = Movie.new
     authorize @movie
   end

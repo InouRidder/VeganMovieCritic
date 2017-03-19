@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     post '/movies/custom_create', to: 'movies#custom_create'
     get '/thankyou', to: 'home#thankyou'
     get '/select/', to: 'movies#select'
-
     resources :profiles
 
     resources :movies do
