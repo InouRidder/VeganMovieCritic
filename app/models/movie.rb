@@ -39,16 +39,6 @@ class Movie < ApplicationRecord
     end
   end
 
-  def user_rating
-    a = 0
-    if self.reviews.any?
-      self.reviews.each do |e|
-        a += e.rating
-      end
-      return (a / self.reviews.size)
-    end
-  end
-
   def search_movie(title)
     url = "http://www.omdbapi.com/?t=#{title}&y=&plot=short&r=json"
     returned_data = open(url).read

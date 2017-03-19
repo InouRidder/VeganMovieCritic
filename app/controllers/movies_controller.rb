@@ -87,6 +87,7 @@ class MoviesController < ApplicationController
   end
 
   def top10
+    Movie.set_ratings
     @movies = Movie.top10
     @review_rating = ReviewRating.new
     authorize (Movie.first)
