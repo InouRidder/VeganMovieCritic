@@ -89,6 +89,7 @@ class MoviesController < ApplicationController
   end
 
   def top10
+    # no older than september 2016
     Movie.set_ratings
     @movies = Movie.top10
     @review_rating = ReviewRating.new

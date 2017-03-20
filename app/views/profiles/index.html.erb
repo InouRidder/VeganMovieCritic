@@ -32,7 +32,7 @@
 
     <div class="col-sm-6 col-xs-12">
       <div class="profile-scrollbox">
-        <% @profile.user.reviews.each do |review| %>
+        <% @profile.user.reviews.newest.each do |review| %>
         <div class="recent-activity">
           <%= link_to movie_review_path(review.movie, review) do %>
           <div class="product">

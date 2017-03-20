@@ -56,6 +56,9 @@ class Movie < ApplicationRecord
       @movie.awards = data["Awards"]
       @movie.poster = data["Poster"]
       @movie.imdbrating = data["imdbrating"]
+      @movie.country = data["Country"]
+      @movie.language = data["Language"]
+      @movie.director = data["Director"]
       @movie.save!
       return @movie
     end

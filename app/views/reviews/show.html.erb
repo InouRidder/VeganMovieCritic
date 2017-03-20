@@ -7,21 +7,40 @@
       <%= image_tag "#{@review.movie.poster}", class: "poster-info-box "  %>
     </div>
     <div class="col-xs-12 col-sm-5">
-      <div class="card-info text-left">
-        <h2>
+      <div class="card-info text-left" style="line-height: 14px">
+        <h2 style="margin-top: 0%;">
           <%= @review.movie.title  %>
-        </h2>
-        <br>
+          </h2>
+          <p>
+          <%= @review.movie.released %>
+          </p>
+        <% if @review.movie.director  %>
+        <p>
+         <strong> Director </strong> <%= @review.movie.director %>
+        </p>
+        <% end %>
+        <p>
         <%= @review.movie.genre %>
-        <br>
+        </p>
+        <strong>
+        Actors
+        </strong>
         <%= @review.movie.actors %>
-        <br>
-        <%= @review.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
+        <p>
+        <%= @review.movie.country %>
+        </p>
+        <%= @review.movie.language %>
+        <p>
+        <%= @review.movie.awards %>
+        </p>
+       <strong> Vegan Movie Critics Rating </strong>
+        <%= @review.movie.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
       </div>
       <br>
       <%= @review.movie.plot %>
     </div>
   </div>
+
   <div class="row">
     <div class="col-xs-12 text-center">
 
@@ -29,11 +48,11 @@
         <div class="review-content">
           <h3>
             <%= @review.title %>
+            <blockquote style="font-size: 13px;"> by <%= @review.user.profile.username  %> </blockquote>
           </h3>
+          <strong> User rating </strong> <%= @review.rating / 2 %> <div class="fa fa-star green-star"></div>
           <p>
-            by <%= @review.user.profile.username  %>
-          </p>
-          <p>
+          <%=raw @review.content %>
             <br>
             Reviewed on
             <%= @review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
@@ -41,7 +60,7 @@
             By <%= @review.user.username   %>
             <% end %>
           </p>
-          <%=raw @review.content %>
+          <br>
         </div>
       </div>
 
