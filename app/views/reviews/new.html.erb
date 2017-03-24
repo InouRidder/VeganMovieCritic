@@ -24,7 +24,8 @@
         </div>
         <div class="row">
           <div class="artwork-form">
-            <%= f.text_area :artwork, placeholder: "Please add an url to an artwork image, if you'd like to add one. It will be used as the background of your review", class: "form-control input-lg edit-input title-form" %>
+            <%= f.file_field :artwork, placeholder: "Please add an url to an artwork image, if you'd like to add one. It will be used as the background of your review", class: "form-control input-lg edit-input title-form" %>
+            <%=  f.hidden_field :artwork_cache %>
           </div>
         </div>
         <div class="word-counter">
@@ -60,3 +61,5 @@
 
   </div>
 </div>
+
+

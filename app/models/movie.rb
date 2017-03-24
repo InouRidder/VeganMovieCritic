@@ -6,6 +6,9 @@ class Movie < ApplicationRecord
   include PgSearch
   pg_search_scope :search_title, :against => [:title]
 
+  mount_uploader :poster, PhotoUploader
+
+
   has_many :reviews, :dependent => :destroy
 
   scope :top10, -> { order(rating: :desc)[0..9] }

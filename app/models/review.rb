@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
   include Bootsy::Container
 
+  mount_uploader :artwork, PhotoUploader
+
   belongs_to :movie
   belongs_to :user
   has_many :review_ratings, :dependent => :destroy
