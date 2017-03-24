@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     get '/movies/custom_new', to: 'movies#custom_new'
     post '/movies/custom_create', to: 'movies#custom_create'
     get '/thankyou', to: 'home#thankyou'
-    get '/select/', to: 'movies#select'
+    get '/select', to: 'movies#select'
+
     resources :profiles
 
     resources :movies do

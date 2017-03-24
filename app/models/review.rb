@@ -8,8 +8,6 @@ class Review < ApplicationRecord
   scope :approved, -> { where(approved: true)}
   scope :unapproved, -> { where.not(approved: true)}
   scope :newest, -> { where(approved: true).order(created_at: :desc)[0..9]}
-  scope :newest, -> { order(created_at: :desc)}
-
 
 
   def self.set_ratings(array)

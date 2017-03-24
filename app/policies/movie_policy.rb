@@ -1,4 +1,4 @@
-class MoviePolicy < ApplicationPolicy
+    class MoviePolicy < ApplicationPolicy
 
   def create?
     user

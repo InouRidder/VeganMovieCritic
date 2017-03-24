@@ -22,12 +22,12 @@ class MoviesController < ApplicationController
     title = params["movie"]["title"]
     if @movie = Movie.all.find_by_title(title.strip)
       authorize @movie
-      redirect_to select_path(@movie)
+      redirect_to select_path(movie_id: @movie.id)
     else
       @movie = Movie.new
       if @movie = @movie.search_movie(title)
         authorize @movie
-        redirect_to select_path(@movie)
+        redirect_to select_path(movie_id: @movie.id)
       else
         authorize Movie.new
         redirect_to movies_custom_new_path
@@ -37,13 +37,13 @@ class MoviesController < ApplicationController
 
 
   def select
-    @movie = Movie.find(params[:format])
+    @movie = Movie.find(params[:movie_id])
     authorize @movie
   end
 
   def custom_new
     if params[:format]
-      @movie = Movie.find(params[:format])
+      @movie = Movie.find(params[:movie_id])
       unless @movie.reviewed?
         @movie.destroy
       end
