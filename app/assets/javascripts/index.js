@@ -1,7 +1,7 @@
 // CHANGE WHEN PUSHING HEROKU!
 
 // baseUrl = 'http://localhost:3000/'
-baseUrl = 'https://www.veganmoviecritic.com'
+baseUrl = 'http://www.veganmoviecritic.com'
 
 $(window).load(function(){
   id = $(".click-btn:first-child").attr('href');
@@ -9,7 +9,6 @@ $(window).load(function(){
   $(".click-btn:first-child").addClass('list-item-active');
   $.ajax({
     type: 'GET',
-    dataType: "jsonp",
     url: baseUrl + id + '/partial',
     success: function(data) {
       $('.content-review-index').append(data);
@@ -31,7 +30,6 @@ $(document).ready(function(){
     id = $(this).attr('href');
     $.ajax({
       type: 'GET',
-      dataType: "jsonp",
       url: baseUrl + id + '/partial',
       success: function(data) {
         $('.content-review-index').html(data);
