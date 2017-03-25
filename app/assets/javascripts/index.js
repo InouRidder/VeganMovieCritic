@@ -1,7 +1,7 @@
 // CHANGE WHEN PUSHING HEROKU!
 
-baseUrl = 'http://localhost:3000/'
-// baseUrl = 'https://www.veganmoviecritic.com'
+// baseUrl = 'http://localhost:3000/'
+baseUrl = 'https://www.veganmoviecritic.com'
 
 $(window).load(function(){
   id = $(".click-btn:first-child").attr('href');
