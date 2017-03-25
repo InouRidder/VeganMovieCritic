@@ -9,14 +9,15 @@ $(window).load(function(){
   $(".click-btn:first-child").addClass('list-item-active');
   $.ajax({
     type: 'GET',
+    dataType: "jsonp",
     url: baseUrl + id + '/partial',
     success: function(data) {
       $('.content-review-index').append(data);
       $('.container-background').css('background-size', 'cover');
       var background_url = $(".background-value").attr('data-hidden');
-        $('.container-background').css('background-image', background_url);
-        console.log(background_url);
-   },
+      $('.container-background').css('background-image', background_url);
+      console.log(background_url);
+    },
     error: function(html){
     }
   })
@@ -30,6 +31,7 @@ $(document).ready(function(){
     id = $(this).attr('href');
     $.ajax({
       type: 'GET',
+      dataType: "jsonp",
       url: baseUrl + id + '/partial',
       success: function(data) {
         $('.content-review-index').html(data);
