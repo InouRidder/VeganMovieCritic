@@ -57,7 +57,7 @@ class Movie < ApplicationRecord
       @movie.plot = data["Plot"]
       @movie.actors = data["Actors"]
       @movie.awards = data["Awards"]
-      @movie.poster = data["Poster"]
+      @movie.imdb_poster = data["Poster"]
       @movie.imdbrating = data["imdbrating"]
       @movie.country = data["Country"]
       @movie.language = data["Language"]

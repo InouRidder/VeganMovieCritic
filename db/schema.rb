@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319160008) do
+ActiveRecord::Schema.define(version: 20170325122551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170319160008) do
     t.string   "country"
     t.string   "director"
     t.string   "language"
+    t.string   "imdb_poster"
   end
 
   create_table "profiles", force: :cascade do |t|

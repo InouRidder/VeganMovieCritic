@@ -1,10 +1,9 @@
-
 <div class="container" id="partial-container">
   <div class="row">
     <div class="col-xs-4" style="margin-top: 20px">
       <div class="movie-info">
         <div class="movie-poster">
-          <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
+          <%= image_tag "#{@movie.imdb_poster ? @movie.imdb_poster : @movie.poster }", class: "movie-poster"  %>
         </div>
         <div class="movie-title">
           <h1>
