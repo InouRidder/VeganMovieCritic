@@ -30,6 +30,7 @@ class MoviesController < ApplicationController
         redirect_to select_path(movie_id: @movie.id)
       else
         authorize Movie.new
+        flash[:alert] = "Could not find movie in databse"
         redirect_to movies_custom_new_path
       end
     end
@@ -96,43 +97,43 @@ class MoviesController < ApplicationController
     authorize (Movie.first)
   end
 
-    def most_reviewed
-      Movie.set_times_reviewed
-      @movies = Movie.most_reviewed
-      authorize (Movie.first)
-    end
+  def most_reviewed
+    Movie.set_times_reviewed
+    @movies = Movie.most_reviewed
+    authorize (Movie.first)
+  end
 
-    def newest
-      @newest_reviews = Review.all.newest
-      authorize (Movie.first)
-    end
+  def newest
+    @newest_reviews = Review.all.newest
+    authorize (Movie.first)
+  end
 
-    def pending
-      @pending_reviews = Review.unapproved
-      authorize (Movie.first)
-    end
+  def pending
+    @pending_reviews = Review.unapproved
+    authorize (Movie.first)
+  end
 
-    def rated
-      @movies = Movie.order(rating: :desc)
-      authorize (Movie.first)
-    end
+  def rated
+    @movies = Movie.order(rating: :desc)
+    authorize (Movie.first)
+  end
 
   private
 
-    def find_user
-      @user = current_user
-    end
-
-    def disable_nav
-      @disable_nav = true
-    end
-
-    def find_movie
-      @movie = Movie.find(params[:id])
-      authorize @movie
-    end
-
-    def movie_params
-      params.require(:movie).permit(:title, :country, :actors, :released, :poster, :poster, :poster_cache)
-    end
+  def find_user
+    @user = current_user
   end
+
+  def disable_nav
+    @disable_nav = true
+  end
+
+  def find_movie
+    @movie = Movie.find(params[:id])
+    authorize @movie
+  end
+
+  def movie_params
+    params.require(:movie).permit(:title, :country, :actors, :released, :poster, :poster, :poster_cache)
+  end
+end

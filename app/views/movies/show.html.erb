@@ -9,12 +9,12 @@
   <% if i == 0 %>
 
   <div class="next-method current-element"
-  <% if review.artwork %>
-  style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork %>)"
+  <% if review.artwork.url %>
+  style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork%>)"
   <% end %>>
   <div class="row">
     <div class="col-xs-12 col-sm-5 text-right hidden-xs">
-      <%= image_tag "#{@movie.imdb_poster}", class: "poster-info-box "  %>
+      <%= image_tag "#{@movie.poster ? @movie.poster : @movie.imdb_poster}", class: "poster-info-box "  %>
     </div>
     <div class="col-xs-12 col-sm-5">
       <div class="card-info text-left" style="line-height: 14px">
@@ -108,12 +108,12 @@
 <% else  %>
 
 <div class="next-method hidden"
-<% if review.artwork %>
-style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork %>)"
+<% if review.artwork.url %>
+ style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork %>)"
 <% end %>>
 <div class="row">
   <div class="col-xs-12 col-sm-5 text-right hidden-xs">
-    <%= image_tag "#{@movie.poster}", class: "poster-info-box "  %>
+    <%= image_tag "#{@movie.poster ? @movie.poster : @movie.imdb_poster}", class: "poster-info-box "  %>
   </div>
   <div class="col-xs-12 col-sm-5">
     <div class="card-info text-left" style="line-height: 14px">

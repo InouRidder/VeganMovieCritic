@@ -40,8 +40,9 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-xs-12 text-center">
-          <%= f.file_field :poster, placeholder: "Upload a cool movie poster", class: "form-control input-lg edit-input" %>
+          <div class="col-xs-12">
+          <p>Add a poster</p>
+          <%= f.file_field :poster %>
           <%= f.hidden_field :poster_cache %>
           </div>
         </div>
