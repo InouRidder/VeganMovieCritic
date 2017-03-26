@@ -13,6 +13,16 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+    config.action_mailer.smtp_settings = {
+    address: "smtp02.hostnet.nl",
+    port: 587,
+    domain: ENV["www.veganmoviecritic.com"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["info@veganmoviecritic.com"],
+    password: ENV["silencio365"]
+  }
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
