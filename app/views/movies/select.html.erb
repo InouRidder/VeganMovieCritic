@@ -30,7 +30,7 @@
           <br>
           <%= @movie.genre  %>
           <div class="movie-poster">
-            <%= image_tag "#{@movie.poster}", class: "movie-poster"  %>
+            <%= image_tag "#{@movie.imdb_poster ? @movie.imdb_poster : @movie.poster }", class: "movie-poster"  %>
           </div>
         </div>
       </div>

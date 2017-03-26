@@ -9,6 +9,7 @@ $(window).load(function(){
   $(".click-btn:first-child").addClass('list-item-active');
   $.ajax({
     type: 'GET',
+    crossDomain: true,
     url: baseUrl + id + '/partial',
     success: function(data) {
       $('.content-review-index').append(data);
@@ -30,6 +31,7 @@ $(document).ready(function(){
     id = $(this).attr('href');
     $.ajax({
       type: 'GET',
+      crossDomain: true,
       url: baseUrl + id + '/partial',
       success: function(data) {
         $('.content-review-index').html(data);

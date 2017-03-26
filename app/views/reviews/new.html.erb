@@ -24,7 +24,8 @@
         </div>
         <div class="row">
           <div class="artwork-form">
-            <%= f.file_field :artwork, placeholder: "Please add an url to an artwork image, if you'd like to add one. It will be used as the background of your review", class: "form-control input-lg edit-input title-form" %>
+            <%= f.label :artwork, 'Upload artwork here' %>
+            <%= f.file_field :artwork, class: "text-center" %>
             <%=  f.hidden_field :artwork_cache %>
           </div>
         </div>
@@ -32,7 +33,7 @@
           <div class='current-word-count'></div>
         </div>
         <div class="word-counter-error" style="color: red;"></div>
-        <div class="star-rating-rev-new"style="margin-left:25%;">
+        <div class="star-rating-rev-new" style="margin-left:25%;">
           <%= render 'shared/starrating-review-new'  %>
         </div>
         <%= f.submit class: "btn vegan-btn btn-save", style: 'margin-left:33%;'%>

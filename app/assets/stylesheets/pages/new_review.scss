@@ -43,6 +43,7 @@
 @media (max-width: 700px) {
   .star-rating-rev-new {
     margin-top: 80px;
+    margin-left: 13% !important;
   }
   .size-it {
     height: 250px;
@@ -52,4 +53,8 @@
     border-radius: 10px;
     border-color: lightgrey;
   }
+}
+
+.artwork-form {
+  margin-left: 5%;
 }
