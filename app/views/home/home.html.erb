@@ -1,21 +1,21 @@
-<body style="background-color: #D3D0CD ">
+<% content_for :background do %>
+<% "background-image: linear-gradient(to bottom, rgba(211,208,203,1) 0%, rgba(248,247,246,1) 83%, rgba(255,255,255,1) 100%)"  %>
+<% end %>
 <!-- gradient toevoegen, van binnen naar buiten. Cirkel gradient in het midden -->
     <div class="container">
       <div class="row">
         <div class="col-xs-12 text-center">
           <div class="home-content">
+            <img src="<%= image_path("cinegif.gif")  %>" alt="" class="home-image">
           <h3 class="home-title" style="color:black;">
               The Height of Current Cinema Snobbery
             </h3>
             <p class="home-story" style="color:black;">
-
               Don’t be fooled: veganism isn’nt just about healthy food and the environment, but also about being a judgemental know it all, eager to preach. What better type to review today’s movies? You can be one too!
             <br>
             <br>
               Don’t just be a critic: be a Vegan Movie Critic
-
             </p>
-            <img src="<%= image_path("cinegif.gif")  %>" alt="" class="home-image">
             <div class="row">
              <div class="home-btns">
               <div class="col-sm-4 col-xs-6">
@@ -37,6 +37,5 @@
     </div>
   </div>
 </div>
-</body>
 
 

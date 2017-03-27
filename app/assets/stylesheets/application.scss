@@ -29,7 +29,9 @@ h1 {
 body {
   background-color: #fafcf4;
 }
-
+html {
+  min-height: 100%;
+}
 .green-star {
   color: $red;
 }
@@ -52,10 +54,3 @@ h2 {
   justify-content: right;
   color: $green;
 }
-
-.EllynisAwesome {
-  font-size: 300px;
-  color: red;
-}
-
-

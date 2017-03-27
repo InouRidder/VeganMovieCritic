@@ -17,13 +17,10 @@
 
 </head>
 
-<body>
-  <%= render 'shared/navbar' unless @disable_nav %>
-  <%= render 'shared/flashes' %>
+  <body class="container-background" style="<%= yield :background %>">
+    <%= render 'shared/navbar' unless @disable_nav %>
+    <%= render 'shared/flashes' %>
+      <%= yield %>
 
-  <div class="container-background" style="<%= yield :background %>">
-    <%= yield %>
-  </div>
-
-</body>
+  </body>
 </html>
