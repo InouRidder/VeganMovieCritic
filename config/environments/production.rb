@@ -20,11 +20,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp02.hostnet.nl",
     port: 587,
-    domain: ENV["www.veganmoviecritic.com"],
+    domain: ENV["GMAIL_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["info@veganmoviecritic.com"],
-    password: ENV["silencio365"]
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 
   # Full error reports are disabled and caching is turned on.

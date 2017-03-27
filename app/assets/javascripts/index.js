@@ -16,7 +16,6 @@ $(window).load(function(){
       $('.container-background').css('background-size', 'cover');
       var background_url = $(".background-value").attr('data-hidden');
       $('.container-background').css('background-image', background_url);
-      console.log(background_url);
     },
     error: function(html){
     }
@@ -38,7 +37,6 @@ $(document).ready(function(){
         $('.container-background').css('background-size', 'cover');
         var background_url = $(".background-value").attr('data-hidden');
         $('.container-background').css('background-image', background_url);
-        console.log(background_url);
       }
     })
   });
