@@ -19,6 +19,8 @@ gem 'pg_search'
 gem 'bootsy'
 gem 'country_select'
 gem 'cloudinary'
+gem 'appsignal'
+
 
 
 

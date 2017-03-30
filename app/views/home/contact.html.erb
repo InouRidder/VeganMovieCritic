@@ -1,35 +1,36 @@
-<body style="background-color: #D3D0CD ">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <div class="home-content">
-            <h3 class="home-title" style="color: black">
-              Contact us
-            </h3>
-            <p class="home-story" style="color: black">
-              Your review is currently under review.
-              <br>
-              <br>
-              This is no censure, only to make sure you respect the integrity of this website.
-              <br>
-              Now go and eat some Gary.
-            </p>
-            <img src="<%= image_path("cinegif.gif")  %>" alt="" style="width: 65%; margin-left: -4%;">
+<% content_for :background do %>
+<% "background-image: linear-gradient(to bottom, rgba(211,208,203,1) 0%, rgba(248,247,246,1) 83%, rgba(255,255,255,1) 100%)"  %>
+<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <div class="home-content">
+        <h3 class="home-title" style="color: black">
+          Thanks for contributing Vegan Movie Critic!
+        </h3>
+        <p class="home-story" style="color: black">
+          Your review is currently under review.
+          <br>
+          <br>
+          This is no censure, only to make sure you respect the integrity of this website.
+          <br>
+          Now go and eat some Gary.
+        </p>
+        <img src="<%= image_path("cinegif.gif")  %>" alt="" style="width: 65%; margin-left: -4%;">
 
-            <div class="row">
-             <div class="home-btns">
-              <div class="col-xs-4">
-                <%= link_to "Whats New?", movies_newest_path, class: "btn btn-home vegan-btn" %>
-              </div>
-              <div class="col-xs-4">
-                <%= link_to "2017 Top 10", movies_2017_path, class: "btn btn-home vegan-btn" %>
-              </div>
-              <div class="col-xs-4">
-                <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
-              </div>
-              <div class="col-xs-12">
-                <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
-              </div>
+        <div class="row">
+          <div class="home-btns">
+            <div class="col-xs-4">
+              <%= link_to "Whats New?", movies_newest_path, class: "btn btn-home vegan-btn" %>
+            </div>
+            <div class="col-xs-4">
+              <%= link_to "2017 Top 10", movies_2017_path, class: "btn btn-home vegan-btn" %>
+            </div>
+            <div class="col-xs-4">
+              <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
+            </div>
+            <div class="col-xs-12">
+              <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
             </div>
           </div>
         </div>
@@ -37,5 +38,5 @@
     </div>
   </div>
 </div>
-</body>
+
 
