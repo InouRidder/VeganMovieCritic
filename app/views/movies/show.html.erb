@@ -60,7 +60,7 @@
           <%= review.title %>
           <blockquote style="font-size: 13px;"> by <%= review.user.profile.username if review.user.profile %> </blockquote>
         </h3>
-        <strong> User rating </strong> <%= review.rating / 2 %> <div class="fa fa-star green-star"></div>
+        <strong> User rating </strong> <%= review.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
         <p>
           <%=raw review.content %>
           <br>
