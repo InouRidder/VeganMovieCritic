@@ -10,7 +10,9 @@
 
   <div class="next-method current-element"
   <% if review.artwork.url %>
-  style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork%>)"
+  style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork%>), width: 100%;
+    background-size: cover;
+    margin-top: -3px;"
   <% end %>>
   <div class="row">
     <div class="col-xs-12 col-sm-5 text-right hidden-xs">
