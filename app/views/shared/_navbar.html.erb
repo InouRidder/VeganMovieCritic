@@ -7,52 +7,22 @@
   <!-- Logo -->
 
   <!-- Right Navigation -->
-
-
-
-
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+  <%= render 'shared/contact' %>
 
     <!-- Login text link -->
     <% unless current_user %>
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">What's up?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="message-text" class="form-control-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn vegan-btn">Send message</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button type="button" class="navbar-wagon-item navbar-wagon-button btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Contact</button>
-
     <%= link_to t(".top_call_to_action", default: " - What's new"), movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn fa fa-newspaper-o" %>
     <%= link_to t(".top_call_to_action", default: " - Top 10"), movies_2017_path, id: 'top10', class: "navbar-wagon-item navbar-wagon-button btn fa fa-trophy" %>
     <%= link_to t(".top_call_to_action", default: " - Archive"), movies_path, id: 'archive', class: "navbar-wagon-item navbar-wagon-button btn fa fa-archive" %>
     <%= link_to t(".top_call_to_action", default: " - Add review"),  new_movie_path, id: 'review', class: "navbar-wagon-item navbar-wagon-button btn fa fa-pencil-square" %>
 
-    <% if current_user %>
-    <% if current_user.admin %>
+    <% if current_user && current_user.admin %>
     <%= link_to t(".top_call_to_action", default: " - Pending #{Review.where(approved: false).size}"), movies_pending_path, id: 'pending', class: "navbar-wagon-item navbar-wagon-button btn fa fa-hourglass-start" %>
-    <% end %>
     <% end %>
 
 
