@@ -42,28 +42,31 @@ class Movie < ApplicationRecord
     end
   end
 
-  def search_movie(title)
+  def self.search_movie(title)
     url = "http://www.omdbapi.com/?t=#{title}&y=&plot=short&r=json"
-    returned_data = open(url).read
-    data = JSON.parse(returned_data)
-    if data["Response"] == "False"
-      false
+    if returned_data = open(url).returned_data
+      data = JSON.parse(returned_data)
+      if data["Response"] == "False"
+        false
+      else
+        @movie = Movie.new
+        @movie.title = data["Title"]
+        @movie.released = data["Released"]
+        @movie.runtime = data["Runtime"]
+        @movie.genre = data["Genre"]
+        @movie.plot = data["Plot"]
+        @movie.actors = data["Actors"]
+        @movie.awards = data["Awards"]
+        @movie.imdb_poster = data["Poster"]
+        @movie.imdbrating = data["imdbrating"]
+        @movie.country = data["Country"]
+        @movie.language = data["Language"]
+        @movie.director = data["Director"]
+        @movie.save!
+        return @movie
+      end
     else
-      @movie = Movie.new
-      @movie.title = data["Title"]
-      @movie.released = data["Released"]
-      @movie.runtime = data["Runtime"]
-      @movie.genre = data["Genre"]
-      @movie.plot = data["Plot"]
-      @movie.actors = data["Actors"]
-      @movie.awards = data["Awards"]
-      @movie.imdb_poster = data["Poster"]
-      @movie.imdbrating = data["imdbrating"]
-      @movie.country = data["Country"]
-      @movie.language = data["Language"]
-      @movie.director = data["Director"]
-      @movie.save!
-      return @movie
+      false
     end
   end
 

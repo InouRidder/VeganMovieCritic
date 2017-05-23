@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
       redirect_to select_path(movie_id: @movie.id)
     else
       @movie = Movie.new
-      if @movie = @movie.search_movie(title)
+      if false #@movie = Movie.search_movie(title)
         authorize @movie
         redirect_to select_path(movie_id: @movie.id)
       else
