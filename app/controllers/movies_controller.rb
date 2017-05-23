@@ -55,6 +55,7 @@ class MoviesController < ApplicationController
 
   def custom_create
     @movie = Movie.new(movie_params)
+    @movie.title = @movie.title.strip
     @movie.save!
     authorize @movie
     redirect_to new_movie_review_path(@movie)
