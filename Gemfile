@@ -6,7 +6,7 @@ source 'https://rails-assets.org' do  # star rating
   gem "rails-assets-bootstrap-star-rating"
 end
 
-gem 'rails', '5.1.5.rc1'
+gem 'rails', '5.0.0.1'
 gem 'puma'
 gem 'pg'
 gem 'figaro'
