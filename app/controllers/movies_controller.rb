@@ -6,14 +6,17 @@ class MoviesController < ApplicationController
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
+    @movie = @movies.first
+    partial(@movie) if @movie
   end
 
   def show
-    Review.set_ratings(@movie.reviews.approved)
     @reviews = @movie.reviews.approved.order(review_rating: :desc)
-    respond_to do|format|
-      format.js
+    respond_to do |format|
       format.html
+      format.js {
+        partial(@movie)
+      }
     end
   end
 
@@ -85,14 +88,7 @@ class MoviesController < ApplicationController
     authorize (Movie.first)
   end
 
-  def partial
-    @review = @movie.reviews.approved.order(review_rating: :desc).first
-    @user = current_user
-    if @review && current_user
-      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first || ReviewRating.new
-    end
-    render :layout => false
-  end
+
 
   def top10
     # no older than september 2016
@@ -124,6 +120,14 @@ class MoviesController < ApplicationController
   end
 
   private
+
+  def partial(movie)
+    @review = movie.reviews.approved.order(review_rating: :desc).first
+    @user = current_user
+    if @review && current_user
+      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first || ReviewRating.new
+    end
+  end
 
   def find_user
     @user = current_user

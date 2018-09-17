@@ -6,13 +6,11 @@ class Review < ApplicationRecord
   belongs_to :movie
   belongs_to :user
   has_many :review_ratings, :dependent => :destroy
-  after_create :set_ratings
+  after_commit :set_ratings
 
   scope :approved, -> { where(approved: true)}
   scope :unapproved, -> { where.not(approved: true)}
   scope :newest, -> { where(approved: true).order(created_at: :desc)[0..9]}
-
-  Review.set_ratings(@movie.reviews.approved)
 
   def set_ratings
     self.movie.reviews.approved.each do |review|

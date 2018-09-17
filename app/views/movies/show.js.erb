@@ -1,0 +1,45 @@
+// CHANGE WHEN PUSHING HEROKU!
+
+// baseUrl = 'http://localhost:3000/'
+  var data = "<%= j render 'movie', movie: @movie, review: @review, user: @user %>"
+  $('.content-review-index').html(data);
+  $('.container-background').css('background-size', 'cover');
+  var background_url = $(".background-value").attr('data-hidden');
+  $('.container-background').css('background-image', background_url);
+
+  $('.review-rater').on('click', function(event){
+    $('#review_rating').val($(this).attr('value'));
+  });
+
+  $('.content-review-index').on('click', '.review-rater', function(event){
+
+    var element = $(this).prev('input');
+
+    var gist = {
+      "review_rating":
+      {
+        "user_id": element.attr('hidden-value'),
+        "rating" : element.attr('value')
+      }
+    }
+    var action = element.attr('action');
+
+    if (!action){
+      return false;
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: action,
+      data: gist,
+      success: function(data){
+        $('.card-rating').empty();
+        $('.card-rating').append("Thanks for voting!")
+        return false;
+      },
+      error: function(data){
+        console.log('error');
+        return false;
+      }
+    });
+  });
