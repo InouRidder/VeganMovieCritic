@@ -1,6 +1,6 @@
  <div class="navbar-wagon">
   <div class="vmr-logo">
-    <%= link_to root_path class: "vmr-logo" do %>
+    <%= link_to '#' class: "vmr-logo" do %>
     <img src="<%= image_path("vegancriticlogo.png")  %>" alt="" style="height: 75px; z-index: 1; position: absolute; top: 0; left: 0;">
     <% end %>
   </div>
@@ -16,7 +16,7 @@
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
-    <%= link_to t(".top_call_to_action", default: " - What's new"), movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn fa fa-newspaper-o" %>
+    <%= link_to t(".top_call_to_action", default: " - What's new?"), movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn fa fa-newspaper-o" %>
     <%= link_to t(".top_call_to_action", default: " - Top 10"), movies_2017_path, id: 'top10', class: "navbar-wagon-item navbar-wagon-button btn fa fa-trophy" %>
     <%= link_to t(".top_call_to_action", default: " - Archive"), movies_path, id: 'archive', class: "navbar-wagon-item navbar-wagon-button btn fa fa-archive" %>
     <%= link_to t(".top_call_to_action", default: " - Add review"),  new_movie_path, id: 'review', class: "navbar-wagon-item navbar-wagon-button btn fa fa-pencil-square" %>
@@ -33,7 +33,7 @@
     <!-- Notification -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <i class="fa fa-user dropdown-toggle" data-toggle="dropdown"></i>
+        <i class="fa fa-user dropdown-toggle" data-toggle="dropdown" hidden></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
          <li>
           <%= link_to (current_user.profile ? profiles_path(current_user.profile) : new_profile_path ), class: "navbar-wagon-item navbar-wagon-link" do %>

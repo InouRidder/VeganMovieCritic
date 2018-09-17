@@ -19,16 +19,17 @@
             <div class="row">
              <div class="home-btns">
               <div class="col-sm-4 col-xs-6">
-                <%= link_to "Whats new", movies_newest_path, class: "btn btn-home vegan-btn" %>
+                <%= link_to "What's new?", movies_newest_path, class: "btn btn-home vegan-btn" %>
               </div>
               <div class="col-sm-4 col-xs-6">
+                <!-- TODO: Link to current year. -->
                 <%= link_to "2017 Top 10", movies_2017_path, class: "btn btn-home vegan-btn" %>
               </div>
               <div class="col-sm-4 col-xs-6">
                 <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
               </div>
               <div class="col-sm-12 col-xs-6">
-                <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
+                <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn", style: "background-color: #a1c45a; color: rgb(15,15,15);" %>
               </div>
             </div>
           </div>

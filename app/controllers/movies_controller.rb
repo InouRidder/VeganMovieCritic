@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
         redirect_to select_path(movie_id: @movie.id)
       else
         authorize Movie.new
-        flash[:alert] = "Could not find movie in databse"
+        flash[:alert] = "Could not find movie in database"
         redirect_to movies_custom_new_path
       end
     end

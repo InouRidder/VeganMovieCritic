@@ -10,13 +10,14 @@
         <%= form_for @movie, :url => { :action => "custom_create" }, :html => { :method => "post" } do |f| %>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_field :title, placeholder: "Add your title here", class: "form-control input-lg edit-input" %>
+            <%= f.text_field :title, placeholder: "Movie title", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <br>
         <div class="row">
           <p> When was the movie released? Only contemporary movies allowed!</p>
           <div class="col-xs-12 text-center">
+            <!-- TODO: Change format date field to dd-mm-yyyy -->
             <%= f.date_field :released, class: "form-control input-lg edit-input" %>
           </div>
         </div>
@@ -29,19 +30,20 @@
         <br>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_field :genre, placeholder: "What genre?", class: "form-control input-lg edit-input" %>
+            <%= f.text_field :genre, placeholder: "Which genre?", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <br>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_field :runtime, placeholder: "What is the runtime?", class: "form-control input-lg edit-input" %>
+            <%= f.text_field :runtime, placeholder: "How many minutes?", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <br>
         <div class="row">
           <div class="col-xs-12">
           <p>Add a poster</p>
+          <!-- TODO: Simpelweg een URL voor een plaatje invoeren ipv het plaatje uploaden -->
           <%= f.file_field :poster %>
           <%= f.hidden_field :poster_cache %>
           </div>
@@ -49,13 +51,13 @@
         <br>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.text_field :country, placeholder: "From what country is the movie?", class: "form-control input-lg edit-input" %>
+            <%= f.text_field :country, placeholder: "From which country is the movie?", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <br>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.submit :Thanks!, class: 'btn vegan-btn' %>
+            <%= f.submit :Next, class: 'btn vegan-btn' %>
           </div>
         </div>
         <% end %>

@@ -4,14 +4,14 @@
     <div class="row">
       <div class="new-movie-select">
         <div class="col-xs-12 text-center">
-          <h4>What movie would you like to review?</h4>
+          <h4>Which movie would you like to review?</h4>
 
           <%= form_for(@movie) do |f| %>
 
           <%= f.text_area :title, class: "form-control input-lg edit-input" %>
           <div class="row">
             <div class="col-xs-12 text-center">
-              <%= f.submit :Go!, class: "btn vegan-btn" %>
+              <%= f.submit :Next, class: "btn vegan-btn" %>
             </div>
           </div>
           <% end %>

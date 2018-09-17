@@ -10,10 +10,14 @@ class Movie < ApplicationRecord
 
 
   has_many :reviews, :dependent => :destroy
+  has_many :users, through: :reviews
 
   scope :top10, -> { order(rating: :desc)[0..9] }
   scope :most_reviewed, -> { order(times_reviewed: :desc)[0..9] }
 
+  def has_reviewed?(user)
+    users.include? user
+  end
 
   def self.set_ratings
     movies = Movie.all

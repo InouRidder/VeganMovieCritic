@@ -29,6 +29,6 @@ Rails.application.routes.draw do
         resources :review_ratings, only: [:create, :new, :edit, :update]
       end
     end
-  root to: 'home#home'
+  root to: 'movies#newest'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
