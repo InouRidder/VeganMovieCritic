@@ -13,6 +13,7 @@ $(window).load(function(){
     url: baseUrl + id + '/partial',
     success: function(data) {
       $('.content-review-index').append(data);
+      debugger;
       $('.container-background').css('background-size', 'cover');
       var background_url = $(".background-value").attr('data-hidden');
       $('.container-background').css('background-image', background_url);
