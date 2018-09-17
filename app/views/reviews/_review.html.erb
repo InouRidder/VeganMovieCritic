@@ -1,0 +1,19 @@
+<div class="card-content-container">
+  <div class="review-content">
+    <h3>
+      <%= @review.title %>
+      <blockquote style="font-size: 13px;"> by <%= @review.user.profile.username  %> </blockquote>
+    </h3>
+    <strong> User rating </strong> <%= @review.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
+    <p>
+      <%=raw @review.content %>
+      <br>
+      Reviewed on
+      <%= @review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+      <% if @review.user.username %>
+      By <%= @review.user.username   %>
+      <% end %>
+    </p>
+    <br>
+  </div>
+</div>

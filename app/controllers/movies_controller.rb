@@ -11,6 +11,10 @@ class MoviesController < ApplicationController
   def show
     Review.set_ratings(@movie.reviews.approved)
     @reviews = @movie.reviews.approved.order(review_rating: :desc)
+    respond_to do|format|
+      format.js
+      format.html
+    end
   end
 
   def new
