@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background: url('<%= @movie.imdb_poster ? @movie.imdb_poster : @movie.poster %>'); repeat: no-repeat; size: cover;">
   <div class="row">
 
     <div class="col-xs-3 hidden-xs hidden-sm">
@@ -36,7 +36,7 @@
         <div class="star-rating-rev-new" style="margin-left:25%;">
           <%= render 'shared/starrating-review-new'  %>
         </div>
-        <%= f.submit class: "btn vegan-btn btn-save", style: 'margin-left:33%;'%>
+        <%= f.submit "Publish review", class: "btn vegan-btn btn-save", style: 'margin-left:33%;'%>
         <% end %>
       </div>
     </div>
@@ -52,8 +52,6 @@
           <%= @movie.plot  %>
           <br>
           <%= @movie.runtime  %>
-          <br>
-          <%= @movie.actors  %>
           <br>
           <%= @movie.awards  %>
         </div>
