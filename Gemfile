@@ -6,9 +6,9 @@ source 'https://rails-assets.org' do  # star rating
   gem "rails-assets-bootstrap-star-rating"
 end
 
-gem 'rails', '5.0.0.1'
+gem 'rails', '5.1.5.rc1'
 gem 'puma'
-gem 'pg', '~> 1.1.3'
+gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
@@ -48,4 +48,6 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+
 
