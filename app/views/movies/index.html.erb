@@ -1,11 +1,9 @@
-
-  <section class='selector container-background' id='archive'
-  <% unless @review.artwork.url.nil? || @review.artwork.url == ""  %>
-    style="background: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(  0,128,128,0.25) 100%), url(<%= @review.artwork.url %>); background-size: cover;"
-  <% end %>
-  >
-
-    <%= render 'shared/archivenavbar'  %>
+<%= render 'shared/archivenavbar'  %>
+<section class='selector container-background' id='<%= @active %>'
+<% unless @review.artwork.url.nil? || @review.artwork.url == ""  %>
+  style="background: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(  0,128,128,0.25) 100%), url(<%= @review.artwork.url %>); background-size: cover;"
+<% end %>
+>
 
     <div class="container-fluid">
       <div class="row">

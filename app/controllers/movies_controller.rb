@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated,]
 
   def index
+    @active = 'newest-b'
     @movies = policy_scope(Movie).order(created_at: :desc)
     @movie = @movies.first
     partial(@movie) if @movie
@@ -107,6 +108,7 @@ class MoviesController < ApplicationController
 
   def most_reviewed
     Movie.set_times_reviewed
+    @active = 'most_reviewed'
     @movies = Movie.most_reviewed
     @movie = @movies.first
     partial(@movie) if @movie
@@ -120,6 +122,7 @@ class MoviesController < ApplicationController
   end
 
   def rated
+    @active = 'rated'
     @movies = Movie.order(rating: :desc)
     @movie = @movies.first
     partial(@movie) if @movie

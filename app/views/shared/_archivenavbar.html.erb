@@ -6,10 +6,9 @@
 
     <%= link_to t(".top_call_to_action", default: " - Best rated"), movies_rated_path, id: 'rated', class: "navbar-wagon-item navbar-wagon-button btn fa fa-star-o" %>
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: " - Newest"), movies_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn fa fa-calendar-check-o" %>
+    <%= link_to t(".top_call_to_action", default: " - Newest"), movies_path, id: 'newest-b', class: "navbar-wagon-item navbar-wagon-button btn fa fa-calendar-check-o" %>
     <%= link_to t(".top_call_to_action", default: " - Most reviewed"), movies_most_reviewed_path, id: 'most_reviewed', class: "navbar-wagon-item navbar-wagon-button btn fa fa-comments-o" %>
   </div>
-
 
     <form accept-charset="UTF-8" method='get' action='/results' class="navbar-wagon-search">
     <input type="text" class="navbar-wagon-search-input" name="title" placeholder="Search for a movie">
