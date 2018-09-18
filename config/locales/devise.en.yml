@@ -1,5 +1,10 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
+# en:
+#   errors:
+#     messages:
+#       confirmation: "%{attribute}s don't match - please check"
+
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 en:
   devise:
     confirmations:

@@ -17,6 +17,7 @@
         <div class="row">
           <p> When was the movie released? Only contemporary movies allowed!</p>
           <div class="col-xs-12 text-center">
+            <!-- TODO: Change format date field to dd-mm-yyyy -->
             <%= f.date_field :released, class: "form-control input-lg edit-input" %>
           </div>
         </div>
@@ -56,7 +57,7 @@
         <br>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <%= f.submit :Thanks!, class: 'btn vegan-btn' %>
+            <%= f.submit :Next, class: 'btn vegan-btn' %>
           </div>
         </div>
         <% end %>
