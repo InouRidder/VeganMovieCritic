@@ -66,6 +66,7 @@
 
       <div class="col-xs-12">
         <div class="card-btns center-block">
+<<<<<<< HEAD
           <% if current_user %>
             <% if policy(@review).update? %>
               <%= link_to 'Edit Review', edit_movie_review_path(@review.movie, @review), class: "btn vegan-btn"  %>
@@ -79,6 +80,19 @@
             <% unless @movie.has_reviewed(current_user) %>
               <%= link_to 'Add a review', new_movie_review_path(@review.movie), class: "btn vegan-btn" %>
             <% end %>
+=======
+          <% if policy(@review).update? %>
+            <%= link_to 'Edit Review', edit_movie_review_path(@review.movie, @review), class: "btn vegan-btn"  %>
+          <% end %>
+          <% if policy(@review).destroy? %>
+            <%= link_to 'Delete', movie_review_path(@review.movie, @review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
+          <% end %>
+          <% if @movie.reviews.count > 1 %>
+            <%= link_to 'More Reviews', movie_path(@review.movie), class: "btn vegan-btn" %>
+          <% end %>
+          <% unless @movie.has_reviewed(current_user) %>
+            <%= link_to 'Add a review', new_movie_review_path(@review.movie), class: "btn vegan-btn" %>
+>>>>>>> 66da12caf36eab429126788eaaf376ae889c8035
           <% end %>
         </div>
       </div>

@@ -21,9 +21,6 @@ gem 'country_select'
 gem 'cloudinary'
 gem 'appsignal'
 
-
-
-
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
@@ -39,8 +36,6 @@ gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development, :test do
-  gem 'binding_of_caller'
-  gem 'better_errors'
 
   gem 'pry-byebug'
   gem 'pry-rails'

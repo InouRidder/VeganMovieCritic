@@ -12,7 +12,7 @@ class Movie < ApplicationRecord
   has_many :reviews, :dependent => :destroy
   has_many :users, through: :reviews
 
-  scope :top10, -> { order(rating: :desc)[0..9] }
+  scope :top10, -> { where('created_at >= ?', Time.now.beginning_of_year).order(rating: :desc)[0..9] }
   scope :most_reviewed, -> { order(times_reviewed: :desc)[0..9] }
 
   def has_reviewed?(user)
@@ -27,6 +27,10 @@ class Movie < ApplicationRecord
     end
   end
 
+  def has_reviewed?(user)
+    users.include? user
+  end
+
   def set_rating
     if self.reviews.size > 0
       sum = 0
@@ -37,6 +41,7 @@ class Movie < ApplicationRecord
     else
       self.rating = 0
     end
+    self.save
   end
 
   def self.set_times_reviewed

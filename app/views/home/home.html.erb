@@ -22,8 +22,7 @@
                 <%= link_to "What's new?", movies_newest_path, class: "btn btn-home vegan-btn" %>
               </div>
               <div class="col-sm-4 col-xs-6">
-                <!-- TODO: Link to current year. -->
-                <%= link_to "2017 Top 10", movies_2017_path, class: "btn btn-home vegan-btn" %>
+                <%= link_to "#{Time.now.year} Top 10",eval("movies_#{Time.now.year}_path"), class: "btn btn-home vegan-btn" %>
               </div>
               <div class="col-sm-4 col-xs-6">
                 <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>

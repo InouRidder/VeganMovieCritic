@@ -1,4 +1,9 @@
-  <section class='selector' id='archive'>
+
+  <section class='selector container-background' id='archive'
+  <% unless @review.artwork.url.nil? || @review.artwork.url == ""  %>
+    style="background: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(  0,128,128,0.25) 100%), url(<%= @review.artwork.url %>); background-size: cover;"
+  <% end %>
+  >
 
     <%= render 'shared/archivenavbar'  %>
 
@@ -10,6 +15,7 @@
        <div class="col-xs-6 hidden-xs">
         <div class="review-index">
           <div class="content-review-index">
+            <%= render 'movie', movie: @movie, review: @review, user: @user, review_rating: @review_rating %>
           </div>
         </div>
       </div>
