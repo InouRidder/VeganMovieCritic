@@ -11,8 +11,8 @@
   <div class="col-sm-2 hidden-xs">
     <div class="scrollbox">
       <div class="list">
-        <% @movies.each do |movie| %>
-         <%= link_to "#{movie.title}", movie_path(movie), remote: true, class: "list-item" %>
+        <% @movies.each_with_index do |movie, index| %>
+         <%= link_to "#{movie.title}", movie_path(movie), remote: true, class: "list-item #{'active' if index == 0}" %>
        <% end %>
      </div>
    </div>

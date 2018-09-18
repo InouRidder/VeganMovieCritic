@@ -1,4 +1,3 @@
-
 function starRater() {
   var form = $('#new_review_rating');
   document.querySelectorAll('.star-rating').forEach(function(starRating) {

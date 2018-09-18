@@ -4,5 +4,6 @@
 //= require navbar
 //= require show
 //= require bootsy
-//= require star-rating
+//= require star_rating
+//= require list_item_activator
 //= require word_count.js

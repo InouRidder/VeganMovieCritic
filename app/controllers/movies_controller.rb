@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
   before_action :disable_nav, only: [:partial]
-  before_action :find_user, only: [:show, :pending, :index, :rated, :show, :alphabetical]
-  skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated, :alphabetical]
+  before_action :find_user, only: [:show, :pending, :index, :rated, :show,]
+  skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated,]
 
   def index
     @movies = policy_scope(Movie).order(created_at: :desc)
@@ -94,6 +94,8 @@ class MoviesController < ApplicationController
     # no older than september 2016
     Movie.set_ratings
     @movies = Movie.top10
+    @movie = @movies.first
+    partial(@movie) if @movie
     @review_rating = ReviewRating.new
     authorize (Movie.first)
   end
@@ -101,12 +103,10 @@ class MoviesController < ApplicationController
   def most_reviewed
     Movie.set_times_reviewed
     @movies = Movie.most_reviewed
+    @movie = @movies.first
+    partial(@movie) if @movie
     authorize (Movie.first)
-  end
-
-  def newest
-    @newest_reviews = Review.all.newest
-    authorize (Movie.first)
+    render :index
   end
 
   def pending
@@ -116,7 +116,10 @@ class MoviesController < ApplicationController
 
   def rated
     @movies = Movie.order(rating: :desc)
+    @movie = @movies.first
+    partial(@movie) if @movie
     authorize (Movie.first)
+    render :index
   end
 
   private

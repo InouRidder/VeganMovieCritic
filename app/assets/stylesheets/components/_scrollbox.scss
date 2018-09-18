@@ -38,10 +38,10 @@
 
 }
 
-.list-item-active {
-  background-color: $red;
+.active {
+  background-color: $red !important;
   text-decoration: none !important;
-  color: $gray;
+  color: $gray !important;
   font-size: bold;
 }
 

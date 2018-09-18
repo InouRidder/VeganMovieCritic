@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
 
     get '/movies/:id/partial', to: 'movies#partial'
-    get '/movies/newest', to: 'movies#newest'
+    get '/movies/newest', to: 'movies#index'
     get '/movies/highrated', to: 'movies#highrated'
     get '/movies/pending', to: 'movies#pending'
     get '/movies/pending/approve', to: 'reviews#approve'
@@ -29,6 +29,6 @@ Rails.application.routes.draw do
         resources :review_ratings, only: [:create, :new, :edit, :update]
       end
     end
-  root to: 'movies#newest'
+  root to: 'movies#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
