@@ -1,0 +1,25 @@
+<div id="review_rating">
+  <% if review.has_rated(current_user) && review_rating.rating %>
+  <div class="row">
+    <p>
+      You gave this review
+      <%= review_rating.rating.to_f / 2 %>
+      <i class="fa fa-star" aria-hidden="true">  </i>
+    </p>
+    Users rate this review <%= review.rating.to_f / 2 %> <i class="fa fa-star" aria-hidden="true">  </i>
+  </div>
+  <% elsif current_user %>
+  <div class="row">
+    <div class="card-rating center-block">
+      <p> Rate this review</p>
+      <%= render 'shared/star-rating' %>
+    </div>
+  </div>
+  <% else %>
+  <div class="row">
+    <div class="card-rating center-block">
+      <p> To share your rating of this review, please login.</p>
+    </div>
+  </div>
+  <% end %>
+</div>

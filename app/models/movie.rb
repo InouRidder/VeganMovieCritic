@@ -38,6 +38,7 @@ class Movie < ApplicationRecord
     else
       self.rating = 0
     end
+    self.save
   end
 
   def self.set_times_reviewed

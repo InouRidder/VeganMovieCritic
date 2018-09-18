@@ -125,7 +125,7 @@ class MoviesController < ApplicationController
     @review = movie.reviews.approved.order(review_rating: :desc).first
     @user = current_user
     if @review && current_user
-      @review_rating = ReviewRating.where(review_id: @review.id).where(user_id: @user.id).first || ReviewRating.new
+      @review_rating = ReviewRating.find_by(review_id: @review.id, user_id: @user.id) || ReviewRating.new
     end
   end
 
