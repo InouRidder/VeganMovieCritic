@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
 
     get '/movies/:id/partial', to: 'movies#partial'
-    get '/movies/newest', to: 'movies#index'
+    get '/movies/newest', to: 'movies#newest'
     get '/movies/highrated', to: 'movies#highrated'
     get '/movies/pending', to: 'movies#pending'
     get '/movies/pending/approve', to: 'reviews#approve'

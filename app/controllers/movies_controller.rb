@@ -100,6 +100,11 @@ class MoviesController < ApplicationController
     authorize (Movie.first)
   end
 
+  def newest
+    @newest_reviews = Review.all.newest
+    authorize (Movie.first)
+  end
+
   def most_reviewed
     Movie.set_times_reviewed
     @movies = Movie.most_reviewed
