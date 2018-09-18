@@ -1,20 +1,19 @@
+<div class="visible-xs-block xs-12">
+  <div class="scrollbox-small">
+    <div class="list">
+      <% @movies.each do |movie| %>
+        <%= link_to "#{movie.title}", movie_path(movie), class: "list-item" %>
+      <% end %>
+    </div>
+   </div>
+ </div>
 
-    <div class="visible-xs-block xs-12">
-    <div class="scrollbox-small">
+  <div class="col-sm-2 hidden-xs">
+    <div class="scrollbox">
       <div class="list">
         <% @movies.each do |movie| %>
-          <%= link_to "#{movie.title}", movie_path(movie), class: "list-item" %>
-        <% end %>
-      </div>
+         <%= link_to "#{movie.title}", movie_path(movie), remote: true, class: "list-item" %>
+       <% end %>
      </div>
    </div>
-
-    <div class="col-sm-2 hidden-xs">
-      <div class="scrollbox">
-        <div class="list">
-          <% @movies.each do |movie| %>
-           <%= link_to "#{movie.title}", movie_path(movie), class: "click-btn list-item" %>
-         <% end %>
-       </div>
-     </div>
-   </div>
+ </div>

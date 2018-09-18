@@ -1,0 +1,6 @@
+var ratingElement = document.getElementById('review_rating')
+var rating = "<%= j render 'review_rating', movie: @movie, review: @review, review_rating: @review_rating %>"
+$(ratingElement).fadeOut('slow', function() {
+    ratingElement.innerHTML = rating;
+});
+$(ratingElement).fadeIn();

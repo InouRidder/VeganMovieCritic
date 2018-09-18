@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get '/movies/pending', to: 'movies#pending'
     get '/movies/pending/approve', to: 'reviews#approve'
     get '/home', to: 'home#home'
-    get '/movies/2017', to: 'movies#top10'
+    get "/movies/#{Time.now.year}", to: 'movies#top10'
     get '/movies/alphabetical', to: 'movies#alphabetical'
     get '/movies/rated', to: 'movies#rated'
     get '/movies/most-reviewed', to: 'movies#most_reviewed'
