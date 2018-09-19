@@ -37,11 +37,11 @@
               </p>
               <footer>
                 <cite>
-                  Review's rating of the movie: <%= review.rating.to_f / 2 %>
+                  Review's rating of the movie: <%= review.rating.to_f / 2 %> <i class="fa fa-star" style="color: green;" aria-hidden="true"> </i>
                   <br>
-                  Rating of the review: <%= review.review_rating.to_f / 2 %> <i class="fa fa-star" style="color: green;" aria-hidden="true"> </i>
                   <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
-                  as reviewed by <%= review.user.profile ? review.user.profile.username : review.user.email %>
+                  <br>
+                   by <%= review.user.profile ? review.user.profile.username : review.user.email %>
                 </cite>
               </footer>
             </blockquote>
