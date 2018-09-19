@@ -48,7 +48,7 @@
           <div class="grey-background">
           <h3>
             <%= review.title %>
-            <blockquote style="font-size: 13px;"> by <%= review.user.profile.username  %> </blockquote>
+            <blockquote style="font-size: 13px;"> by <%= review.user.profile.try(:username)  %> </blockquote>
           </h3>
           <strong> User rating </strong> <%= review.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
           <p>

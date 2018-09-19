@@ -6,14 +6,14 @@
 <% @reviews.each_with_index do |review, i| %>
 
   <% if i == 0 %>
-  <div class="next-method current_element">
-  <%= render 'reviews/review', review: review %>
+  <div class="next-method current-element">
+  <%= render 'reviews/review', review: review, i: i %>
   </div>
 
 <% else  %>
 
   <div class="next-method hidden">
-    <%= render 'reviews/review', review: review %>
+    <%= render 'reviews/review', review: review, i: i %>
   </div>
 
 <% end %>
