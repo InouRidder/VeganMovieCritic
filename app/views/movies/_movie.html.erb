@@ -10,7 +10,7 @@
             <%= movie.title  %>
           </h1>
           <p>
-            <%= movie.rating.to_f / 2 %> <i class="fa fa-star red-star" aria-hidden="true"> </i> out of <%= movie.reviews.size %> reviews!
+            Rating of the movie: <%= movie.rating %> <i class="fa fa-star red-star" aria-hidden="true"> </i> out of <%= movie.reviews.size %> reviews!
           </p>
         </div>
 
@@ -23,7 +23,7 @@
 
     <div class="col-xs-8">
       <% if review %>
-      <div class= "card card-outline-primary mb-3 text-center">
+      <div class= "card grey-background card-outline-primary mb-3 text-center">
         <div class= "card-header">
           <h3>
             <%= review.title %>
@@ -37,7 +37,9 @@
               </p>
               <footer>
                 <cite>
-                  <%= review.rating.to_f / 2 %> <i class="fa fa-star" style="color: green;" aria-hidden="true"> </i>
+                  Review's rating of the movie: <%= review.rating.to_f / 2 %>
+                  <br>
+                  Rating of the review: <%= review.review_rating.to_f / 2 %> <i class="fa fa-star" style="color: green;" aria-hidden="true"> </i>
                   <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
                   as reviewed by <%= review.user.profile ? review.user.profile.username : review.user.email %>
                 </cite>

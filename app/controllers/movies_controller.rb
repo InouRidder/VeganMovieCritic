@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy, :partial]
   before_action :disable_nav, only: [:partial]
   before_action :find_user, only: [:show, :pending, :index, :rated, :show,]
-  skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated,]
+  skip_before_action :authenticate_user!, only: [:index, :show, :partial, :highrated, :top10, :most_reviewed, :newest, :rated]
 
   def index
     @active = 'newest-b'
@@ -93,7 +93,6 @@ class MoviesController < ApplicationController
 
   def top10
     # no older than september 2016
-    Movie.set_ratings
     @movies = Movie.top10
     @movie = @movies.first
     partial(@movie) if @movie

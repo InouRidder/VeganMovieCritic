@@ -1,209 +1,22 @@
-<div class="container" style="margin-top: 20px;">
 
-  <% if @movie.reviews.empty? %>
+<% if @movie.reviews.empty? %>
   <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
-  <% end %>
+<% end %>
 
-  <% @reviews.each_with_index do |review, i| %>
+<% @reviews.each_with_index do |review, i| %>
 
   <% if i == 0 %>
-
-  <div class="next-method current-element"
-  <% if review.artwork.url %>
-  style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork%>)"
-  <% end %>>
-  <div class="row">
-    <div class="col-xs-12 col-sm-5 text-right hidden-xs">
-      <%= image_tag "#{@movie.poster ? @movie.poster : @movie.imdb_poster}", class: "poster-info-box "  %>
-    </div>
-    <div class="col-xs-12 col-sm-5">
-      <div class="card-info text-left" style="line-height: 14px">
-        <h2 style="margin-top: 0%;">
-          <%= review.movie.title  %>
-        </h2>
-        <p>
-          <%= review.movie.released %>
-        </p>
-        <% if review.movie.director  %>
-        <p>
-         <strong> Director </strong> <%= review.movie.director %>
-       </p>
-       <% end %>
-       <p>
-        <%= review.movie.genre %>
-      </p>
-      <strong>
-        Actors
-      </strong>
-      <%= review.movie.actors %>
-      <p>
-        <%= review.movie.country %>
-      </p>
-      <%= review.movie.language %>
-      <p>
-        <%= review.movie.awards %>
-      </p>
-      <strong> Vegan Movie Critics Rating </strong>
-      <%= review.movie.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
-    </div>
-    <br>
-    <%= review.movie.plot %>
+  <div class="next-method current_element">
+  <%= render 'reviews/review', review: review %>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 text-center">
-
-    <div class="card-content-container">
-      <div class="review-content">
-        <h3>
-          <%= review.title %>
-          <blockquote style="font-size: 13px;"> by <%= review.user.profile.username if review.user.profile %> </blockquote>
-        </h3>
-        <strong> User rating </strong> <%= review.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
-        <p>
-          <%=raw review.content %>
-          <br>
-          Reviewed on
-          <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
-          <% if review.user.username %>
-          By <%= review.user.username   %>
-          <% end %>
-        </p>
-        <br>
-      </div>
-    </div>
-
-    <div class="col-xs-12">
-      <div class="card-btns center-block">
-        <% if current_user %>
-        <% if policy(review).update? %>
-        <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn vegan-btn"  %>
-        <% end %>
-        <% if policy(review).destroy? %>
-        <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
-        <% end %>
-        <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<% if @reviews.size > 1 %>
-<% if i + 1 != @reviews.size %>
-<button class="next-btn pull-right">
-  <%= i + 1%> of <%= @reviews.size  %> <i class="fa fa-arrow-right fa-5x"></i>
-</button>
-<% end %>
-
-<% if i != 0 %>
-<button class="prev-btn pull-left">  <i class="fa fa-arrow-left fa-5x"></i> </button>
-<% end %>
-<% end %>
-
-</div>
 
 <% else  %>
 
-<div class="next-method hidden"
-<% if review.artwork.url %>
- style="background-image: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(0,128,128,0.25) 100%), url(<%= review.artwork %>)"
-<% end %>>
-<div class="row">
-  <div class="col-xs-12 col-sm-5 text-right hidden-xs">
-    <%= image_tag "#{@movie.poster ? @movie.poster : @movie.imdb_poster}", class: "poster-info-box "  %>
+  <div class="next-method hidden">
+    <%= render 'reviews/review', review: review %>
   </div>
-  <div class="col-xs-12 col-sm-5">
-    <div class="card-info text-left" style="line-height: 14px">
-      <h2 style="margin-top: 0%;">
-        <%= review.movie.title  %>
-      </h2>
-      <p>
-        <%= review.movie.released %>
-      </p>
-      <% if review.movie.director  %>
-      <p>
-       <strong> Director </strong> <%= review.movie.director %>
-     </p>
-     <% end %>
-     <p>
-      <%= review.movie.genre %>
-    </p>
-    <strong>
-      Actors
-    </strong>
-    <%= review.movie.actors %>
-    <p>
-      <%= review.movie.country %>
-    </p>
-    <%= review.movie.language %>
-    <p>
-      <%= review.movie.awards %>
-    </p>
-    <strong> Vegan Movie Critics Rating </strong>
-    <%= review.movie.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
-  </div>
-  <br>
-  <%= review.movie.plot %>
-</div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12 text-center">
-
-    <div class="card-content-container">
-      <div class="review-content">
-        <h3>
-          <%= review.title %>
-          <blockquote style="font-size: 13px;"> by <%= review.user.profile.username if review.user.profile %> </blockquote>
-        </h3>
-        <strong> User rating </strong> <%= review.rating / 2 %> <div class="fa fa-star green-star"></div>
-        <p>
-          <%=raw review.content %>
-          <br>
-          Reviewed on
-          <%= review.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
-          <% if review.user.username %>
-          By <%= review.user.username   %>
-          <% end %>
-        </p>
-        <br>
-      </div>
-    </div>
-
-    <div class="col-xs-12">
-      <div class="card-btns center-block">
-        <% if current_user %>
-        <% if policy(review).update? %>
-        <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: "btn vegan-btn"  %>
-        <% end %>
-        <% if policy(review).destroy? %>
-        <%= link_to 'Delete', movie_review_path(@movie, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn vegan-btn" %>
-        <% end %>
-        <%= link_to 'Add a review', new_movie_review_path(@movie), class: "btn vegan-btn" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% if @reviews.size > 1 %>
-<% if i + 1 != @reviews.size %>
-<button class="next-btn pull-right">
-  <%= i + 1%> of <%= @reviews.size  %> <i class="fa fa-arrow-right fa-5x"></i>
-</button>
-<% end %>
-
-<% if i != 0 %>
-<button class="prev-btn pull-left">  <i class="fa fa-arrow-left fa-5x"></i> </button>
 <% end %>
 <% end %>
-
-</div>
-<% end %>
-<% end %>
-</div>
 
 

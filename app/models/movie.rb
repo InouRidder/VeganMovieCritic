@@ -31,16 +31,18 @@ class Movie < ApplicationRecord
     users.include? user
   end
 
-  def set_rating
-    if self.reviews.size > 0
-      sum = 0
-      self.reviews.each do |e|
-        sum += e.rating
+  def set_rating_and_times_reviewed
+    reviews = self.reviews.approved
+    if reviews.size > 0
+      sum = 0.0
+      reviews.each do |review|
+        sum += review.rating
       end
-      self.rating = sum / self.reviews.size
+      self.rating = ((sum / reviews.size.to_f)/2.0)
     else
       self.rating = 0
     end
+    self.times_reviewed = reviews.size
     self.save
   end
 
