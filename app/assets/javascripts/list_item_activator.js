@@ -27,4 +27,4 @@ var listItemActivator = {
 }
 
 
-document.addEventListener('DOMContentLoaded', listItemActivator.initialize)
+document.addEventListener('turbolinks:load', listItemActivator.initialize)

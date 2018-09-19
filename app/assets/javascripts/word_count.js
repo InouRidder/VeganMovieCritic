@@ -1,5 +1,4 @@
-$(document).ready(function(e) {
-
+document.addEventListener('turbolinks:load', function(e) {
   $('.btn-save').on('click', function(e) {
 
     var content_words = $('.size-it').val().trim().replace(/\s+/gi, ' ').split(' ')

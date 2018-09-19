@@ -7,4 +7,5 @@ function starRater() {
   })
 }
 
-document.addEventListener('DOMContentLoaded', starRater)
+document.addEventListener('turbolinks:load', starRater)
+

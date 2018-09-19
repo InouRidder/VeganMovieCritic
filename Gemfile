@@ -20,6 +20,8 @@ gem 'bootsy'
 gem 'country_select'
 gem 'cloudinary'
 gem 'appsignal'
+gem 'turbolinks', '~> 5.1.0'
+
 
 gem 'sass-rails'
 gem 'jquery-rails'
