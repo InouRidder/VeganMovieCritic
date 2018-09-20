@@ -24,6 +24,8 @@ gem 'cloudinary'
 gem 'appsignal'
 gem 'turbolinks', '~> 5.1.0'
 
+gem 'semantic-ui-sass'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
