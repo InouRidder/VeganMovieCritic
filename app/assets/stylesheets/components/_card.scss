@@ -23,10 +23,10 @@
 @media (min-width: 700px) {
 
 .review-content {
-  width: 70%;
   left: 0;
   right: 0;
   margin: auto;
+  padding: 8px;
 }
 
 .movie-title h1 {
@@ -70,4 +70,22 @@
   margin: 10px;
   width: 80%;
   padding: 10px;
+}
+
+.movie-card {
+  border-radius: 4px;
+}
+
+.movie-content {
+  padding: 5px;
+}
+
+.movie-card-top {
+  display: flex;
+}
+
+.movie-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

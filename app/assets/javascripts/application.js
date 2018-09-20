@@ -10,4 +10,3 @@
 //= require froala_editor.min.js
 //= require froala_editor
 //= require image_selector
-//= require semantic-ui

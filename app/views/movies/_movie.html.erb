@@ -8,7 +8,7 @@
         <div class="grey-background padding-top-20">
           <div class="movie-title">
             <p>
-              Rating of the movie: <%= movie.rating %> <i class="fa fa-star red-star" aria-hidden="true"> </i> out of <%= pluralize movie.reviews.size, 'review'  %>
+              Rating of the movie: <%= movie.rating.to_f %> <i class="fa fa-star red-star" aria-hidden="true"> </i> out of <%= pluralize movie.reviews.size, 'review'  %>
             </p>
           </div>
 
