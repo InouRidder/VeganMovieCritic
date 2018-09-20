@@ -108,7 +108,6 @@ class MoviesController < ApplicationController
   end
 
   def most_reviewed
-    Movie.set_times_reviewed
     @active = 'most_reviewed'
     @movies = Movie.most_reviewed
     @movie = @movies[0]

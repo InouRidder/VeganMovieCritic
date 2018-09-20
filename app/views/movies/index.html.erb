@@ -1,10 +1,11 @@
 <%= render 'shared/archivenavbar'  %>
 <section class='selector container-background' id='<%= @active %>'
+<% if @review %>
 <% unless @review.artwork.url.nil? || @review.artwork.url == ""  %>
   style="background: linear-gradient(27deg, #D3D0CD 10%, rgba(150,150,150,0.7) 41%, rgba(  0,0,0,0.25) 100%), url(<%= @review.artwork.url %>); background-size: cover;"
 <% end %>
+<% end %>
 >
-
     <div class="container-fluid">
       <div class="row padding-top-20">
 
