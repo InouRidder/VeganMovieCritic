@@ -5,15 +5,17 @@
         <div class="movie-poster">
           <%= image_tag "#{movie.imdb_poster ? movie.imdb_poster : movie.poster }", class: "movie-poster"  %>
         </div>
-        <div class="movie-title">
-          <p>
-            Rating of the movie: <%= movie.rating %> <i class="fa fa-star red-star" aria-hidden="true"> </i> out of <%= pluralize movie.reviews.size, 'review'  %>
-          </p>
-        </div>
+        <div class="grey-background padding-top-20">
+          <div class="movie-title">
+            <p>
+              Rating of the movie: <%= movie.rating %> <i class="fa fa-star red-star" aria-hidden="true"> </i> out of <%= pluralize movie.reviews.size, 'review'  %>
+            </p>
+          </div>
 
-        <div class="movie-info-box">
-          <%= movie.plot  %>
-          <br>
+          <div class="movie-info-box">
+            <%= movie.plot  %>
+            <br>
+          </div>
         </div>
       </div>
     </div>
@@ -62,7 +64,7 @@
       </div>
     </div>
     <% unless review.artwork.url.nil? || review.artwork.url == ""  %>
-      <div class="background-value" data-hidden="linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(  0,128,128,0.25) 100%), url(<%= review.artwork.url %>)">
+      <div class="background-value" data-hidden="background: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(  0,128,128,0.25) 100%), url(<%= review.artwork.url %>); background-size: cover;">
       </div>
     <% else %>
       <div class="background-value" data-hidden="">

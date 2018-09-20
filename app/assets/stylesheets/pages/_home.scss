@@ -3,20 +3,6 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
- .vegan-btn {
-   color: $gray;
-   background-color: $black;
-   margin: 10px;
-   border: $black solid 1px;
-   transition: 400ms ease;
- }
-
- .vegan-btn:hover {
-  opacity: 0.8;
-  background-color: $gray;
-  color: $black;
-  border: $red solid 1px;
-}
 
 @media (min-width: 700px) {
   .home-content {
