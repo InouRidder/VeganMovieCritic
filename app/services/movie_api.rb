@@ -7,7 +7,7 @@ class MovieApi
   end
 
   def search
-    url = "http://www.omdbapi.com/?apikey=6866fd10&t=#{@title}&y=&plot=short&r=json"
+    url = "http://www.omdbapi.com/?apikey=#{ENV['MOVIE_API_KEY']}&t=#{@title}&y=&plot=short&r=json"
     if returned_data = RestClient.get(url)
       data = JSON.parse(returned_data)
       unless data["Response"] == "False"

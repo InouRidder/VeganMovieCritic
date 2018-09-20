@@ -1,7 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-4">
-    <h2>Forgot your password?</h2>
+    <h2>
+      <u>
+        Vegans are human too
+      </u>
+    </h2>
+    <p>
+      Enter your e-mail and a link to reset your password will be e-mailed to you
+    </p>
 
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>

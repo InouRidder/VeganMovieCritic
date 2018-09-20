@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="new-movie-select">
-      <div class="col-xs-12 text-center">
+      <div class="col-xs-12">
 
         <h3>
           Add a custom movie
@@ -15,9 +15,9 @@
         </div>
         <br>
         <div class="row">
-          <p> When was the movie released? Only contemporary movies allowed!</p>
           <div class="col-xs-12 text-center">
             <!-- TODO: Change format date field to dd-mm-yyyy -->
+            <%= f.label :released, "When was the movie released? Only contemporary movies allowed!"%>
             <%= f.date_field :released, class: "form-control input-lg edit-input" %>
           </div>
         </div>
@@ -42,10 +42,18 @@
         <br>
         <div class="row">
           <div class="col-xs-12">
-          <p>Add a poster</p>
-          <!-- TODO: Simpelweg een URL voor een plaatje invoeren ipv het plaatje uploaden -->
-          <%= f.file_field :poster %>
-          <%= f.hidden_field :poster_cache %>
+            <span class="btn btn-success fileinput-button">
+              <span>Add a poster</span>
+              <%= f.file_field :poster, class: "text-center", id: 'artwork-input' %>
+              <%=  f.hidden_field :poster_cache %>
+            </span>
+            <span id="selected-artwork"></span>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.text_field :imdb_poster, placeholder: "Or add a url, this one will get precedence if you do both!", class: "form-control input-lg edit-input" %>
           </div>
         </div>
         <br>

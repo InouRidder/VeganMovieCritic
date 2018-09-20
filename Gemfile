@@ -18,13 +18,11 @@ gem 'json'
 gem 'pg_search'
 
 gem "wysiwyg-rails"
-gem "font-awesome-sass"
 
 gem 'country_select'
 gem 'cloudinary'
 gem 'appsignal'
 gem 'turbolinks', '~> 5.1.0'
-
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -41,7 +39,7 @@ gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development, :test do
-
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'

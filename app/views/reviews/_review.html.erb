@@ -4,40 +4,26 @@
   <% end %>
   <div class="row">
     <div class="col-xs-12 col-sm-5 text-right hidden-xs">
-      <%= image_tag "#{review.movie.poster}", class: "poster-info-box "  %>
+      <% imdb_poster = review.movie.imdb_poster %>
+      <%= image_tag imdb_poster ? imdb_poster : review.movie.poster , class: "poster-info-box "  %>
     </div>
     <div class="col-xs-12 col-sm-5">
       <div class="card-info text-left grey-background" style="line-height: 14px;">
         <h2 style="margin-top: 0%;">
           <%= review.movie.title  %>
-          </h2>
-          <p>
-          <%= review.movie.released %>
-          </p>
-        <% if review.movie.director  %>
+        </h2>
+        <% review.movie.presentable_attributes.each do |key, value| %>
         <p>
-         <strong> Director </strong> <%= review.movie.director %>
+          <strong>
+            <%= key.capitalize %>
+          </strong>
+          <span><%= " " + value %></span>
         </p>
         <% end %>
-        <p>
-        <%= review.movie.genre %>
-        </p>
-        <strong>
-        Actors
-        </strong>
-        <%= review.movie.actors %>
-        <p>
-        <%= review.movie.country %>
-        </p>
-        <%= review.movie.language %>
-        <p>
-        <%= review.movie.awards %>
-        </p>
+
        <strong> Vegan movie critic Rating </strong>
         <%= review.movie.rating.to_f / 2 %> <div class="fa fa-star green-star"></div>
       </div>
-      <br>
-      <%= review.movie.plot %>
     </div>
 
 
@@ -97,5 +83,4 @@
   <% end %>
 </div>
 </div>
-
 

@@ -44,6 +44,30 @@ class Movie < ApplicationRecord
     self.save
   end
 
+  def presentable_attributes
+    self.attributes.except("id", "title", "created_at", "updated_at", "rating", "poster", "imdb_poster", "times_reviewed").reject {|key, value| value == "N/A" || value == nil}
+  end
+
+  # create_table "movies", force: :cascade do |t|
+  #   t.datetime "created_at",     null: false
+  #   t.datetime "updated_at",     null: false
+  #   t.string   "title"
+  #   t.integer  "rating"
+  #   t.string   "released"
+  #   t.string   "runtime"
+  #   t.string   "genre"
+  #   t.string   "plot"
+  #   t.string   "actors"
+  #   t.string   "awards"
+  #   t.string   "poster"
+  #   t.string   "imdbrating"
+  #   t.integer  "times_reviewed"
+  #   t.string   "country"
+  #   t.string   "director"
+  #   t.string   "language"
+  #   t.string   "imdb_poster"
+
+
   def self.set_times_reviewed
     Movie.all.each do |movie|
       movie.times_reviewed = movie.reviews.where(approved: true).size

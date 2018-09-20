@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
 
   def create
     title = movie_params["title"]
-    if @movie = Movie.all.find_by_title(title.strip)
+    if @movie = Movie.find_by_title(title.strip)
       authorize @movie
       redirect_to select_path(movie_id: @movie.id)
     elsif @movie = Movie.search_movie(title)
