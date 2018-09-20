@@ -1,0 +1,19 @@
+<div class="navbar-user">
+  <div class="navbar-user-left">
+  <p></p>
+  </div>
+  <div class="navbar-user-right">
+  <% if current_user %>
+    <p>
+      <% username = current_user.profile.try(:username) %>
+      Hello, <%= username ? username : current_user.email %>
+    </p>
+    <%= link_to destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" do %>
+      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+      <% end %>
+  <% else %>
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <% end %>
+  </div>
+</div>
+

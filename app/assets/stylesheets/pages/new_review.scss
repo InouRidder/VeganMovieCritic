@@ -1,14 +1,10 @@
 .top-margin {
-  margin-top: 5%;
-}
-
-.content-form {
-  height: 400px;
+  margin-top: 0% !important;
 }
 
 .movie-poster {
-  margin-top: 5px;
-  width: 80%;
+  width: 100%;
+  height: auto;
 }
 
 .rating-change {
@@ -26,7 +22,7 @@
 
 @media (min-width: 700px) {
   .size-it {
-    height: 300px;
+    min-height: 300px;
     width: 100%;
     padding: 2px;
     margin: 1px;
@@ -43,7 +39,6 @@
 @media (max-width: 700px) {
   .star-rating-rev-new {
     margin-top: 80px;
-    margin-left: 13% !important;
   }
   .size-it {
     height: 250px;
@@ -55,6 +50,3 @@
   }
 }
 
-.artwork-form {
-  margin-left: 5%;
-}

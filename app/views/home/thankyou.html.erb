@@ -20,20 +20,7 @@
         <img src="<%= image_path("cinegif.gif")  %>" alt="" style="width: 65%; margin-left: -4%;">
 
         <div class="row">
-         <div class="home-btns">
-          <div class="col-xs-4">
-            <%= link_to "What's new?", movies_newest_path, class: "btn btn-home vegan-btn" %>
-          </div>
-          <div class="col-xs-4">
-            <%= link_to "#{Time.now.year} Top 10",eval("movies_#{Time.now.year}_path"), class: "btn btn-home vegan-btn" %>
-          </div>
-          <div class="col-xs-4">
-            <%= link_to "Archive", movies_path, class: "btn btn-home vegan-btn" %>
-          </div>
-          <div class="col-xs-12">
-            <%= link_to "Review", new_movie_path, class: "btn btn-home vegan-btn" %>
-          </div>
-        </div>
+         <%= render 'shared/buttons' %>
       </div>
     </div>
   </div>

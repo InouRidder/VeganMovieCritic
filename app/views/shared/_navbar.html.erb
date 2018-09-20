@@ -1,38 +1,45 @@
+<%= render 'shared/user_navbar' %>
  <div class="navbar-wagon">
   <div class="vmr-logo">
     <%= link_to root_path, class: "vmr-logo" do %>
-    <img src="<%= image_path("vegancriticlogo.png")  %>" alt="" style="height: 75px; z-index: 1; position: absolute; top: 0; left: 0;">
+    <img src="<%= image_path("vegancriticlogo.png")  %>" alt="" style="height: 75px; z-index: 1; position: absolute; top: 35px; left: 0;">
     <% end %>
   </div>
   <!-- Logo -->
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-  <%= render 'shared/contact' %>
-
-    <!-- Login text link -->
-    <% unless current_user %>
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= render 'shared/contact' %>
+    <%= link_to movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn" do %>
+      <i class="far fa-newspaper"></i>
+      <%= t(".top_call_to_action", default: " - What's new") %>
     <% end %>
-
-
-    <%= link_to t(".top_call_to_action", default: " - What's new"), movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn fa fa-newspaper-o" %>
-    <%= link_to t(".top_call_to_action", default: " - Top 10"), eval("movies_#{Time.now.year}_path"), id: 'top10', class: "navbar-wagon-item navbar-wagon-button btn fa fa-trophy" %>
-    <%= link_to t(".top_call_to_action", default: " - Archive"), movies_path, id: 'archive', class: "navbar-wagon-item navbar-wagon-button btn fa fa-archive" %>
-    <%= link_to t(".top_call_to_action", default: " - Add review"),  new_movie_path, id: 'review', class: "navbar-wagon-item navbar-wagon-button btn fa fa-pencil-square" %>
-
-    <% if current_user && current_user.admin %>
-    <%= link_to t(".top_call_to_action", default: " - Pending #{Review.where(approved: false).size}"), movies_pending_path, id: 'pending', class: "navbar-wagon-item navbar-wagon-button btn fa fa-hourglass-start" %>
+    <%= link_to eval("movies_#{Time.now.year}_path"), id: 'top10', class: "navbar-wagon-item navbar-wagon-button btn" do %>
+      <i class="fas fa-trophy"></i>
+      <%= t(".top_call_to_action", default: " - Top 10") %>
+    <% end %>
+    <%= link_to movies_path, id: 'archive', class: "navbar-wagon-item navbar-wagon-button btn " do %>
+      <i class="fas fa-archive"></i>
+      <%= t(".top_call_to_action", default: " - Archive") %>
+    <% end %>
+    <%= link_to new_movie_path, id: 'review', class: "navbar-wagon-item navbar-wagon-button btn" do %>
+      <i class="fas fa-pencil-alt"></i>
+      <%= t(".top_call_to_action", default: " - Add review") %>
+    <% end %>
+    <% if current_user.try(:admin) %>
+      <%= link_to movies_pending_path, id: 'pending', class: "navbar-wagon-item navbar-wagon-button btn" do %>
+        <i class="fa fa-hourglass-start"></i>
+        <%= t(".top_call_to_action", default: " - Pending #{Review.where(approved: false).size}") %>
+      <% end %>
     <% end %>
 
 
     <!-- Button (call-to-action) -->
     <!-- Different navigation if login or not -->
     <!-- Profile picture and dropdown -->
-    <% if current_user %>
+    <% if false #current_user %>
     <!-- Notification -->
-    <div class="navbar-wagon-item" hidden>
+    <div class="navbar-wagon-item">
       <div class="dropdown">
         <i class="fa fa-user dropdown-toggle" data-toggle="dropdown" hidden></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -67,12 +74,12 @@
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
       <li><a href="/movies/newest">What's new</a></li>
-      <li><a href="/movies/2017">Top 10</a></li>
+      <li><a href="/movies/<%= Time.now.year %>">Top 10</a></li>
       <li><a href="/movies">Archive</a></li>
       <li><a href="/movies/new"> Add A Review! </a></li>
     </ul>
   </div>
-  <% if current_user %>
+  <% if false #current_user %>
   <!-- Notification -->
   <div class="dropdown" style="margin: 60%;">
     <i class="fa fa-user dropdown-toggle" data-toggle="dropdown" ></i>
