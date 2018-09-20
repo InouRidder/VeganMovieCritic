@@ -8,10 +8,10 @@ class Movie < ApplicationRecord
 
   mount_uploader :poster, PhotoUploader
 
-
   has_many :reviews, :dependent => :destroy
   has_many :users, through: :reviews
 
+  scope :by_rating, -> {order(rating: :desc)}
   scope :top10, -> { where('created_at >= ?', Time.now.beginning_of_year).order(rating: :desc)[0..9] }
   scope :most_reviewed, -> { order(times_reviewed: :desc)[0..9] }
 

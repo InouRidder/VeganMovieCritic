@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   def index
     @active = 'newest-b'
     @movies = policy_scope(Movie).order(created_at: :desc)
-    @movie = @movies.first
+    @movie = @movies[0]
     partial(@movie) if @movie
   end
 
@@ -94,10 +94,12 @@ class MoviesController < ApplicationController
   def top10
     # no older than september 2016
     @movies = Movie.top10
-    @movie = @movies.first
+    @movie = @movies[0]
+    @active = 'top10'
     partial(@movie) if @movie
     @review_rating = ReviewRating.new
     authorize (Movie.first)
+    render :index
   end
 
   def newest
@@ -109,9 +111,9 @@ class MoviesController < ApplicationController
     Movie.set_times_reviewed
     @active = 'most_reviewed'
     @movies = Movie.most_reviewed
-    @movie = @movies.first
+    @movie = @movies[0]
     partial(@movie) if @movie
-    authorize (Movie.first)
+    authorize (@movie)
     render :index
   end
 
@@ -122,8 +124,8 @@ class MoviesController < ApplicationController
 
   def rated
     @active = 'rated'
-    @movies = Movie.order(rating: :desc)
-    @movie = @movies.first
+    @movies = Movie.by_rating
+    @movie = @movies[0]
     partial(@movie) if @movie
     authorize (Movie.first)
     render :index
