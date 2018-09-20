@@ -64,7 +64,7 @@
       </div>
     </div>
     <% unless review.artwork.url.nil? || review.artwork.url == ""  %>
-      <div class="background-value" data-hidden="background: linear-gradient(27deg, rgba(255,243,191,1) 0%, rgba(255,243,191,0.7) 41%, rgba(  0,128,128,0.25) 100%), url(<%= review.artwork.url %>); background-size: cover;">
+      <div class="background-value" data-hidden="linear-gradient(27deg, #D3D0CD 10%, rgba(150,150,150,0.7) 41%, rgba(  0,0,0,0.25) 100%), url(<%= review.artwork.url %>)">
       </div>
     <% else %>
       <div class="background-value" data-hidden="">
