@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'profiles/index'
 
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-
   ActiveAdmin.routes(self)
   devise_for :users
 

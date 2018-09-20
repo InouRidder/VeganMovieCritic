@@ -16,7 +16,10 @@ gem 'redis'
 gem 'pundit'
 gem 'json'
 gem 'pg_search'
-gem 'bootsy'
+
+gem "wysiwyg-rails"
+gem "font-awesome-sass"
+
 gem 'country_select'
 gem 'cloudinary'
 gem 'appsignal'

@@ -11,8 +11,8 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    authorize @review
     @movie = Movie.find(params[:movie_id])
+    authorize @review
   end
 
   def create
@@ -20,9 +20,8 @@ class ReviewsController < ApplicationController
     @review.movie_id = params[:movie_id]
     @review.user = @user
     current_user.id == 3 ? @review.approved = true : @review.approved = false
-    authorize @review
     @review.save!
-    @review.movie.set_rating
+    authorize @review
     redirect_to thankyou_path
   end
 
@@ -66,6 +65,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content, :rating, :title, :bootsy_image_gallery_id, :artwork, :artwork_cache)
+    params.require(:review).permit(:content, :rating, :title, :artwork, :artwork_cache)
   end
 end

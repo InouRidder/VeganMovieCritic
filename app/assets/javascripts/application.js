@@ -4,7 +4,8 @@
 //= require bootstrap-sprockets
 //= require navbar
 //= require show
-//= require bootsy
 //= require star_rating
 //= require list_item_activator
 //= require word_count.js
+//= require froala_editor.min.js
+//= require froala_editor

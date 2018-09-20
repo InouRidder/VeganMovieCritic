@@ -1,12 +1,11 @@
 class Review < ApplicationRecord
-  include Bootsy::Container
 
   mount_uploader :artwork, PhotoUploader
 
   belongs_to :movie
   belongs_to :user
   has_many :review_ratings, :dependent => :destroy
-  after_create :set_movie_rating
+  after_create :set_movie_rating_and_times_reviewed
 
   scope :approved, -> { where(approved: true)}
   scope :unapproved, -> { where.not(approved: true)}

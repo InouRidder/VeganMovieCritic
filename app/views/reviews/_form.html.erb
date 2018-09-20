@@ -1,0 +1,63 @@
+<div class="container-fluid" style="background: url('<%= @movie.imdb_poster ? @movie.imdb_poster : @movie.poster %>'); repeat: no-repeat; size: cover;">
+  <div class="row">
+
+    <div class="col-xs-3 hidden-xs hidden-sm">
+      <div class="movie-poster-review-new">
+        <%= image_tag "#{@movie.imdb_poster ? @movie.imdb_poster : @movie.poster}", class: "movie-poster", style: "width: 100%" %>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <div class="review-form">
+        <%= form_for ([@movie, @review]) do |f| %>
+        <div id="review_title-error" style="color: red;">
+
+        </div>
+        <div class="title-form">
+          <%= f.text_area :title, placeholder: "Title", class: "form-control input-lg edit-input title-form top-margin" %>
+        </div>
+        <div class="content-form ">
+          <%= f.text_area :content, placeholder: "Your review", class: "size-it", id: 'text-edit' %>
+          <div style="display: none;">
+            <%= f.select :rating, [0,1,2,3,4,5,6,7,8,9,10], class: 'rating-change' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="artwork-form">
+            <%= f.label :artwork, 'Upload artwork here' %>
+            <%= f.file_field :artwork, class: "text-center" %>
+            <%=  f.hidden_field :artwork_cache %>
+          </div>
+        </div>
+        <div class="word-counter">
+          <div class='current-word-count'></div>
+        </div>
+        <div class="word-counter-error" style="color: red;"></div>
+        <div class="star-rating-rev-new" style="margin-left:25%;">
+          <%= render 'shared/starrating-review-new'  %>
+        </div>
+        <%= f.submit "Publish review", class: "btn vegan-btn btn-save", style: 'margin-left:33%;'%>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-xs-3 hidden-sm hidden-xs">
+      <div class="movie-details">
+        <div class="movie-title">
+          <h1>
+            <%= @movie.title  %>
+          </h1>
+        </div>
+        <div class="movie-info-box">
+          <%= @movie.plot  %>
+          <br>
+          <%= @movie.runtime  %>
+          <br>
+          <%= @movie.awards  %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
