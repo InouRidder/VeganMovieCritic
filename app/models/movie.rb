@@ -1,6 +1,4 @@
-require 'json'
-require 'open-uri'
-
+require_relative '../services/movie_api'
 class Movie < ApplicationRecord
 
   include PgSearch
@@ -54,31 +52,7 @@ class Movie < ApplicationRecord
   end
 
   def self.search_movie(title)
-    url = "http://www.omdbapi.com/?t=#{title}&y=&plot=short&r=json"
-    if returned_data = open(url).returned_data
-      data = JSON.parse(returned_data)
-      if data["Response"] == "False"
-        false
-      else
-        @movie = Movie.new
-        @movie.title = data["Title"]
-        @movie.released = data["Released"]
-        @movie.runtime = data["Runtime"]
-        @movie.genre = data["Genre"]
-        @movie.plot = data["Plot"]
-        @movie.actors = data["Actors"]
-        @movie.awards = data["Awards"]
-        @movie.imdb_poster = data["Poster"]
-        @movie.imdbrating = data["imdbrating"]
-        @movie.country = data["Country"]
-        @movie.language = data["Language"]
-        @movie.director = data["Director"]
-        @movie.save!
-        return @movie
-      end
-    else
-      false
-    end
+    MovieApi.new(title).search
   end
 
   def reviewed?

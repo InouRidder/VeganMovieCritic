@@ -27,20 +27,17 @@ class MoviesController < ApplicationController
   end
 
   def create
-    title = params["movie"]["title"]
+    title = movie_params["title"]
     if @movie = Movie.all.find_by_title(title.strip)
       authorize @movie
       redirect_to select_path(movie_id: @movie.id)
+    elsif @movie = Movie.search_movie(title)
+      authorize @movie
+      redirect_to select_path(movie_id: @movie.id)
     else
-      @movie = Movie.new
-      if false #@movie = Movie.search_movie(title)
-        authorize @movie
-        redirect_to select_path(movie_id: @movie.id)
-      else
-        authorize Movie.new
-        flash[:alert] = "Could not find movie in database"
-        redirect_to movies_custom_new_path
-      end
+      authorize Movie.new
+      flash[:alert] = "Could not find movie in database"
+      redirect_to movies_custom_new_path
     end
   end
 
