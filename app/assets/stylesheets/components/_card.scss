@@ -74,10 +74,25 @@
 
 .movie-card {
   border-radius: 4px;
+  margin-top: 10px;
 }
 
 .movie-content {
-  padding: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  .movie-list-data {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    span {
+      width: 80%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
 }
 
 .movie-card-top {
@@ -88,4 +103,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+}
+.movie-img {
+  width: 50%;
+  img {
+    border-radius: 5px;
+  }
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid" style="background: url('<%= @movie.imdb_poster ? @movie.imdb_poster : @movie.poster %>'); repeat: no-repeat; background-size: cover;">
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10 col-xs-12 text-center">
-      <div class="movie-title grey-background">
+      <div class="movie-title grey-background-transparent">
         <h1>
          <%= @movie.title %>
        </h1>
@@ -21,7 +21,7 @@
           <%= f.select :rating, [0,1,2,3,4,5,6,7,8,9,10], class: 'rating-change' %>
         </div>
       </div>
-      <div class="grey-background">
+      <div class="grey-background-transparent">
         <div class="word-counter">
           <div class='current-word-count'></div>
         </div>

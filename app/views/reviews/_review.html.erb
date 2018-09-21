@@ -5,31 +5,39 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <div class="movie-card">
-        <div class="movie-card-top grey-background">
+        <div class="movie-card-top grey-background-transparent">
           <div class="movie-img">
             <% imdb_poster = review.movie.imdb_poster %>
             <%= image_tag (imdb_poster ? imdb_poster : review.movie.poster.try(:url)), class: "max-image-size"   %>
           </div>
           <div class="movie-content">
-            <div class="movie-title-section">
-              <h1>
+            <div class="movie-title-section" style="height: 20%;">
+              <h1 style="margin-left: 0%;">
                 <%= review.movie.title %>
               </h1>
               <p>
               <%= review.movie.released %>
               </p>
             </div>
-            <% review.movie.presentable_attributes.each do |key, value| %>
-            <p>
-              <strong>
-                <%= key.capitalize %>
-              </strong>
-              <span><%= " " + value %></span>
-            </p>
-            <% end %>
+            <div class="movie-list-content">
+              <% review.movie.presentable_attributes.each do |key, value| %>
+                <p class="movie-list-data">
+                  <strong>
+                    <%= key.capitalize %>
+                  </strong>
+                  <span><%= " " + value %></span>
+                </p>
+              <% end %>
+            </div>
 
-            <strong> Vegan movie critic rating </strong>
-            <%= review.movie.rating.to_f / 2 %>
+              <p class="movie-list-data" style="height: 20%;">
+                <strong>
+                  Vegan movie critic rating
+                </strong>
+                <span>
+                  <%= review.movie.rating.to_f / 2 %>
+                </span>
+              </p>
           </div>
         </div>
       </div>
@@ -38,7 +46,7 @@
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
 
       <div class="card-content-container">
-        <div class="review-content grey-background">
+        <div class="review-content grey-background-transparent">
 
           <h3>
             <%= review.title %>
@@ -90,13 +98,13 @@
 </div>
   <% if @reviews && @reviews.size > 1 %>
   <% if i + 1 != @reviews.size %>
-  <button class="next-btn pull-right grey-background">
+  <button class="next-btn pull-right grey-background-transparent">
     <%= i + 1%> of <%= @reviews.size  %> <i class="fa fa-arrow-right fa-5x"></i>
   </button>
   <% end %>
 
   <% if i != 0 %>
-  <button class="prev-btn pull-left grey-background">  <i class="fa fa-arrow-left fa-5x"></i> </button>
+  <button class="prev-btn pull-left grey-background-transparent">  <i class="fa fa-arrow-left fa-5x"></i> </button>
   <% end %>
   <% end %>
 
