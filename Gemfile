@@ -17,7 +17,10 @@ gem 'pundit'
 gem 'json'
 gem 'pg_search'
 
-gem "wysiwyg-rails"
+gem 'trix-gem'
+
+gem "bulma-rails", "~> 0.7.1"
+
 
 gem 'country_select'
 gem 'cloudinary'

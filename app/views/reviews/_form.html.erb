@@ -1,27 +1,28 @@
 <div class="container-fluid" style="background: url('<%= @movie.imdb_poster ? @movie.imdb_poster : @movie.poster %>'); repeat: no-repeat; background-size: cover;">
+  <div class="container form-container">
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10 col-xs-12 text-center">
-      <div class="movie-title grey-background-transparent">
+      <div class="movie-title">
         <h1>
          <%= @movie.title %>
-       </h1>
-     </div>
-   </div>
-   <div class="col-sm-offset-1 col-sm-10 col-xs-12">
-    <div class="review-form">
-      <%= form_for ([@movie, @review]) do |f| %>
-      <div id="review_title-error" style="color: red;">
+        </h1>
       </div>
-      <div class="title-form">
-        <%= f.text_area :title, placeholder: "Title", class: "form-control input-lg edit-input title-form top-margin" %>
-      </div>
-      <div class="content-form ">
-        <%= f.text_area :content, placeholder: "Your review", class: "size-it", id: 'text-edit' %>
-        <div style="display: none;">
-          <%= f.select :rating, [0,1,2,3,4,5,6,7,8,9,10], class: 'rating-change' %>
+    </div>
+    <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+      <div class="review-form">
+        <%= form_for ([@movie, @review]) do |f| %>
+        <div id="review_title-error" style="color: red;">
         </div>
-      </div>
-      <div class="grey-background-transparent">
+        <div class="title-form">
+          <%= f.text_area :title, placeholder: "Title", class: "form-control input-lg edit-input title-form top-margin" %>
+        </div>
+        <div class="content-form ">
+          <trix-editor class="" input="text-content" placeholder="Body of content"></trix-editor>
+          <%= f.hidden_field :content, id: 'text-content' %>
+          <div style="display: none;">
+            <%= f.select :rating, [0,1,2,3,4,5,6,7,8,9,10], class: 'rating-change' %>
+          </div>
+        </div>
         <div class="word-counter">
           <div class='current-word-count'></div>
         </div>
@@ -35,9 +36,9 @@
             </span>
             <span id="selected-artwork"></span>
           </div>
-            <div class="star-rating-rev-new">
-              <%= render 'shared/starrating-review-new'  %>
-            </div>
+          <div class="star-rating-rev-new">
+            <%= render 'shared/starrating-review-new'  %>
+          </div>
           <%= f.submit "Publish review", class: "btn vegan-btn btn-save"%>
           <% end %>
         </div>

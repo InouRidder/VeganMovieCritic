@@ -1,7 +1,8 @@
 document.addEventListener('turbolinks:load', function(e) {
   $('.btn-save').on('click', function(e) {
+    document.querySelector('trix-editor').innerText
 
-    var content_words = $('.size-it').val().trim().replace(/\s+/gi, ' ').split(' ')
+    var content_words = $('trix-editor').text().trim().replace(/\s+/gi, ' ').split(' ')
     var title_words = $('#review_title').val().trim().replace(/\s+/gi, ' ').split(' ')
     if ((content_words.length > 111)  || (content_words.length < 50 )) {
       e.preventDefault();

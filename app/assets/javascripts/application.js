@@ -7,6 +7,6 @@
 //= require star_rating
 //= require list_item_activator
 //= require word_count.js
-//= require froala_editor.min.js
-//= require froala_editor
 //= require image_selector
+//= require trix
+//= require trix-core
