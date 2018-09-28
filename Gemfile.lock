@@ -87,8 +87,6 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
-    bulma-rails (0.7.1)
-      sass (~> 3.2)
     byebug (10.0.2)
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
@@ -320,7 +318,6 @@ DEPENDENCIES
   appsignal
   autoprefixer-rails
   bootstrap-sass
-  bulma-rails (~> 0.7.1)
   carrierwave (~> 0.11.2)
   cloudinary
   country_select
