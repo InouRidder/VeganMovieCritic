@@ -1,7 +1,7 @@
 <%= render 'shared/user_navbar' %>
  <div class="navbar-wagon">
   <div class="vmr-logo">
-    <%= link_to root_path, class: "vmr-logo" do %>
+    <%= link_to home_path, class: "vmr-logo" do %>
     <img src="<%= image_path("vegancriticlogo.png")  %>" alt="" style="height: 75px; z-index: 1; position: absolute; top: 35px; left: 0;">
     <% end %>
   </div>
@@ -9,7 +9,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= render 'shared/contact' %>
+
     <%= link_to movies_newest_path, id: 'newest', class: "navbar-wagon-item navbar-wagon-button btn" do %>
       <i class="far fa-newspaper"></i>
       <%= t(".top_call_to_action", default: " - What's new") %>
@@ -32,7 +32,7 @@
         <%= t(".top_call_to_action", default: " - Pending #{Review.where(approved: false).size}") %>
       <% end %>
     <% end %>
-
+  <%= render 'shared/contact' %>
 
     <!-- Button (call-to-action) -->
     <!-- Different navigation if login or not -->

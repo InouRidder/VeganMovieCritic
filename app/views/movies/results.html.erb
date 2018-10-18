@@ -1,5 +1,5 @@
   <h3 class="text-center">
-    We've found <%= @movies.size %> result<% @movies.size >= 1 ? "s" : ""  %> matching your query!
+    We've found <%= pluralize @movies.size, 'result' %> matching your query
   </h3>
 </div>
 <div class="container">
@@ -24,7 +24,7 @@
           <%= movie.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
         </div>
         <div class="card-btns">
-          <%= link_to "Checkout reviews", movie_path(movie), class: "btn vegan-btn" %>
+          <%= link_to "See more", movie_path(movie), class: "btn vegan-btn" %>
         </div>
       </div>
     </div>

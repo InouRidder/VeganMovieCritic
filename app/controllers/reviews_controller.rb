@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update, :destroy]
-  before_action :find_movie, only: [:edit, :update]
-  before_action :find_user, only: [:create, :update]
+  before_action :find_movie, only: [:edit, :update, :create, :new]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
 
@@ -11,15 +10,14 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @movie = Movie.find(params[:movie_id])
     authorize @review
   end
 
   def create
     @review = Review.new(review_params)
-    @review.movie_id = params[:movie_id]
-    @review.user = @user
-    current_user.id == 3 ? @review.approved = true : @review.approved = false
+    @review.movie = @movie
+    @review.user = current_user
+    @review.approved = current_user.id == 3
     @review.save!
     authorize @review
     redirect_to thankyou_path
@@ -31,7 +29,7 @@ class ReviewsController < ApplicationController
   def update
     @review.update(review_params)
     authorize @review
-    @review.user = @user
+    @review.user = current_user
     @review.save
     redirect_to movie_path(find_movie)
   end
@@ -51,9 +49,6 @@ class ReviewsController < ApplicationController
 
   private
 
-  def find_user
-    @user = current_user
-  end
 
   def find_movie
     @movie = Movie.find(params[:movie_id])

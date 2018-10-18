@@ -5,8 +5,7 @@ class Review < ApplicationRecord
   belongs_to :movie
   belongs_to :user
   has_many :review_ratings, :dependent => :destroy
-  after_create :set_movie_rating_and_times_reviewed
-
+  after_save :set_movie_rating_and_times_reviewed
   scope :approved, -> { where(approved: true)}
   scope :unapproved, -> { where.not(approved: true)}
   scope :newest, -> { where(approved: true).order(created_at: :desc)[0..9]}
@@ -21,7 +20,7 @@ class Review < ApplicationRecord
       self.review_ratings.each do |e|
         sum += e.rating
       end
-        self.review_rating = sum / self.review_ratings.size
+        self.review_rating = sum.to_f / self.review_ratings.size
     else
       "Not Rated"
     end
@@ -35,7 +34,7 @@ class Review < ApplicationRecord
 
   def approve
     self.approved = true
-    set_movie_rating_and_times_reviewed
+    self.save
   end
 
 end

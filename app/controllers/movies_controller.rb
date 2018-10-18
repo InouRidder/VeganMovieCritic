@@ -120,7 +120,7 @@ class MoviesController < ApplicationController
 
   def rated
     @active = 'rated'
-    @movies = Movie.by_rating
+    @movies = Movie.by_rating.reject { |movie| movie.rating.nil? }
     @movie = @movies[0]
     partial(@movie) if @movie
     authorize (Movie.first)
