@@ -44,6 +44,10 @@ class Movie < ApplicationRecord
     self.save
   end
 
+  def info_small
+    self.attributes.slice('country','released','actors','genre', 'runtime')
+  end
+
   def presentable_attributes
     self.attributes.except("id", "title", "created_at", "updated_at", "rating", "poster", "imdb_poster", "times_reviewed", "released").reject {|key, value| value == "N/A" || value == nil}
   end

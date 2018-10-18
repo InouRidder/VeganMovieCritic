@@ -13,7 +13,12 @@
           </div>
 
           <div class="movie-info-box">
-            <%= movie.plot  %>
+            <% movie.info_small.values.compact.each do |value| %>
+
+            <span>
+              <%= value + " |" %>
+            </span>
+            <% end %>
             <br>
           </div>
         </div>
