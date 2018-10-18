@@ -11,6 +11,8 @@
               <%= image_tag imdb_poster, class: "max-image-size"   %>
             <% elsif poster = review.movie.poster.try(:url) %>
               <%= image_tag poster, class: "max-image-size"   %>
+            <% else %>
+              <%= image_tag 'broccoli-profile.jpg', class: "max-image-size"   %>
             <% end %>
           </div>
           <div class="movie-content">
