@@ -1,5 +1,5 @@
 <div class="container-fluid"
-   <% if review.artwork.url %>
+   <% if review.artwork.try(:url) %>
   style="padding-top: 20px; background-image: linear-gradient(27deg, #D3D0CD 10%, rgba(150,150,150,0.7) 41%, rgba(  0,0,0,0.25) 100%), url('<%= cl_image_path review.artwork, height: 300, width: 400, crop: :fill %>'); background-size: cover;">
   <% end %>
   <div class="row">
@@ -7,8 +7,11 @@
       <div class="movie-card">
         <div class="movie-card-top grey-background-transparent">
           <div class="movie-img">
-            <% imdb_poster = review.movie.imdb_poster %>
-            <%= image_tag (imdb_poster ? imdb_poster : review.movie.poster.try(:url)), class: "max-image-size"   %>
+            <% if imdb_poster = review.movie.imdb_poster %>
+              <%= image_tag imdb_poster, class: "max-image-size"   %>
+            <% elsif poster = review.movie.poster.try(:url) %>
+              <%= image_tag poster, class: "max-image-size"   %>
+            <% end %>
           </div>
           <div class="movie-content">
             <div class="movie-title-section" style="height: 20%;">
