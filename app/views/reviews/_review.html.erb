@@ -100,15 +100,15 @@
   </div>
 </div>
   <% if @reviews && @reviews.size > 1 %>
-  <% if i + 1 != @reviews.size %>
-  <button class="next-btn pull-right grey-background-transparent">
-    <%= i + 1%> of <%= @reviews.size  %> <i class="fa fa-arrow-right fa-5x"></i>
-  </button>
-  <% end %>
+    <% if i + 1 != @reviews.size %>
+      <button class="next-btn pull-right grey-background-transparent">
+      <%= i + 1%> of <%= @reviews.size  %> <i class="fa fa-arrow-right fa-5x"></i>
+      </button>
+    <% end %>
 
-  <% if i != 0 %>
-  <button class="prev-btn pull-left grey-background-transparent">  <i class="fa fa-arrow-left fa-5x"></i> </button>
-  <% end %>
+    <% if i != 0 %>
+    <button class="prev-btn pull-left grey-background-transparent">  <i class="fa fa-arrow-left fa-5x"></i> </button>
+    <% end %>
   <% end %>
 
 </div>
